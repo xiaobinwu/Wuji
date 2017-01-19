@@ -9,7 +9,7 @@ const getApi = (url) => `${window.config.context}/${url}`;
 
 export const CODE_SUCCESS = 200;
 
-export const JOBS_LIST = getApi('Job/QueryJobManagerPaging');
+export const JOURNAL_LIST = getApi('Job/QueryJobManagerPaging');
 
 
 

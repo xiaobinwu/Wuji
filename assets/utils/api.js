@@ -13,7 +13,6 @@ const METHODS = {
 };
 //异步请求数据
 const request = (url, params, method = METHODS.GET, jsonType = false) =>{
-    console.log(url);
     var options = {
         headers: {
             'Content-Type': jsonType ? 'application/json' : 'application/x-www-form-urlencoded'
@@ -53,7 +52,6 @@ const checkRespStatus = (respPromise) =>{
 
 //vuex action
 export const createAction = (type, payloadCreator, metaCreator) =>{
-    console.log(type);
     const identity = (...args) => args[0];
     const isFunc = (fn) => typeof(fn) === 'function';
     const isPromise = obj => typeof(obj) === 'object' && isFunc(obj.then);
@@ -61,7 +59,6 @@ export const createAction = (type, payloadCreator, metaCreator) =>{
     return ({commit, dispatch}, ...args) =>{
         const payload = finalPayloadCreator(...args);
         const action = {type, payload};
-        console.log(type);
         if(isFunc(metaCreator)){
             action.meta = metaCreator(...args);
         }
@@ -78,7 +75,6 @@ export const createAction = (type, payloadCreator, metaCreator) =>{
 
 
 export default {
-    getJobs: params => request(API.JOBS_LIST, params),
-
+    getJournalList: params => request(API.JOURNAL_LIST, params),
 };
 
