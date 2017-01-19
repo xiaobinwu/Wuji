@@ -1,0 +1,244 @@
+/* 
+* 定义跟业务page相关的公共样式，通过require引用
+*/
+@import "../etc/_config";
+
+html, body {
+    height: 100%;
+    > div {
+        height: 100%;
+    }
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 15px 0;
+}
+
+ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+/* 
+* 
+*/
+.container {
+    position: relative;
+    min-height: 100%;
+    padding: $header-height 0 0;
+    overflow: hidden;
+}
+
+.main {
+    min-width: $min-width;
+    margin-left: $leftBarWidth+$gap-v-trible;
+    padding: 0 $gap-v-double 50px 0;
+    overflow-x: auto;
+    .main-body {
+        p {
+            line-height: 14px;
+        }
+        h3.title {
+            text-align: center;
+            font-size: 26px;
+            color: $main;
+            font-weight: normal;
+            margin-bottom: 50px;
+        }
+    }
+    .row {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .col-left {
+        width: 780px;
+        float: left;
+    }
+    .col-right {
+        width: 340px;
+        float: right;
+    }
+}
+
+/* 
+* bootstrap 扩展
+*/
+.datetimepicker {
+    z-index: 1151 !important
+}
+
+.datetimepicker td,
+.datetimepicker th {
+    padding: 5px;
+}
+
+/*
+* margin
+*/
+// top
+.m-t-5 {
+    margin-top: 5px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+// right
+.m-r-10 {
+    margin-right: 10px;
+}
+
+.m-r-20 {
+    margin-right: 20px;
+}
+
+// bottom
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+// left
+.m-l-10 {
+    margin-left: 10px;
+}
+
+.m-l-20 {
+    margin-left: 20px;
+}
+
+/*
+* color
+*/
+.text-primary {
+    color: $main;
+}
+
+.text-secondary {
+    color: $secondary;
+}
+
+.text-info {
+    color: $gray-light;
+}
+
+a {
+    color: $main;
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+    &:hover{
+        color: $main;
+    }
+}
+
+/* 
+* 标签相关样式
+*/
+
+.tag {
+    font-size: 12px;
+    padding: 1px 5px;
+    border: 1px solid;
+    margin: 0 5px;
+    white-space: nowrap;
+    &.tag-blue {
+        color: $main;
+        border-color: $main;
+    }
+    &.tag-green {
+        color: $secondary;
+        border-color: $secondary;
+    }
+    &.tag-red {
+        color: $red;
+        border-color: $red;
+    }
+    &.tag-yellow {
+        color: $yellow;
+        border-color: $yellow;
+    }
+}
+
+/* 
+* 单行溢出省略
+*/
+.over-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 
+* 基础组件样式
+*/
+.form-control {
+    color: $gray-light;
+    border-style: hidden;
+    box-shadow: none;
+    background-color: $gray-lightest;
+    &:focus,
+    &.active {
+        border-style: solid;
+        background-color: $white;
+        input {
+            background-color: $white;
+        }
+    }
+}
+
+.combobox :focus {
+    border-style: hidden;
+    background-color: $gray-lightest;
+}
+
+/* 
+* 红包图标
+*/
+.icon-red-pack {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    position: relative;
+    background-position: top;
+    background-image: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAIAAADgN5EjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3xpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpjMjg4YzJmNy01OWYwLWFlNGUtOGJmNC02YzUxYmFkZDRhMDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjQ1NURDOUFEQTBGMTFFNUFCM0Q5M0NDMkNDQjNFMzQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjQ1NURDOTlEQTBGMTFFNUFCM0Q5M0NDMkNDQjNFMzQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGRENCMUE1MjUwRDlFNTExOUY3RDk1NUE0REYxMjJGNyIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmUxZDhkNzBiLTIwYTQtMTFlNS05NzkyLThjZGUxZTAyMzU4MyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvPTvHUAAAHtSURBVHjanFNNS0JBFJ07M4aFBhahQQXhxsiVZCApxFtU23DTpkVgoISLatlfCLcurK1/QCo3URnVUopX/yEoo6Kwmo/u6z0itUcfl7eYOfeemXvPmQeiUpE7O+SPwdJpSlMpCAb/RKNjYyyZpLJc5isrEAj8lhaJ8OVlsb1N1cWF3Nvjq6swOPgzbXKSLS2JUkmZJse9Ojsjz888n5e7u+rkhGj9Dam7m6fTMDwsCgV9fY0AvGSzdgoGBtjCAvh88vhY1evk6ekDBQiFaDyOn6rV5P4+Ucqp/2Q6+9FRNj1No1Hi9RJKiZT67k4eHKjTU9JstnTe1hT09Oj7+7dCwTkbAKdC/Wg43D5zC62/n2cyzDCQII+OEJG1muWeYSCOWVcmm5uzmmSMLy7KalXf3KhqFddW214vm5lxv3N83FmMjLBEQmxu0qkpGBpyQBz+S/AWpt9vmyQPD4kQOLA6P0fr2OwsjcWgt9eVqR8fLTESCfx0o/G2seFZX0cnnezDgzvz8hKSyddc7hN5XVuzF13For66cmWiKnRiAousUz7u7EJ77DubTcy6KqRvb8XWlu04Gsvm54nHY9MQx2yLKG1vyIL6+tAeVBIFw8m1aVoONRptZbzzbWORKJd//m/If4NCx4P8TSDrXYABAPyAxR6WaxgRAAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+}
+
+/* button */
+.btn-create {
+    display: block;
+    margin: 0 auto 25px;
+    width: 180px;
+    height: 40px;
+    line-height: 34px;
+    text-align: center;
+    border: 1px solid $main;
+    font-size: $size-base;
+    color: $white;
+    background-color: $button-create-bg-color;
+    vertical-align: middle;
+    &:first-letter {
+        font-size: 34px;
+        margin-right: 5px;
+        vertical-align: -15%;
+    }
+    &:hover {
+        text-decoration: none;
+        color: $white;
+        background-color: $main;
+    }
+}
