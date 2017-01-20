@@ -19,28 +19,33 @@
 
 <script>
 import Vue from 'vue'
+import { mapState, mapActions } from 'vuex'
 import { Button, Slider, Rate } from 'element-ui'
 // 引入组件
 Vue.use(Button)
 Vue.use(Slider)
 Vue.use(Rate)
 export default {
-  name: 'example',
-  data () {
+    name: 'example',
+    data () {
     return {
       message: 'Welcome to Your Vue.js App',
       value1: 0
     }
-  },
-  beforeMount(){
-    console.log(this.$store.state.journalList)
+    },
+    beforeMount(){
+        console.log(this.journalList)
+        // console.log(this.$store.state.journalList)
+    },
+    computed: {
+        ...mapState({
+            journalList: 'journalList'
+        })
+    },
 
-  },
+    methods:{
 
-  computed(){
-    
-  }
-
+    }
 }
 </script>
 <style lang="sass">
