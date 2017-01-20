@@ -35,6 +35,7 @@ app.use(function(req, res){
     var data = undefined;
     var delay = 0;
     for(var group in api){
+        console.log(api[group])
         if(api[group].find(function(reqData){
                 if(reqData.regexp){
                     if(!new RegExp(reqData.url).test(req.originalUrl)){

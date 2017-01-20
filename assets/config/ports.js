@@ -1,11 +1,11 @@
 if (__DEV__) {
-    window.config && (window.config = {
-        context: 'http://localhost:2618/api',
+    window.config = {
+        host: 'http://localhost:2618/api',
         currentUser: 'bin'
-    });
+    };
 }
 
-const getApi = (url) => `${window.config.context}/${url}`;
+const getApi = (url) => `${window.config.host}/${url}`;
 
 export const CODE_SUCCESS = 200;
 
