@@ -31,7 +31,16 @@ export default {
       message: 'Welcome to Your Vue.js App',
       value1: 0
     }
+  },
+  beforeMount(){
+    console.log(this.$store.state.journalList)
+
+  },
+
+  computed(){
+    
   }
+
 }
 </script>
 <style lang="sass">
