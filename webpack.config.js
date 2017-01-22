@@ -59,7 +59,7 @@ var plugins = [
 if (env === 'hot-reload') {
     var arr = [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin()
     ]
     plugins = arr.concat(plugins);
     console.log('hot reload listening……')
@@ -87,6 +87,13 @@ module.exports = {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract({
                 loader: "css-loader",
+                fallbackLoader: 'style-loader' 
+            })
+        },
+        {
+            test: /\.(scss|sass)$/,
+            loader: ExtractTextPlugin.extract({
+                loader: "css-loader!sass-loader",
                 fallbackLoader: 'style-loader' 
             })
         },
