@@ -35,7 +35,6 @@ export default {
     },
     beforeMount(){
         console.log(this.journalList)
-        // console.log(this.$store.state.journalList)
     },
     computed: {
         ...mapState({
