@@ -34,8 +34,7 @@ export default {
     }
     },
     beforeMount(){
-        console.log(this.journalList)
-        // console.log(this.$store.state.journalList)
+        this.getJournalList();
     },
     computed: {
         ...mapState({
@@ -44,7 +43,9 @@ export default {
     },
 
     methods:{
-
+        ...mapActions([
+            'getJournalList'
+        ]),
     }
 }
 </script>
@@ -73,7 +74,7 @@ export default {
     margin-top: 150px;
 }
 .demonstration{
-    color: red;
+    color: green;
     font-size: 15px;
 }
 </style>
