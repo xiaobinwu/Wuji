@@ -37,7 +37,6 @@ const checkRespStatus = (respPromise) =>{
     }
     return respPromise.json().then(resp =>{
         return new Promise((resolve, reject) =>{
-            console.log(resp);
             if(resp && resp.code == API.CODE_SUCCESS){
                 resolve(resp.data);
             }else if(typeof(resp) === 'string' && resp.indexOf('InvalidSession') > -1){

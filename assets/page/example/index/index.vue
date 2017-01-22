@@ -21,6 +21,7 @@
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import { Button, Slider, Rate } from 'element-ui'
+import '../../_main.scss'
 // 引入组件
 Vue.use(Button)
 Vue.use(Slider)
@@ -28,13 +29,13 @@ Vue.use(Rate)
 export default {
     name: 'example',
     data () {
-    return {
-      message: 'Welcome to Your Vue.js App',
-      value1: 0
-    }
+        return {
+          message: 'Welcome to Your Vue.js App',
+          value1: 0
+        }
     },
     beforeMount(){
-        console.log(this.journalList)
+        this.loadData()
     },
     computed: {
         ...mapState({
@@ -43,19 +44,16 @@ export default {
     },
 
     methods:{
-
+        loadData(params = {}){
+            this.getJournalList(params)
+        },
+        ...mapActions([
+          'getJournalList'
+        ])
     }
 }
 </script>
 <style lang="sass">
- body {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-} 
 .container{
     width: 100%;
     height: 100%;

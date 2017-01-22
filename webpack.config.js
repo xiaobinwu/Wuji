@@ -91,6 +91,13 @@ module.exports = {
             })
         },
         {
+            test: /\.(scss|sass)$/,
+            loader: ExtractTextPlugin.extract({
+                loader: "css-loader!sass-loader",
+                fallbackLoader: 'style-loader' 
+            })
+        },
+        {
             //同上
             test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
             loader: 'file-loader'
