@@ -59,7 +59,8 @@ var plugins = [
 if (env === 'hot-reload') {
     var arr = [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        // new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoErrorsPlugin()
     ]
     plugins = arr.concat(plugins);
     console.log('hot reload listening……')

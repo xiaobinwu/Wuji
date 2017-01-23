@@ -35,7 +35,10 @@ export default {
         }
     },
     beforeMount(){
-        this.loadData()
+        this.loadData();
+    },
+    mounted(){
+        console.log(this.journalList)
     },
     computed: {
         ...mapState({
