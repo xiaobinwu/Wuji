@@ -9,13 +9,15 @@ $font-family:		"Microsoft YaHei",Arial,sans-serif,"PingFang SC","Helvetica Neue"
 // color palette
 // ====================
 $main:              rgb(93,172,129);
-$white:             #ffffff;
-
+$green:             $main;
+$white:             #fff;
+$gray:              #666;
 
 
 // size
 // ====================
 
+$line-height-base: 1.428571429 !default; 
 $size-base: 14px;
 $size-h1:   24px;
 $size-h2:   18px;
@@ -24,5 +26,9 @@ $size-h4:   $size-base; // normal text
 $size-h5:   12px;       // sub text
 
 
-
+// link color
+// ====================
+$link-color: $main;
+$link-hover-color: $main;
+$link-hover-decoration: 'none';
 

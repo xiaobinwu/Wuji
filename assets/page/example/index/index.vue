@@ -1,6 +1,6 @@
 <template lang="jade">
-  div.container
-    p {{message}}
+  div.container.center-block
+    p.clearfix {{message}}
     div
       p.text 这是一个测试用例
     <el-button>默认按钮</el-button>
@@ -13,15 +13,12 @@
     div.block
         span.demonstration 默认不区分颜色
         <el-rate v-model="value1"></el-rate>
-
-
 </template>
 
 <script>
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import { Button, Slider, Rate } from 'element-ui'
-import '../../_main.scss'
 // 引入组件
 Vue.use(Button)
 Vue.use(Slider)
@@ -57,23 +54,26 @@ export default {
 }
 </script>
 <style lang="sass">
+@import "../../../public/scss/index.scss";
+h2{
+    width: 900px;
+    @include opacity;
+}
 .container{
-    width: 100%;
+    width: 900px;
     height: 100%;
     p{
         color: red;
         font-size: 14px;
         box-sizing: border-box;
     }
-    .text{
-        transform: translateY(-10px);
-    } 
 }
 .block{
+    text-align: center;
     margin-top: 150px;
 }
 .demonstration{
-    color: green;
+    color: $main;
     font-size: 15px;
 }
 </style>
