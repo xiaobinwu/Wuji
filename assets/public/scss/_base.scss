@@ -10,7 +10,7 @@ body {
     font-size: $size-base;
     line-height: $line-height-base;
     color: $gray;
-    background-color: $white;
+    background-color: $gary-lightest;
 }
 
 html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td { margin: 0; padding: 0; }
@@ -51,7 +51,19 @@ img {
     vertical-align: top;
 }
 
-button { cursor: pointer; }
+button { 
+    cursor: pointer; 
+}
 
-i, em, cite { font-style: normal; }
+i, em, cite {
+    font-style: normal; 
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 15px 0;
+}
 

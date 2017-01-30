@@ -44,6 +44,7 @@
     "jade-loader": "^0.8.0",
     "json-loader": "^0.5.4",
     "lodash.isempty": "^4.4.0",
+    "mo-js": "^0.288.1",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.2.0",
     "querystring": "^0.2.0",

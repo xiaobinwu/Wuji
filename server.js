@@ -52,8 +52,8 @@ app.get("/", function(req, res) {
 // app.post("/*", apiProxy);
 
 // serve pure static assets
-// var staticPath = path.posix.join(config.build.assetsPublicPath, config.build.assetsSubDirectory)
-// app.use(staticPath, express.static('./static'))
+// app.use('/dist', express.static('dist'));
+// app.use('/assets', express.static('assets'));
 
 module.exports = app.listen(port, function (err) {
     if(err){
