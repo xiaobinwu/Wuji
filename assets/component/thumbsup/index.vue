@@ -1,5 +1,5 @@
 <template lang="jade">
-    button.icobutton.icobutton--heart(@click="onCheck")
+    button.icobutton.icobutton--heart(@click="onCheck",:class="{ active: isChecked }")
         span.fa.fa-heart
         span.icobutton__text.icobutton__text--side {{number}}
 </template>
@@ -21,7 +21,7 @@
         },
         data(){
             return {
-            
+                activeColor: '#F35186'
             }
         },
         mounted(){
@@ -30,7 +30,6 @@
         methods: {
             init(){
                 this.initAnimocon();
-                console.log(this.timeline)
             },
             initAnimocon(){
                 this.tweens = this.getTweens();
@@ -41,104 +40,145 @@
             },
             getTweens(){
                 let _self = this;
-                let el13span = this.$el.querySelector('span');
+                let elspan = this.$el.querySelector('span');
                 return [
-                        // burst animation
-                        new mojs.Burst({
-                            parent: _self.$el,
-                            duration: 600,
-                            shape : 'circle',
-                            fill: '#C0C1C3',
-                            x: '0%',
-                            y: '0%',
-                            childOptions: { 
-                                radius: {60:0},
-                                type: 'line',
-                                stroke: '#988ADE',
-                                strokeWidth: 1
-                            },
-                            radius: {80:250},
-                            angle: -90,
-                            count: 1,
-                            isRunLess: true,
-                            easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
-                        }),
-                        // burst animation
-                        new mojs.Burst({
-                            parent: _self.$el,
-                            duration: 600,
-                            shape : 'circle',
-                            fill: '#C0C1C3',
-                            x: '0%',
-                            y: '50%',
-                            childOptions: { 
-                                radius: {60:0},
-                                type: 'line',
-                                stroke: '#988ADE',
-                                strokeWidth: 1
-                            },
-                            radius: {80:200},
-                            angle: -90,
-                            count: 1,
-                            isRunLess: true,
-                            easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
-                        }),
-                        // burst animation
-                        new mojs.Burst({
-                            parent: _self.$el,
-                            duration: 600,
-                            shape : 'circle',
-                            fill: '#C0C1C3',
-                            x: '0%',
-                            y: '100%',
-                            childOptions: { 
-                                radius: {60:0},
-                                type: 'line',
-                                stroke: '#988ADE',
-                                strokeWidth: 1
-                            },
-                            radius: {80:250},
-                            angle: -90,
-                            count: 1,
-                            isRunLess: true,
-                            easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
-                        }),
-                        // burst animation
-                        new mojs.Burst({
-                            parent: _self.$el,
-                            duration: 600,
-                            delay: 150,
-                            shape : 'circle',
-                            fill: '#C0C1C3',
-                            x: '50%',
-                            y: '50%',
-                            childOptions: { 
-                                radius: {30:0},
-                                type: 'line',
-                                stroke: '#988ADE',
-                                strokeWidth: {2:1}
-                            },
-                            radius: {60:90},
-                            degree: -90,
-                            angle: 135,
-                            count: 6,
-                            isRunLess: true,
-                            easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
-                        }),
-                        // icon scale animation
-                        new mojs.Tween({
-                            duration : 1000,
-                            onUpdate: function(progress) {
-                                var elasticOutProgress = mojs.easing.elastic.out(progress);
-                                el13span.style.WebkitTransform = el13span.style.transform = 'translate3d(' + -50*(1-elasticOutProgress) + '%,0,0)';
+                    // ring animation
+                    new mojs.Transit({
+                        parent: _self.$el,
+                        duration: 750,
+                        type: 'circle',
+                        radius: {0: 20},
+                        fill: 'transparent',
+                        stroke: _self.activeColor,
+                        strokeWidth: {35:0},
+                        opacity: 0.2,
+                        x: '-6%',     
+                        y: '-2%',
+                        isRunLess: true,
+                        easing: mojs.easing.bezier(0, 1, 0.5, 1)
+                    }),
+                    new mojs.Transit({
+                        parent: _self.$el,
+                        duration: 500,
+                        delay: 100,
+                        type: 'circle',
+                        radius: {0: 20},
+                        fill: 'transparent',
+                        stroke: _self.activeColor,
+                        strokeWidth: {5:0},
+                        opacity: 0.2,
+                        x: '-89%', 
+                        y: '-77%',
+                        shiftX : 40, 
+                        shiftY : -60,
+                        isRunLess: true,
+                        easing: mojs.easing.sin.out
+                    }),
+                    new mojs.Transit({
+                        parent: _self.$el,
+                        duration: 500,
+                        delay: 180,
+                        type: 'circle',
+                        radius: {0: 15},
+                        fill: 'transparent',
+                        stroke: _self.activeColor,
+                        strokeWidth: {5:0},
+                        opacity: 0.5,
+                        x: '-99%', 
+                        y: '-88%',
+                        shiftX : -10, 
+                        shiftY : -80,
+                        isRunLess: true,
+                        easing: mojs.easing.sin.out
+                    }),
+                    new mojs.Transit({
+                        parent: _self.$el,
+                        duration: 800,
+                        delay: 240,
+                        type: 'circle',
+                        radius: {0: 20},
+                        fill: 'transparent',
+                        stroke: _self.activeColor,
+                        strokeWidth: {5:0},
+                        opacity: 0.3,
+                        x: '10%', 
+                        y: '-60%',
+                        shiftX : -70, 
+                        shiftY : -10,
+                        isRunLess: true,
+                        easing: mojs.easing.sin.out
+                    }),
+                    new mojs.Transit({
+                        parent: _self.$el,
+                        duration: 800,
+                        delay: 240,
+                        type: 'circle',
+                        radius: {0: 10},
+                        fill: 'transparent',
+                        stroke: _self.activeColor,
+                        strokeWidth: {5:0},
+                        opacity: 0.4,
+                        x: '250%', 
+                        y: '-100%',
+                        shiftX : 80, 
+                        shiftY : -50,
+                        isRunLess: true,
+                        easing: mojs.easing.sin.out
+                    }),
+                    new mojs.Transit({
+                        parent: _self.$el,
+                        duration: 1000,
+                        delay: 300,
+                        type: 'circle',
+                        radius: {0: 15},
+                        fill: 'transparent',
+                        stroke: _self.activeColor,
+                        strokeWidth: {5:0},
+                        opacity: 0.2,
+                        x: '100%', 
+                        y: '-150%',
+                        shiftX : 20, 
+                        shiftY : -100,
+                        isRunLess: true,
+                        easing: mojs.easing.sin.out
+                    }),
+                    new mojs.Transit({
+                        parent: _self.$el,
+                        duration: 600,
+                        delay: 330,
+                        type: 'circle',
+                        radius: {0: 25},
+                        fill: 'transparent',
+                        stroke: _self.activeColor,
+                        strokeWidth: {5:0},
+                        opacity: 0.4,
+                        x: '-130%', 
+                        y: '-100%',
+                        shiftX : -40, 
+                        shiftY : -90,
+                        isRunLess: true,
+                        easing: mojs.easing.sin.out
+                    }),
+                    // icon scale animation
+                    new mojs.Tween({
+                        duration : 1200,
+                        easing: mojs.easing.ease.out,
+                        onUpdate: function(progress) {
+                            if(progress > 0.3) {
+                                var elasticOutProgress = mojs.easing.elastic.out(1.43*progress-0.43);
+                                elspan.style.WebkitTransform = elspan.style.transform = 'scale3d(' + elasticOutProgress + ',' + elasticOutProgress + ',1)';
                             }
-                        })
-                    ]
+                            else {
+                                elspan.style.WebkitTransform = elspan.style.transform = 'scale3d(0,0,1)';
+                            }
+                        }
+                    })
+                ]
             },
             onCheck(){
                 if(!this.isChecked){
                     this.isChecked = true;
-                    this.timeline._start();
+                    this.timeline.play();
                 }
             },
         },
@@ -148,53 +188,39 @@
 <style lang="sass">
 /* Icons button */
 .icobutton {
-    font-size: 3em;
+    font-size: 25px;
     position: relative;
-    margin: 0;
+    top: 20px;
+    margin: 0 20px 0 0;
     padding: 0;
     color: #c0c1c3;
     border: 0;
     background: none;
     overflow: visible;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-.icobutton .fa {
-    display: block;
-    padding: 0 0.1em;
-}
-
-.icobutton__text {
-    font-size: 0.75em;
-    position: absolute;
-    top: 100%;
-    left: -50%;
-    width: 200%;
-    text-align: center;
-    line-height: 1.5;
-    color: #a6a6a6;
-}
-
-.icobutton__text--side {
-    top: 0;
-    left: 100%;
-    width: 100%;
-    width: auto;
-    padding: 0 0 0 0.25em;
-}
-
-/* fix for mo.js */
-.icobutton svg {
-    left: 0;
-}
-
-.icobutton:hover,
-.icobutton:focus {
-    outline: none;
-}
-
-/* Unicorn */
-.icobutton--unicorn svg {
-    fill: #c0c1c3;
+    &.active{
+        color: #F35186;
+    }
+    .fa {
+        padding: 0 5px;
+    }
+    .icobutton__text {
+        text-align: center;
+        font-size: 18px;
+        vertical-align: middle;
+        color: #a6a6a6;
+    }
+    /* fix for mo.js */
+    svg {
+        left: 0;
+    }
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+    /* Unicorn */
+    .icobutton--unicorn svg {
+        fill: #c0c1c3;
+    }
 }
 </style>

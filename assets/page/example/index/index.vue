@@ -11,7 +11,7 @@
                         a(href="https://llp0574.github.io/img/logo.png") 
                             img(src="https://llp0574.github.io/img/logo.png")
                     div.wuji-bottom 不知道写些什么
-        el-row(class="wuji-container-item")
+        el-row(class="wuji-container-item", v-for="n in 5")
             el-col(:span="24")
                 div.bg-img
                 div.content
