@@ -12,7 +12,7 @@
 ```
 
 ### 依赖包安装
-* 进入FrontEnd目录
+* 进入wuji目录
 * 执行cnpm install
 
 ### 构建

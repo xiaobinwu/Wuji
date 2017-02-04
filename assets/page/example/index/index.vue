@@ -4,7 +4,7 @@
             el-col(:span="16",class="")
                 div
                     div.wuji-top.wuji-left-top
-                    div.wuji-bottom 不知道写些什么
+                    div.wuji-bottom 不知道写些什么dsada
             el-col(:span="8",class="") 
                 div
                     div.wuji-top

@@ -59,8 +59,7 @@ var plugins = [
 if (env === 'hot-reload') {
     var arr = [
         new webpack.HotModuleReplacementPlugin(),
-        // new webpack.NoEmitOnErrorsPlugin()
-        new webpack.NoErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin()
     ]
     plugins = arr.concat(plugins);
     console.log('hot reload listening……')
@@ -70,7 +69,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, config.distDir),
         filename: 'js/[name].js',
-        publicPath: '/FrontEnd/dist/' //方便定位到CDN静态资源，配合url-loader
+        publicPath: '/wuji/dist/' //方便定位到CDN静态资源，配合url-loader
     },
     module: {
         rules: [{
