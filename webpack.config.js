@@ -86,15 +86,15 @@ module.exports = {
             //需要有相应的css-loader，因为element-ui css在node_moudle
             test: /\.css$/,
             loader: ExtractTextPlugin.extract({
-                loader: "css-loader",
-                fallbackLoader: 'style-loader' 
+                use: "css-loader",
+                fallback: 'style-loader' 
             })
         },
         {
             test: /\.(scss|sass)$/,
             loader: ExtractTextPlugin.extract({
-                loader: "css-loader!sass-loader",
-                fallbackLoader: 'style-loader' 
+                use: "css-loader!sass-loader",
+                fallback: 'style-loader' 
             })
         },
         {
@@ -128,8 +128,8 @@ if (process.env.NODE_ENV === 'production') {
     module.exports.devtool = '#source-map'
     vueConfig.loaders = {
         sass: ExtractTextPlugin.extract({
-            loader: 'css-loader!sass-loader',
-            fallbackLoader: 'vue-style-loader'                         
+            use: 'css-loader!sass-loader',
+            fallback: 'vue-style-loader'                         
         })        
     }    
     //是否压缩

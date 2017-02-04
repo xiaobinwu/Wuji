@@ -4,7 +4,7 @@
             el-col(:span="16",class="")
                 div
                     div.wuji-top.wuji-left-top
-                    div.wuji-bottom 不知道写些什么dsada
+                    div.wuji-bottom 不知道写些什么
             el-col(:span="8",class="") 
                 div
                     div.wuji-top
@@ -24,7 +24,7 @@
                             img(src="https://llp0574.github.io/img/avatar.png")
                         div
                             div.name llp
-                            div.time 10月 14, 2016
+                            div.time 10月 14, 2015
                     div.pull-right
                         <thumbs-up></thumbs-up>
 
