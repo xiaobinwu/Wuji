@@ -1,33 +1,34 @@
 <template lang="jade">
-    div.wuji-container.center-block 
-        el-row(:gutter="20",class="wuji-container-top")
-            el-col(:span="16",class="")
-                div
-                    div.wuji-top.wuji-left-top
-                    div.wuji-bottom 不知道写些什么
-            el-col(:span="8",class="") 
-                div
-                    div.wuji-top
-                        a(href="https://llp0574.github.io/img/logo.png") 
-                            img(src="https://llp0574.github.io/img/logo.png")
-                    div.wuji-bottom 不知道写些什么
-        el-row(class="wuji-container-item", v-for="n in 5")
-            el-col(:span="24")
-                div.bg-img
-                div.content
-                    p 
-                        span 自定义的一套Git使用规范，感谢超哥，沿用至今。     
-                        a(href="javascript:void(0);") 继续阅读    
-                div.dec
-                    div.pull-left.author
-                        div
-                            img(src="https://llp0574.github.io/img/avatar.png")
-                        div
-                            div.name llp
-                            div.time 10月 14, 2015
-                    div.pull-right
-                        <thumbs-up></thumbs-up>
-
+    div.main
+        div.wuji-container.center-block 
+            el-row(:gutter="20",class="wuji-container-top")
+                el-col(:span="16",class="")
+                    div
+                        div.wuji-top.wuji-left-top
+                        div.wuji-bottom 不知道写些什么
+                el-col(:span="8",class="") 
+                    div
+                        div.wuji-top
+                            a(href="https://llp0574.github.io/img/logo.png") 
+                                img(src="https://llp0574.github.io/img/logo.png")
+                        div.wuji-bottom 不知道写些什么dd
+            el-row(class="wuji-container-item", v-for="n in 5")
+                el-col(:span="24")
+                    div.bg-img
+                    div.content
+                        p 
+                            span 自定义的一套Git使用规范，感谢超哥，沿用至今。     
+                            a(href="javascript:void(0);") 继续阅读    
+                    div.dec
+                        div.pull-left.author
+                            div
+                                img(src="https://llp0574.github.io/img/avatar.png")
+                            div
+                                div.name llp
+                                div.time 10月 14, 2015
+                        div.pull-right
+                            thumbs-up
+        Footer
 
 </template>
 
@@ -35,7 +36,8 @@
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import { Row, Col } from 'element-ui'
-import thumbsUp from '../../../component/thumbsup'
+import thumbsUp from '../../../component/thumbsUp'
+import Footer from '../../../component/footer'
 // 引入组件
 Vue.use(Row)
 Vue.use(Col)
@@ -68,7 +70,8 @@ export default {
         ])
     },
     components: {
-        thumbsUp
+        thumbsUp,
+        Footer
     }
 }
 </script>

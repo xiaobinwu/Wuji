@@ -1,7 +1,7 @@
 {
   "name": "wuji-web-front-shared",
   "version": "1.0.0",
-  "description": "baza by vue.js + webpack",
+  "description": "wuji by vue.js + webpack",
   "scripts": {
     "hot": "node server.js hot-reload",
     "serve": "node server.js",
