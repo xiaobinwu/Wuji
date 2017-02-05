@@ -8,6 +8,11 @@ var Transform = {
         f = parseInt(f || 0);
         var y = f / 100.0;
         return y.toFixed(2); 
+    },
+    transformCssUnit: function(val){
+        var type = isNaN(val);
+        val = type ? val : val + 'px';
+        return val;
     }
 }
 

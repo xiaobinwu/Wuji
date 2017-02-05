@@ -1,5 +1,6 @@
 <template lang="jade">
     div.main
+        Aside
         div.wuji-container.center-block 
             el-row(:gutter="20",class="wuji-container-top")
                 el-col(:span="16",class="")
@@ -21,8 +22,7 @@
                             a(href="javascript:void(0);") 继续阅读    
                     div.dec
                         div.pull-left.author
-                            div
-                                img(src="https://llp0574.github.io/img/avatar.png")
+                            Avatar(src="https://llp0574.github.io/img/avatar.png", width="44", height="44")
                             div
                                 div.name llp
                                 div.time 10月 14, 2015
@@ -37,7 +37,9 @@ import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import { Row, Col } from 'element-ui'
 import thumbsUp from '../../../component/thumbsUp'
+import Aside from '../../../component/aside'
 import Footer from '../../../component/footer'
+import Avatar from '../../../component/avatar'
 // 引入组件
 Vue.use(Row)
 Vue.use(Col)
@@ -71,7 +73,9 @@ export default {
     },
     components: {
         thumbsUp,
-        Footer
+        Footer,
+        Aside,
+        Avatar
     }
 }
 </script>
@@ -118,6 +122,7 @@ $border-radius: 5px;
             height: 400px;
             .bg-img{
                 height: 250px;
+                border-radius: $border-radius;
                 background: url("https://llp0574.github.io/img/vue.png") no-repeat top left;
                 background-size: cover;                
             }
@@ -136,11 +141,6 @@ $border-radius: 5px;
                         vertical-align: middle;
                         display: table-cell;
                         padding-left: 20px;
-                    }
-                    img{
-                        width: 44px;
-                        height: 44px;
-                        border-radius: 50%;
                     }
                 }
             }
