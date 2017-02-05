@@ -31,7 +31,7 @@
 * 静态资源访问eg：http://localhost:8088/Static/dist/js/jobDetail.js
 
 ## 自定义主题
-* 进入FrontEnd目录
+* 进入wuji目录
 * cnpm install element-theme element-theme-default --save-dev （依赖包安装时已安装）
 * 执行node_modules/.bin/et -i
 * 生成element-variables.css
