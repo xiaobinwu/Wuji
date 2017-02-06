@@ -2,7 +2,7 @@
 
 #### 本地环境准备
 
-* 安装node： * https://nodejs.org/en/download/ （"node": ">=6.0"，对应直达号需要升级node-sass，不然使用不了！）
+* 安装node： * https://nodejs.org/en/download/ （"node": ">=6.0"，对应需要升级node-sass，不然使用不了！）
 * 配置webpack： npm install -g webpack(sudo权限)
 * windows配置cnpm：
 
