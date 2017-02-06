@@ -1,6 +1,6 @@
 <template lang="jade">
     div.main
-        Aside
+        Aside(route="passing")
         div.wuji-container.center-block 
             el-row(:gutter="20",class="wuji-container-top")
                 el-col(:span="16",class="")

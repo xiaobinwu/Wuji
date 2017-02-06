@@ -17,55 +17,119 @@
 						span &nbsp;x 6
 					div.dec(title="态度决定一切态度决定一切态度决定一切态度决定一切") 态度决定一切态度决定一切态度决定一切态度决定一切
 			div.sidebar-content
-				el-menu.el-menu-vertical-demo(default-active="2",@open="handleOpen" @close="handleClose")
+				el-menu.el-menu-vertical-demo(:default-active="routeIndex",@open="handleOpen", @close="handleClose", @select="handleSelect", :unique-opened="true")
+					el-menu-item(index="3")
+						i.fa.fa-file-text
+						日记	
+					el-menu-item(index="4")
+						i.fa.fa-group
+						过客	
 					el-submenu(index="1")
 						template(slot="title")
-							i.el-icon-message
-							导航一
-						el-menu-item-group
-							template(slot="title") 分组一
-							el-menu-item(index="1-1") 选项1
-							el-menu-item(index="1-2") 选项2
-						el-menu-item-group(title="分组2")
-							el-menu-item(index="1-3") 选项3
-						el-submenu(index="1-4")
-							template(slot="title") 选项4
-							el-menu-item(index="1-4-1") 选项1
+							i.fa.fa-user-circle-o
+							我的
+						el-menu-item-group(title="账户管理")
+							el-menu-item(index="1-1")
+								i.fa.fa-user-o
+								资料修改
+							el-menu-item(index="1-2")
+								i.fa.fa-paper-plane-o
+								续费高级账户	
+						el-menu-item-group(title="更多")
+							el-menu-item(index="1-3")
+								i.fa.fa-thumbs-o-up
+								好评鼓励
+							el-submenu(index="1-4")
+								template(slot="title") 
+									i.fa.fa-clone
+									更多功能								
+								el-menu-item(index="1-4-1")
+									导出日记
+								el-menu-item(index="1-4-2")
+									提醒写日记
+								el-menu-item(index="1-4-3")
+									我的收藏
+								el-menu-item(index="1－4-4")
+									垃圾箱
+							el-submenu(index="1-5")
+								template(slot="title") 
+									i.fa.fa-cog
+									设置								
+								el-menu-item(index="1-5-1")
+									意见反馈
+								el-menu-item(index="1-5-2")
+									关于吾记				
 					el-menu-item(index="2")
-						i.el-icon-menu
-						导航二
-					el-menu-item(index="3")
-						i.fa.fa-comment-o
+						i.fa.fa-comment
 						系统通知
+			div.signout
+				el-button(size="large",:plain="true", @click="signout") 退出登录	
 </template>
 <script>
     import Vue from 'vue'
-	import { Menu, Submenu, MenuItemGroup, MenuItem } from 'element-ui'
+	import { Menu, Submenu, MenuItemGroup, MenuItem, Button } from 'element-ui'
     import Avatar from './avatar'
 	// 引入组件
 	Vue.use(Menu)
 	Vue.use(Submenu)
 	Vue.use(MenuItemGroup)
 	Vue.use(MenuItem)
+	Vue.use(Button)
+	const menuItems = {
+		'dataModification' : {index: '1-1', url: ''},
+		'renewals' : {index: '1-2', url: ''},
+		'praise': {index: '1-3', url: ''},
+		'exportJournal': {index: '1-4-1', url: ''},
+		'remind': {index: '1-4-2', url: ''},
+		'myCollection': {index: '1-4-3', url: ''},
+		'trashCan': {index: '1-4-4', url: ''},
+		'feedback': {index: '1-5-1', url: ''},
+		'about': {index: '1-5-2', url: ''},
+		'journals': {index: '3', url: ''},
+		'passing': {index: '4', url: ''},
+	}
     export default{
         name: 'aside',
 	    data () {
 	        return {
-	          isAcitve: false
+	          isAcitve: false,
+	          routeIndex: '3'
 	        }
 	    },
+	    props: {
+		    route: {
+		      type: String,
+		      default: 'journals'
+		    }
+	    },
+	    mounted(){
+	    	this.init();
+	    },
 	    methods:{
+	    	init(){
+	    		this.setRouteIndex();
+	    	},
+	    	setRouteIndex(item){
+	    		let activeItem = item || this.route;
+	    		this.routeIndex = menuItems[activeItem].index;
+	    	},
 	  		open(){
 	  			this.isAcitve = true;
 	  		},
 	  		close(){
 	  			this.isAcitve = false;
 	  		},
+	  		signout(){
+	  			console.log("signout out");
+	  		},
 			handleOpen(key, keyPath) {
 				console.log(key, keyPath);
 			},
 			handleClose(key, keyPath) {
 				console.log(key, keyPath);
+			},
+			handleSelect(index){
+				console.log("select:"+ index)
 			}
 	    },
         components: {
@@ -184,6 +248,14 @@
 					color: $main;
 				} 
 			}
+		}
+		.signout{
+			padding: 0 20px;
+			.el-button{
+				margin-top: 20px;
+			    width: 100%;
+			    @include center-block;
+			}	
 		}
 	}
 </style>
