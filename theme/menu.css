@@ -78,7 +78,7 @@
   --------------------------*/
   /* Steps
   --------------------------*/
-  /* Steps
+  /* Menu
   --------------------------*/
   /* Rate
   --------------------------*/
@@ -125,19 +125,19 @@
 }
 
 .el-menu--dark .el-menu-item, .el-menu--dark .el-submenu__title{
-  color: #c0ccda;
+  color: rgb(191, 203, 217);
 }
 
 .el-menu--dark .el-menu-item:hover, .el-menu--dark .el-submenu__title:hover{
-  background-color: #475669;
+  background-color: rgb(72, 87, 106);
 }
 
 .el-menu--dark .el-submenu .el-menu{
-  background-color: #1f2f3d;
+  background-color: rgb(31, 45, 61);
 }
 
 .el-menu--dark .el-submenu .el-menu .el-menu-item:hover{
-  background-color: #475669;
+  background-color: rgb(72, 87, 106);
 }
 
 .el-menu--horizontal{}
@@ -170,7 +170,7 @@
   position: absolute;
   top: 65px;
   left: 0;
-  border: 1px solid #d3dce6;
+  border: 1px solid rgb(209, 219, 229);
   padding: 5px 0;
   background-color: #fff;
   z-index: 100;
@@ -196,7 +196,7 @@
   position: static;
   vertical-align: middle;
   margin-left: 5px;
-  color: #99a9bf;
+  color: rgb(151, 168, 190);
   margin-top: -3px;
 }
 
@@ -215,11 +215,11 @@
 }
 
 .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item, .el-menu--horizontal.el-menu--dark .el-submenu .el-submenu-title{
-  color: #475669;
+  color: rgb(72, 87, 106);
 }
 
 .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item:hover, .el-menu--horizontal.el-menu--dark .el-submenu .el-submenu-title:hover{
-  background-color: #d3dce6;
+  background-color: rgb(209, 219, 229);
 }
 
 .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active{
@@ -240,7 +240,7 @@
 }
 
 .el-menu-item:hover{
-  background-color: #d3dce6;
+  background-color: rgb(209, 219, 229);
 }
 
 .el-menu-item.is-active{
@@ -253,7 +253,7 @@
 }
 
 .el-submenu .el-menu{
-  background-color: #e5e9f2;
+  background-color: rgb(228, 232, 241);
 }
 
 .el-submenu .el-menu-item{
@@ -263,7 +263,7 @@
 }
 
 .el-submenu .el-menu-item:hover{
-  background-color: #d3dce6;
+  background-color: rgb(209, 219, 229);
 }
 
 .el-submenu.is-opened > .el-submenu__title .el-submenu__icon-arrow{
@@ -279,7 +279,7 @@
 }
 
 .el-submenu__title:hover{
-  background-color: #d3dce6;
+  background-color: rgb(209, 219, 229);
 }
 
 .el-submenu__icon-arrow{
@@ -300,7 +300,7 @@
   line-height: normal;
   font-size: 14px;
   padding-left: 20px;
-  color: #99a9bf;
+  color: rgb(151, 168, 190);
 }
 :root{
   /* Transition

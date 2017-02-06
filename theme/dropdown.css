@@ -78,7 +78,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -167,7 +167,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -250,8 +250,8 @@
 .el-button.is-disabled.is-plain{}
 .el-button.is-disabled.is-plain, .el-button.is-disabled.is-plain:hover, .el-button.is-disabled.is-plain:focus{
     background-color: #fff;
-    border-color: #d3dce6;
-    color: #C0CCDA;
+    border-color: rgb(209, 219, 229);
+    color: rgb(191, 203, 217);
 }
 .el-button.is-active{
     color: rgb(29, 144, 230);
@@ -308,23 +308,23 @@
 }
 .el-button--success{
     color: #fff;
-    background-color: #13ce66;
-    border-color: #13ce66;
+    background-color: #5dac81;
+    border-color: #5dac81;
 }
 .el-button--success:hover, .el-button--success:focus{
-    background: rgb(66, 216, 133);
-    border-color: rgb(66, 216, 133);
+    background: rgb(125, 189, 154);
+    border-color: rgb(125, 189, 154);
     color: #fff;
 }
 .el-button--success:active{
-    background: rgb(17, 185, 92);
-    border-color: rgb(17, 185, 92);
+    background: rgb(84, 155, 116);
+    border-color: rgb(84, 155, 116);
     color: #fff;
     outline: none;
 }
 .el-button--success.is-active{
-    background: rgb(17, 185, 92);
-    border-color: rgb(17, 185, 92);
+    background: rgb(84, 155, 116);
+    border-color: rgb(84, 155, 116);
     color: #fff;
 }
 .el-button--success.is-plain{
@@ -334,13 +334,13 @@
 }
 .el-button--success.is-plain:hover, .el-button--success.is-plain:focus{
     background: #fff;
-    border-color: #13ce66;
-    color: #13ce66;
+    border-color: #5dac81;
+    color: #5dac81;
 }
 .el-button--success.is-plain:active{
     background: #fff;
-    border-color: rgb(17, 185, 92);
-    color: rgb(17, 185, 92);
+    border-color: rgb(84, 155, 116);
+    color: rgb(84, 155, 116);
     outline: none;
 }
 .el-button--warning{
@@ -572,7 +572,7 @@
 .el-dropdown{
     display: inline-block;
     position: relative;
-    color: #475669;
+    color: rgb(72, 87, 106);
     font-size: 14px;
 }
 
@@ -597,7 +597,7 @@
 .el-dropdown-menu{
     margin: 5px 0;
     background-color: #fff;
-    border: 1px solid #D3DCE6;
+    border: 1px solid rgb(209, 219, 229);
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12);
     padding: 6px 0;
     z-index: 10;
@@ -622,14 +622,14 @@
 
 .el-dropdown-menu__item.is-disabled{
     cursor: default;
-    color: #c0ccda;
+    color: rgb(191, 203, 217);
     pointer-events: none;
 }
 
 .el-dropdown-menu__item--divided{
     position: relative;
     margin-top: 6px;
-    border-top: 1px solid #D3DCE6;
+    border-top: 1px solid rgb(209, 219, 229);
 }
 
 .el-dropdown-menu__item--divided:before{

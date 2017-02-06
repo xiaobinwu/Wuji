@@ -73,7 +73,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -161,7 +161,8 @@
     right: 0;
     top: 0;
     text-align: center;
-    color: #c0ccda
+    color: #c0ccda;
+    transition: all .3s
 }
 .el-input__icon:after{
     content: '';
@@ -172,6 +173,14 @@
 }
 .el-input__icon + .el-input__inner{
     padding-right: 35px
+}
+.el-input__icon.is-clickable{}
+.el-input__icon.is-clickable:hover{
+    cursor: pointer;
+    color: #8492a6
+}
+.el-input__icon.is-clickable:hover + .el-input__inner{
+    border-color: #8492a6
 }
 .el-input--large{
     font-size: 16px
@@ -202,8 +211,8 @@
     display: table-cell
 }
 .el-input-group__append, .el-input-group__prepend{
-    background-color: #f9fafc;
-    color: #99a9bf;
+    background-color: rgb(251, 253, 255);
+    color: rgb(151, 168, 190);
     vertical-align: middle;
     display: table-cell;
     position: relative;
@@ -375,7 +384,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -428,7 +437,7 @@
     line-height: 34px;
     top: 1px;
     text-align: center;
-    color: #99A9BF;
+    color: rgb(151, 168, 190);
     cursor: pointer;
     position: absolute;
     z-index: 1

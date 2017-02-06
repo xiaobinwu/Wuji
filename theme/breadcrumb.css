@@ -72,7 +72,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -104,7 +104,7 @@
 
 .el-breadcrumb__separator{
     margin: 0 8px;
-    color: #c0ccda
+    color: rgb(191, 203, 217)
 }
 
 .el-breadcrumb__item{
@@ -114,7 +114,7 @@
 .el-breadcrumb__item:last-child .el-breadcrumb__item__inner, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a{}
 
 .el-breadcrumb__item:last-child .el-breadcrumb__item__inner, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner:hover, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a:hover{
-    color: #99a9bf;
+    color: rgb(151, 168, 190);
     cursor: text
 }
 
@@ -126,7 +126,7 @@
 
 .el-breadcrumb__item__inner, .el-breadcrumb__item__inner a{
     transition: color .15s linear;
-    color: #475669
+    color: rgb(72, 87, 106)
 }
 
 .el-breadcrumb__item__inner:hover, .el-breadcrumb__item__inner a:hover{

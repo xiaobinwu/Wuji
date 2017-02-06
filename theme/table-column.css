@@ -73,7 +73,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -283,7 +283,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -356,14 +356,14 @@
 .el-tag--success{
     background-color: rgba(18,206,102,0.10);
     border-color: rgba(18,206,102,0.20);
-    color: #13ce66;
+    color: #5dac81;
 }
 .el-tag--success .el-tag__close:hover{
-    background-color: #13ce66;
+    background-color: #5dac81;
     color: #fff;
 }
 .el-tag--success.is-hit{
-    border-color: #13ce66;
+    border-color: #5dac81;
 }
 .el-tag--warning{
     background-color: rgba(247,186,41,0.10);
@@ -462,7 +462,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -486,7 +486,7 @@
 }
 
 .el-table-filter{
-    border: solid 1px #d3dce6;
+    border: solid 1px rgb(209, 219, 229);
     border-radius: 2px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12);
@@ -524,14 +524,14 @@
 }
 
 .el-table-filter__bottom{
-    border-top: 1px solid #d3dce6;
+    border-top: 1px solid rgb(209, 219, 229);
     padding: 8px;
 }
 
 .el-table-filter__bottom button {
     background: transparent;
     border: none;
-    color: #8492a6;
+    color: rgb(131, 145, 165);
     cursor: pointer;
     font-size: 14px;
     padding: 0 3px
@@ -546,7 +546,7 @@
 }
 
 .el-table-filter__bottom button.is-disabled{
-    color: #c0ccda;
+    color: rgb(191, 203, 217);
     cursor: not-allowed;
 }
 

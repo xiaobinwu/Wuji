@@ -73,7 +73,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -283,7 +283,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -356,14 +356,14 @@
 .el-tag--success{
     background-color: rgba(18,206,102,0.10);
     border-color: rgba(18,206,102,0.20);
-    color: #13ce66;
+    color: #5dac81;
 }
 .el-tag--success .el-tag__close:hover{
-    background-color: #13ce66;
+    background-color: #5dac81;
     color: #fff;
 }
 .el-tag--success.is-hit{
-    border-color: #13ce66;
+    border-color: #5dac81;
 }
 .el-tag--warning{
     background-color: rgba(247,186,41,0.10);
@@ -462,7 +462,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -639,24 +639,24 @@
     top: 11px;
     border-top: none;
     border-right: 5px solid transparent;
-    border-bottom: 5px solid #99a9bf;
+    border-bottom: 5px solid rgb(151, 168, 190);
     border-left: 5px solid transparent;
 }
 
 .el-table .sort-caret.descending{
     bottom: 11px;
-    border-top: 5px solid #99a9bf;
+    border-top: 5px solid rgb(151, 168, 190);
     border-right: 5px solid transparent;
     border-bottom: none;
     border-left: 5px solid transparent;
 }
 
 .el-table .ascending .sort-caret.ascending{
-    border-bottom-color: #475669;
+    border-bottom-color: rgb(72, 87, 106);
 }
 
 .el-table .descending .sort-caret.descending{
-    border-top-color: #475669;
+    border-top-color: rgb(72, 87, 106);
 }
 
 .el-table td.gutter{
@@ -701,7 +701,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: #5e6d82;
+    color: rgb(94, 115, 130);
 }
 
 .el-table__expand-column .cell {
@@ -732,12 +732,12 @@
 
 .el-table__expanded-cell{
     padding: 20px 50px;
-    background-color: #f9fafc;
+    background-color: rgb(251, 253, 255);
     box-shadow: inset 0 2px 0 #f4f4f4;
 }
 
 .el-table__expanded-cell:hover{
-    background-color: #f9fafc !important;
+    background-color: rgb(251, 253, 255) !important;
 }
 
 .el-table--fit{
@@ -847,15 +847,15 @@
 }
 
 .el-table--striped .el-table__body tr:nth-child(2n).current-row td{
-    background: #EFF7FF;
+    background: rgb(237, 247, 255);
 }
 
 .el-table__body tr.hover-row > td {
-    background-color: #eff2f7;
+    background-color: rgb(238, 241, 246);
 }
 
 .el-table__body tr.current-row > td {
-    background: #eff7ff;
+    background: rgb(237, 247, 255);
 }
 
 .el-table__column-resize-proxy{
@@ -876,7 +876,7 @@
 }
 
 .el-table__column-filter-trigger i{
-    color: #99a9bf;
+    color: rgb(151, 168, 190);
 }
 
 .el-table--enable-row-transition .el-table__body td {
@@ -884,7 +884,7 @@
 }
 
 .el-table--enable-row-hover tr:hover > td {
-    background-color: #eff2f7;
+    background-color: rgb(238, 241, 246);
 }
 
 .el-table--fluid-height .el-table__fixed, .el-table--fluid-height .el-table__fixed-right {

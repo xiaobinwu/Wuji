@@ -72,7 +72,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -155,16 +155,16 @@
 .el-tag--success{
     background-color: rgba(18,206,102,0.10);
     border-color: rgba(18,206,102,0.20);
-    color: #13ce66
+    color: #5dac81
 }
 
 .el-tag--success .el-tag__close:hover{
-    background-color: #13ce66;
+    background-color: #5dac81;
     color: #fff
 }
 
 .el-tag--success.is-hit{
-    border-color: #13ce66
+    border-color: #5dac81
 }
 
 .el-tag--warning{

@@ -72,7 +72,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -122,7 +122,6 @@
 .el-collapse-item__wrap{
     will-change: height;
     background-color: #f9fafc;
-    transition: height .3s cubic-bezier(0.215, 0.61, 0.355, 1);
     overflow: hidden;
     box-sizing: border-box;
     border-bottom: 1px solid #e0e6ed;
@@ -133,7 +132,8 @@
     font-size: 13px;
     color: #1f2d3d;
     line-height: 1.769230769230769;
-}:root{
+}
+:root{
     /* Transition
   -------------------------- */
     /* Colors

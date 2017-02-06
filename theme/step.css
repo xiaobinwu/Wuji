@@ -72,7 +72,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -111,7 +111,7 @@
     display: inline-block;
     position: absolute;
     border-color: inherit;
-    background-color: #c0ccda;
+    background-color: rgb(191, 203, 217);
 }
 
 .el-step__line.is-vertical{
@@ -178,18 +178,18 @@
 }
 
 .el-step__head.is-success{
-    color: #13ce66;
-    border-color: #13ce66;
+    color: #5dac81;
+    border-color: #5dac81;
 }
 
 .el-step__head.is-wait{
-    color: #c0ccda;
-    border-color: #c0ccda;
+    color: rgb(191, 203, 217);
+    border-color: rgb(191, 203, 217);
 }
 
 .el-step__head.is-process{
-    color: #c0ccda;
-    border-color: #c0ccda;
+    color: rgb(191, 203, 217);
+    border-color: rgb(191, 203, 217);
 }
 
 .el-step__head.is-text{
@@ -212,20 +212,20 @@
 
 .el-step__head.is-text.is-success{
     color: #fff;
-    background-color: #13ce66;
-    border-color: #13ce66;
+    background-color: #5dac81;
+    border-color: #5dac81;
 }
 
 .el-step__head.is-text.is-wait{
-    color: #c0ccda;
+    color: rgb(191, 203, 217);
     background-color: #fff;
-    border-color: #c0ccda;
+    border-color: rgb(191, 203, 217);
 }
 
 .el-step__head.is-text.is-process{
     color: #fff;
-    background-color: #c0ccda;
-    border-color: #c0ccda;
+    background-color: rgb(191, 203, 217);
+    border-color: rgb(191, 203, 217);
 }
 
 .el-step__main{
@@ -252,17 +252,17 @@
 
 .el-step__title.is-success{
     font-weight: 700;
-    color: #13ce66;
+    color: #5dac81;
 }
 
 .el-step__title.is-wait{
     font-weight: 400;
-    color: #99a9bf;
+    color: rgb(151, 168, 190);
 }
 
 .el-step__title.is-process{
     font-weight: 700;
-    color: #475669;
+    color: rgb(72, 87, 106);
 }
 
 .el-step__description{
@@ -280,15 +280,15 @@
 }
 
 .el-step__description.is-success{
-    color: #13ce66;
+    color: #5dac81;
 }
 
 .el-step__description.is-wait{
-    color: #c0ccda;
+    color: rgb(191, 203, 217);
 }
 
 .el-step__description.is-process{
-    color: #8492a6;
+    color: rgb(131, 145, 165);
 }
 :root{
     /* Transition

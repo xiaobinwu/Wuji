@@ -72,7 +72,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -171,12 +171,12 @@
     line-height: 1;
     font-size: 16px;
     font-weight: 700;
-    color: #1f2d3d;
+    color: rgb(31, 45, 61);
 }
 
 .el-dialog__body{
     padding: 30px 20px;
-    color: #475669;
+    color: rgb(72, 87, 106);
     font-size: 14px;
 }
 

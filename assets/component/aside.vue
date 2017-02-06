@@ -63,7 +63,7 @@
 						i.fa.fa-comment
 						系统通知
 			div.signout
-				el-button(size="large",:plain="true", @click="signout") 退出登录	
+				el-button(size="large",:plain="true", type="success" @click="signout") 退出登录	
 </template>
 <script>
     import Vue from 'vue'

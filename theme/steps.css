@@ -72,7 +72,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -98,6 +98,10 @@
 
 .el-steps.is-horizontal{
     white-space: nowrap;
+}
+
+.el-steps.is-horizontal.is-center{
+    text-align: center;
 }
 :root{
     /* Transition

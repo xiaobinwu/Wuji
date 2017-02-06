@@ -77,7 +77,7 @@
   --------------------------*/
   /* Steps
   --------------------------*/
-  /* Steps
+  /* Menu
   --------------------------*/
   /* Rate
   --------------------------*/
@@ -107,16 +107,16 @@
 }
 
 .el-progress.is-success .el-progress-bar__inner{
-  background-color:#13ce66;
+  background-color:#5dac81;
 }
 
 .el-progress.is-success .el-progress__text{
-  color:#13ce66;
+  color:#5dac81;
 }
 
 .el-progress__text{
   font-size:14px;
-  color:#475669;
+  color:rgb(72, 87, 106);
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
@@ -174,7 +174,7 @@
 .el-progress-bar__outer{
   height: 6px;
   border-radius: 100px;
-  background-color: #e5e9f2;
+  background-color:rgb(228, 232, 241);
   overflow: hidden;
   position: relative;
   vertical-align: middle;
@@ -195,7 +195,7 @@
 .el-progress-bar__innerText{
   display: inline-block;
   vertical-align: middle;
-  color: #fff;
+  color:#fff;
   font-size: 12px;
   margin: 0 5px;
 }

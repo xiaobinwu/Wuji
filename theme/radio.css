@@ -72,7 +72,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -273,6 +273,14 @@
     position: absolute;
     z-index: -1;
     left: -999px;
+}
+
+.el-radio-button__orig-radio:checked{}
+
+.el-radio-button__orig-radio:checked + .el-radio-button__inner{
+    color: #fff;
+    background-color: #20a0ff;
+    border-color: #20a0ff;
 }
 
 .el-radio-button__orig-radio:disabled{}

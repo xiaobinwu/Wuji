@@ -73,7 +73,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -161,7 +161,8 @@
     right: 0;
     top: 0;
     text-align: center;
-    color: #c0ccda
+    color: #c0ccda;
+    transition: all .3s
 }
 .el-input__icon:after{
     content: '';
@@ -172,6 +173,14 @@
 }
 .el-input__icon + .el-input__inner{
     padding-right: 35px
+}
+.el-input__icon.is-clickable{}
+.el-input__icon.is-clickable:hover{
+    cursor: pointer;
+    color: #8492a6
+}
+.el-input__icon.is-clickable:hover + .el-input__inner{
+    border-color: #8492a6
 }
 .el-input--large{
     font-size: 16px
@@ -202,8 +211,8 @@
     display: table-cell
 }
 .el-input-group__append, .el-input-group__prepend{
-    background-color: #f9fafc;
-    color: #99a9bf;
+    background-color: rgb(251, 253, 255);
+    color: rgb(151, 168, 190);
     vertical-align: middle;
     display: table-cell;
     position: relative;
@@ -375,7 +384,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -402,7 +411,7 @@
     top: 110%;
     margin: 5px 0 0;
     background-color: #fff;
-    border: 1px solid #D3DCE6;
+    border: 1px solid rgb(209, 219, 229);
     width: 100%;
     padding: 6px 0;
     z-index: 10;
@@ -419,7 +428,7 @@
     padding: 0 10px;
     margin: 0;
     cursor: pointer;
-    color: #475669;
+    color: rgb(72, 87, 106);
     font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
@@ -441,7 +450,7 @@
 
 .el-autocomplete__suggestions li.divider{
     margin-top: 6px;
-    border-top: 1px solid #D3DCE6
+    border-top: 1px solid rgb(209, 219, 229)
 }
 
 .el-autocomplete__suggestions li.divider:last-child{

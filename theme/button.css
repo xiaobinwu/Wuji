@@ -72,7 +72,7 @@
   --------------------------*/
     /* Steps
   --------------------------*/
-    /* Steps
+    /* Menu
   --------------------------*/
     /* Rate
   --------------------------*/
@@ -169,8 +169,8 @@
 
 .el-button.is-disabled.is-plain, .el-button.is-disabled.is-plain:hover, .el-button.is-disabled.is-plain:focus{
     background-color: #fff;
-    border-color: #d3dce6;
-    color: #C0CCDA;
+    border-color: rgb(209, 219, 229);
+    color: rgb(191, 203, 217);
 }
 
 .el-button.is-active{
@@ -239,26 +239,26 @@
 
 .el-button--success{
     color: #fff;
-    background-color: #13ce66;
-    border-color: #13ce66;
+    background-color: #5dac81;
+    border-color: #5dac81;
 }
 
 .el-button--success:hover, .el-button--success:focus{
-    background: rgb(66, 216, 133);
-    border-color: rgb(66, 216, 133);
+    background: rgb(125, 189, 154);
+    border-color: rgb(125, 189, 154);
     color: #fff;
 }
 
 .el-button--success:active{
-    background: rgb(17, 185, 92);
-    border-color: rgb(17, 185, 92);
+    background: rgb(84, 155, 116);
+    border-color: rgb(84, 155, 116);
     color: #fff;
     outline: none;
 }
 
 .el-button--success.is-active{
-    background: rgb(17, 185, 92);
-    border-color: rgb(17, 185, 92);
+    background: rgb(84, 155, 116);
+    border-color: rgb(84, 155, 116);
     color: #fff;
 }
 
@@ -270,14 +270,14 @@
 
 .el-button--success.is-plain:hover, .el-button--success.is-plain:focus{
     background: #fff;
-    border-color: #13ce66;
-    color: #13ce66;
+    border-color: #5dac81;
+    color: #5dac81;
 }
 
 .el-button--success.is-plain:active{
     background: #fff;
-    border-color: rgb(17, 185, 92);
-    color: rgb(17, 185, 92);
+    border-color: rgb(84, 155, 116);
+    color: rgb(84, 155, 116);
     outline: none;
 }
 
