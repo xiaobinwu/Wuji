@@ -101,10 +101,6 @@ module.exports = {
             //同上
             test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
             loader: 'file-loader'
-        }, 
-        {
-            test: /\.json$/,
-            loader: 'json-loader'
         }]
     },
     resolve: {
