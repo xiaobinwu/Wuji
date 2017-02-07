@@ -104,7 +104,7 @@ module.exports = {
         }]
     },
     resolve: {
-        // require时省略的扩展名，如：require('module') 不需要module.js
+        // require时省略的扩展名，不再需要强制转入一个空字符串，如：require('module') 不需要module.js
         extensions: [".js", ".json", ".vue", ".scss", ".css"],
         //require路径简化
         alias: {
