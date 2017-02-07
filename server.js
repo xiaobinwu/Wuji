@@ -41,6 +41,12 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
+//待删除
+app.get("/passing", function(req, res) {
+    res.sendFile(__dirname + '/passing.html');
+});
+
+
 //设置 proxy 配置host
 // var apiProxy = proxy(hosts, {
 //     forwardPath:function(req,res){

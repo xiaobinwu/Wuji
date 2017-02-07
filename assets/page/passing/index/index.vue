@@ -44,11 +44,9 @@ import Avatar from '../../../component/avatar'
 Vue.use(Row)
 Vue.use(Col)
 export default {
-    name: 'example',
+    name: 'passingindex',
     data () {
         return {
-          message: 'Welcome to Your Vue.js App',
-          value1: 0
         }
     },
     beforeMount(){

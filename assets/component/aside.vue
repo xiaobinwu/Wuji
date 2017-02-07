@@ -85,8 +85,8 @@
 		'trashCan': {index: '1-4-4', url: ''},
 		'feedback': {index: '1-5-1', url: ''},
 		'about': {index: '1-5-2', url: ''},
-		'journals': {index: '3', url: ''},
-		'passing': {index: '4', url: ''},
+		'journals': {index: '3', url: '/'},
+		'passing': {index: '4', url: '/passing'},
 	}
     export default{
         name: 'aside',
@@ -129,7 +129,11 @@
 				console.log(key, keyPath);
 			},
 			handleSelect(index){
-				console.log("select:"+ index)
+				for(let i in menuItems){
+					if(menuItems[i].index == index){
+						window.location.href = menuItems[i].url;
+					}
+				}
 			}
 	    },
         components: {

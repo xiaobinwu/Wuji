@@ -12,6 +12,7 @@ $main:              #5dac81;
 $green:             $main;
 $white:             #fff;
 $gray:              #666;
+$gray-lighter:      #ececec;
 $gary-lightest:     #f5f5f5;
 $black:             #000;
 $purple:            #af00ff;
@@ -33,4 +34,7 @@ $size-h5:   12px;       // sub text
 $link-color: $main;
 $link-hover-color: $main;
 $link-hover-decoration: 'none';
+
+// radius
+$circle-radius: 50%;
 
