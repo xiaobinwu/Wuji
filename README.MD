@@ -52,3 +52,10 @@
 ## autoprefixer（样式前缀兼容性处理），在vue-loader option进行配置
 * 生成规则：
 * 自动加上浏览器样式前缀，兼容各浏览器（针对份额大于全球统计数据的1%，firefox 15）
+
+
+#### 前端页面
+index.html  =>  我的日记列表
+passing.html  =>  过客列表
+login.html => 登录页面
+register  =>  注册页面

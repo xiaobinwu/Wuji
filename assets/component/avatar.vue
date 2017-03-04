@@ -38,7 +38,6 @@ div.avatar(:style="avatarStyle")
     }
 </script>
 <style lang="sass">
-	@import "../public/scss/index.scss";
 	.avatar {
 	    display: inline-block;
 	    img {

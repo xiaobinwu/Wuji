@@ -45,7 +45,12 @@ app.get("/", function(req, res) {
 app.get("/passing", function(req, res) {
     res.sendFile(__dirname + '/passing.html');
 });
-
+app.get("/login", function(req, res) {
+    res.sendFile(__dirname + '/login.html');
+});
+app.get("/register", function(req, res) {
+    res.sendFile(__dirname + '/login.html');
+});
 
 //设置 proxy 配置host
 // var apiProxy = proxy(hosts, {

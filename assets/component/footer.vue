@@ -12,7 +12,7 @@
     }
 </script>
 <style lang="sass">
-	@import "../public/scss/index.scss";
+	@import "../public/scss/_variables.scss";
 	.footer{
 		min-width: $container-width;
 		display: flex;
