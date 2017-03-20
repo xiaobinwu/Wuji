@@ -1,4 +1,4 @@
-import {JOURNAL_LIST} from "../../config/ports";
+import {JOURNAL_LIST} from "config/ports";
 
 export const state = {
     journalList: {

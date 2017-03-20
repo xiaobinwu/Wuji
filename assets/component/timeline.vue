@@ -5,11 +5,11 @@
 			li(v-for="n in 10", :style="{marginLeft: n % 2 === 0 ? liEvenStyle : 0}") 
 				div.item-container
 					div.item-header 2017.01.29 周日
-					div.item-content 2011-2013在学校获得了各种奖项2011-2013在学校获得了各种奖项2011-2013在学校获得了各种奖项					
+					div.item-content 2011-2013在学校获得了各种奖项2011-2013在学校获得了各种奖项2011-2013在学校获得了各种奖项text
 </template>
 <script>
     import Vue from 'vue'
-    import t from '../utils/transform'
+    import t from 'utils/transform'
     export default{
         name: 'timeline',
         props: {

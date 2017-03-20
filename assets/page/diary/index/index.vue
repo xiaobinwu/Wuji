@@ -19,9 +19,9 @@
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import { Row, Col } from 'element-ui'
-import Aside from '../../../component/aside'
-import Footer from '../../../component/footer'
-import timeLine from '../../../component/timeline'
+import Aside from 'component/aside'
+import Footer from 'component/footer'
+import timeLine from 'component/timeline'
 // 引入组件
 Vue.use(Row)
 Vue.use(Col)

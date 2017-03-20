@@ -3,7 +3,7 @@ import "whatwg-fetch";
 import {Message} from "element-ui";
 import qs from "querystring";
 import isEmpty from "lodash.isempty";
-import * as API from "../config/ports";
+import * as API from "config/ports";
 
 const METHODS = {
     GET: 'get',

@@ -36,10 +36,10 @@
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import { Row, Col } from 'element-ui'
-import thumbsUp from '../../../component/thumbsUp'
-import Aside from '../../../component/aside'
-import Footer from '../../../component/footer'
-import Avatar from '../../../component/avatar'
+import thumbsUp from 'component/thumbsUp'
+import Aside from 'component/aside'
+import Footer from 'component/footer'
+import Avatar from 'component/avatar'
 // 引入组件
 Vue.use(Row)
 Vue.use(Col)

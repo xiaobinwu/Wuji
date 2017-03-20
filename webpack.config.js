@@ -108,12 +108,11 @@ module.exports = {
         extensions: [".js", ".json", ".vue", ".scss", ".css"],
         //require路径简化
         alias: {
-            config: path.join(__dirname, config.srcDir + '/config'),
-            filter: path.join(__dirname, config.srcDir + '/filters'),
-            etc: path.join(__dirname, config.srcDir + '/etc'),
-            utils: path.join(__dirname, config.srcDir + '/utils'),
-            scss: path.join(__dirname, config.srcDir + '/scss'),
-            components: path.join(__dirname, config.srcDir + '/components')
+            config: path.resolve(__dirname, config.srcDir + '/config'),
+            filter: path.resolve(__dirname, config.srcDir + '/filters'),
+            utils: path.resolve(__dirname, config.srcDir + '/utils'),
+            scss: path.resolve(__dirname, config.srcDir + '/public/scss'),
+            component: path.resolve(__dirname, config.srcDir + '/component')
         }
     },
     plugins: plugins,

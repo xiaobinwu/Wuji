@@ -4,7 +4,7 @@ div.avatar(:style="avatarStyle")
 </template>
 <script>
     import Vue from 'vue'
-    import t from '../utils/transform'
+    import t from 'utils/transform'
     export default{
         name: 'avatar',
         props: {

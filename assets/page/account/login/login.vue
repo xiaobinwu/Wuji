@@ -20,7 +20,7 @@
 <script>
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
-import accountContainer from '../../../component/accountContainer'
+import accountContainer from 'component/accountContainer'
 import { Input } from 'element-ui'
 
 // 引入组件
