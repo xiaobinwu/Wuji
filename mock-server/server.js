@@ -37,6 +37,7 @@ app.use(function(req, res){
     for(var group in api){
         console.log(api[group])
         if(api[group].find(function(reqData){
+                console.log(reqData)
                 if(reqData.regexp){
                     if(!new RegExp(reqData.url).test(req.originalUrl)){
                         return false;

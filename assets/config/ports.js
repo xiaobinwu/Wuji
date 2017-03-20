@@ -9,8 +9,4 @@ const getApi = (url) => `${window.config.host}/${url}`;
 
 export const CODE_SUCCESS = 200;
 
-export const JOURNAL_LIST = getApi('Job/QueryJobManagerPaging');
-
-
-
-
+export const JOURNAL_LIST = getApi('passing/getList');

@@ -13,18 +13,18 @@
                             a(href="https://llp0574.github.io/img/logo.png") 
                                 img(src="https://llp0574.github.io/img/logo.png")
                         div.wuji-bottom 不知道写些什么dd
-            el-row(class="wuji-container-item", v-for="n in 5")
+            el-row(class="wuji-container-item", v-for="item in journalList.items")
                 el-col(:span="24")
                     div.bg-img
                     div.content
-                        p 
-                            span 自定义的一套Git使用规范，感谢超哥，沿用至今。     
+                        p.content-p
+                            span {{item.content}}    
                             a(href="javascript:void(0);") 继续阅读    
                     div.dec
                         div.pull-left.author
-                            Avatar(src="https://llp0574.github.io/img/avatar.png", width="44", height="44")
+                            Avatar(:src="item.avatarUrl", width="44", height="44")
                             div
-                                div.name llp
+                                div.name {{item.nickName}}
                                 div.time 10月 14, 2015
                         div.pull-right
                             thumbs-up
@@ -129,6 +129,13 @@ $border-radius: 5px;
                 height: 44px;
                 line-height: 44px;
                 border-bottom: 1px solid $gary-lightest;
+                .content-p > *{
+                    display: inline-block;
+                }
+                span{
+                    width: 700px;
+                    @extend %ellipsis;
+                }
             }
             .dec{
                 @include clearfix;
