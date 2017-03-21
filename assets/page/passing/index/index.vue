@@ -15,11 +15,13 @@
                         div.wuji-bottom 不知道写些什么dd
             el-row(class="wuji-container-item", v-for="item in journalList.items")
                 el-col(:span="24")
-                    div.bg-img
+                    div.bg-img-container
+                        div.bg-img(:style="{backgroundImage: 'url(' + item.userBGUrl + ')'}")
                     div.content
                         p.content-p
-                            span {{item.content}}    
-                            a(href="javascript:void(0);") 继续阅读    
+                            span {{item.content}}
+                            span    
+                                a(href="javascript:void(0);") 继续阅读    
                     div.dec
                         div.pull-left.author
                             Avatar(:src="item.avatarUrl", width="44", height="44")
@@ -118,22 +120,33 @@ $border-radius: 5px;
         background-color: $white;
         .el-col{
             height: 400px;
-            .bg-img{
+            .bg-img-container{
                 height: 250px;
                 border-radius: $border-radius;
-                background: url("https://llp0574.github.io/img/vue.png") no-repeat top left;
-                background-size: cover;                
+                overflow: hidden;
+                .bg-img{
+                    height: 100%;
+                    background-position: top center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    transition: all .5s ease-out;
+                    &:hover{
+                        transform: scale(1.1); 
+                    }                
+                }
             }
             .content{
                 padding: 16px;
                 height: 44px;
                 line-height: 44px;
                 border-bottom: 1px solid $gary-lightest;
+                font-size: 0;
                 .content-p > *{
+                    font-size: 14px;
                     display: inline-block;
                 }
                 span{
-                    width: 700px;
+                    max-width: 700px;
                     @extend %ellipsis;
                 }
             }
