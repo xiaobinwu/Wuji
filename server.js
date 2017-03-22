@@ -64,7 +64,7 @@ app.get("/register", function(req, res) {
 
 // serve pure static assets
 // app.use('/dist', express.static('dist'));
-// app.use('/assets', express.static('assets'));
+app.use('/images', express.static('assets/public/images'));
 
 module.exports = app.listen(port, function (err) {
     if(err){

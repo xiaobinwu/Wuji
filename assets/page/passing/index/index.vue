@@ -5,18 +5,18 @@
             el-row(:gutter="20",class="wuji-container-top")
                 el-col(:span="16",class="")
                     div
-                        div.wuji-top.wuji-left-top
+                        div.wuji-top.wuji-left-top(v-lazy:background-image="'https://llp0574.github.io/img/iron.jpg'")
                         div.wuji-bottom 不知道写些什么
                 el-col(:span="8",class="") 
                     div
                         div.wuji-top
                             a(href="https://llp0574.github.io/img/logo.png") 
-                                img(src="https://llp0574.github.io/img/logo.png")
+                                img(v-lazy="'https://llp0574.github.io/img/logo.png'")
                         div.wuji-bottom 不知道写些什么dd
             el-row(class="wuji-container-item", v-for="item in journalList.items")
                 el-col(:span="24")
                     div.bg-img-container
-                        div.bg-img(:style="{backgroundImage: 'url(' + item.userBGUrl + ')'}")
+                        div.bg-img(v-lazy:background-image="item.userBGUrl")
                     div.content
                         p.content-p
                             span {{item.content}}
@@ -36,6 +36,7 @@
 
 <script>
 import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
 import { mapState, mapActions } from 'vuex'
 import { Row, Col } from 'element-ui'
 import thumbsUp from 'component/thumbsUp'
@@ -45,6 +46,9 @@ import Avatar from 'component/avatar'
 // 引入组件
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(VueLazyload,{
+    loading: '/images/loading.gif'
+})
 export default {
     name: 'passingindex',
     data () {
@@ -97,13 +101,22 @@ $border-radius: 5px;
                     &.#{$prefix}-left-top{
                         border-top-left-radius: $border-radius;
                         border-top-right-radius: $border-radius;
-                        background: url("https://llp0574.github.io/img/iron.jpg") no-repeat top left;
+                        background-repeat: no-repeat;
+                        background-position: top left;
                         background-size: cover;
+                        &[lazy=loading]{
+                            background-position: center center;
+                            background-size: 200px 150px;
+                        }
                     }
                     img{
                         width: 160px;
                         height: 160px;
                         margin-top: 88px;
+                        &[lazy=loading]{
+                            width: 200px;
+                            height: 150px;
+                        }
                     }
                 }
                 & > .#{$prefix}-bottom{
@@ -126,10 +139,14 @@ $border-radius: 5px;
                 overflow: hidden;
                 .bg-img{
                     height: 100%;
-                    background-position: top center;
+                    background-position: center center;
                     background-repeat: no-repeat;
                     background-size: cover;
-                    transition: all .5s ease-out;
+                    transition: transform .5s ease-out;
+                    &[lazy=loading]{
+                        background-position: center center;
+                        background-size: 200px 150px;
+                    }                    
                     &:hover{
                         transform: scale(1.1); 
                     }                
