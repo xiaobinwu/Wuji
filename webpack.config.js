@@ -112,7 +112,8 @@ module.exports = {
             filter: path.resolve(__dirname, config.srcDir + '/filters'),
             utils: path.resolve(__dirname, config.srcDir + '/utils'),
             stores: path.resolve(__dirname, config.srcDir + '/stores'),
-            scss: path.resolve(__dirname, config.srcDir + '/public/scss'),
+            routers: path.resolve(__dirname, config.srcDir + '/routers'),
+            modules: path.resolve(__dirname, config.srcDir + '/modules'),
             component: path.resolve(__dirname, config.srcDir + '/component')
         }
     },

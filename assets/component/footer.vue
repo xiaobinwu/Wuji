@@ -14,6 +14,7 @@
 <style lang="sass">
 	@import "../public/scss/_variables.scss";
 	.footer{
+		width: 100%;
 		min-width: $container-width;
 		display: flex;
 		flex-flow: row wrap;
