@@ -63,7 +63,7 @@ export default {
     },
     computed: {
         ...mapState({
-            journalList: 'journalList'
+            journalList: state => state.example.journalList
         })
     },
 

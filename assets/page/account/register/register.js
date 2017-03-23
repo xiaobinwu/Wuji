@@ -3,7 +3,7 @@
 */
 import Vue from 'vue'
 import register from './register.vue'
-import store from "../../../stores/example"
+import store from "stores/index"
 
 
 const app = new Vue({

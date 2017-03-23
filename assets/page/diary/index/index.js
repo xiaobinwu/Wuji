@@ -4,7 +4,7 @@
 */
 import Vue from 'vue'
 import index from './index.vue'
-import store from "../../../stores/example"
+import store from "stores/index"
 
 
 const app = new Vue({
