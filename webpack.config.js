@@ -111,6 +111,7 @@ module.exports = {
             config: path.resolve(__dirname, config.srcDir + '/config'),
             filter: path.resolve(__dirname, config.srcDir + '/filters'),
             utils: path.resolve(__dirname, config.srcDir + '/utils'),
+            stores: path.resolve(__dirname, config.srcDir + '/stores'),
             scss: path.resolve(__dirname, config.srcDir + '/public/scss'),
             component: path.resolve(__dirname, config.srcDir + '/component')
         }
