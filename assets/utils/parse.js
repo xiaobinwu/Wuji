@@ -1,38 +1,7 @@
 /*
 * 解析工具
 */
-var dialog = require('./dialog/dialog');
-
 var Parse = {
-    alert: function(msg, timeout){
-        dialog.alert(msg, timeout);
-    },
-    error: function(rtn, split){
-        var errorArr = [];
-        split = split ? split : ";";
-        if (rtn.message) {
-            return rtn.message;
-        } else {
-            if (rtn.data) {
-                for (var q in rtn.data) {
-                    var curData = rtn.data[q];
-                    if ($.isArray(curData) && curData.length > 0) {
-                        for (var i = 0; i < curData.length; i++) {
-                            errorArr.push(curData[i]);
-                        }
-                    } else if (typeof curData == "string") {
-                        errorArr.push(curData);
-                    }
-                }
-                return errorArr.join(split);
-            }
-        }
-        return "";
-    },
-    showError: function(rtn, split){
-        var errMsg = this.error(rtn, split);
-        dialog.alert(errMsg);
-    },
     /*
     * url hash解析
     */
@@ -68,13 +37,6 @@ var Parse = {
         if (r != null){ 
             return unescape(r[2]);
         }        
-    },
-    /*
-    * 获取默认头像
-    */
-    getDefaultAvatar: function(val){
-        val = $.trim(val);
-        return val ? val : "/Static/Images/defaultUser.png";
     }
 }
 

@@ -22,7 +22,7 @@ export default {
     watch: {
       '$route' (to, from) {
       }
-    }    
+    }
 }
 </script>
 <style lang="sass">

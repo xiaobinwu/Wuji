@@ -25,7 +25,7 @@ div.wuji-container.center-block
                     Avatar(:src="item.avatarUrl", width="44", height="44")
                     div
                         div.name {{item.nickName}}
-                        div.time 10月 14, 2015
+                        div.time {{item.passbyDate | date}}
                 div.pull-right
                     thumbs-up
 </template>
@@ -44,7 +44,7 @@ Vue.use(VueLazyload,{
     loading: '/images/loading.gif'
 })
 export default {
-    name: 'passing',
+    name: 'passingindex',
     data () {
         return {
         }
@@ -60,7 +60,11 @@ export default {
             journalList: state => state.example.journalList
         })
     },
-
+    filters: {
+        'date': (value) =>{
+            return Number(value.substr(4,2)) + '月' + Number(value.substr(6,2)) + ',' + value.substr(0,4);
+        }
+    },
     methods:{
         loadData(params = {}){
             this.getJournalList(params)

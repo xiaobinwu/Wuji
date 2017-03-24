@@ -9,7 +9,7 @@ import router from "routers/passing"
 
 const app = new Vue({
 	store,
-	router,	
+	router,
 	...index
 })
 
