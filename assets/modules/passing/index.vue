@@ -28,6 +28,8 @@ div.wuji-container.center-block
                         div.time {{item.passbyDate | date}}
                 div.pull-right
                     thumbs-up
+
+    Calendar
 </template>
 
 <script>
@@ -37,11 +39,12 @@ import { mapState, mapActions } from 'vuex'
 import { Row, Col } from 'element-ui'
 import thumbsUp from 'component/thumbsUp'
 import Avatar from 'component/avatar'	
+import Calendar from 'component/calendar'
 // 引入组件
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(VueLazyload,{
-    loading: '/images/loading.gif'
+    loading: '/public/images/loading.gif'
 })
 export default {
     name: 'passingindex',
@@ -75,7 +78,8 @@ export default {
     },
     components: {
         thumbsUp,
-        Avatar
+        Avatar,
+        Calendar
     }
 }
 </script>

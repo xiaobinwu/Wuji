@@ -71,6 +71,10 @@ module.exports = {
         filename: 'js/[name].js',
         publicPath: '/wuji/dist/' //方便定位到CDN静态资源，配合url-loader
     },
+    //引入第三方库
+    externals: {
+      'calendar': 'calendar' 
+    },
     module: {
         rules: [{
             test: /\.vue$/,

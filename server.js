@@ -62,9 +62,12 @@ app.get("/register", function(req, res) {
 // app.get("/*", apiProxy);
 // app.post("/*", apiProxy);
 
+//正式环境则不需要
 // serve pure static assets
 // app.use('/dist', express.static('dist'));
-app.use('/images', express.static('assets/public/images'));
+app.use('/public', express.static('assets/public'));
+
+
 
 module.exports = app.listen(port, function (err) {
     if(err){
