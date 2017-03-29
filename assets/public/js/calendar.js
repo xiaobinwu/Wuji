@@ -448,7 +448,7 @@ window.calendar = (function() {
                     X.style.cssText="background:#cde9d9;border-radius:50%;padding:5px 0;"
                 }
                 X.className = "cell";
-                X.style.left = (a % 7) * 60 + "px";
+                X.style.left = (a % 7) * 80 + "px";
                 X.style.top = Math.floor(a / 7) * 40 + 2 + "px";
                 var b = R("DIV");
                 b.className = "so";

@@ -7,8 +7,8 @@
 				select#month-select
 				&nbsp;月
 			div.step
-				span#prev ‘<’
-				span#next ’>‘
+				i.fa.fa-angle-left#prev
+				i.fa.fa-angle-right#next
 		ul#wk
 			li 一
 			li 二
@@ -31,12 +31,13 @@
     import Vue from 'vue'
     import calendar from 'calendar'
     export default{
-        name: 'calendar',
+        name: 'calendar',     
         mounted(){
+            const _this = this;
 			calendar.init({
 			    cellClickCallback: function(cell, datedata){
-			        console.log(datedata);
-			        alert('你点击的是'+ datedata.solarYear + '年' + datedata.solarMonth + '月' + datedata.solarDate + '日');        
+                    //emit click-callback事件
+                    _this.$emit('click-callback', cell, datedata);  
 			    }
 			});
 	    },
@@ -47,16 +48,11 @@
 	@import "../public/scss/_variables.scss";
 	$calendar-color: #429e6c;
 	#cal{
-        width: 434px;
+        width: 562px;
         font-size: $size-h5;
-        margin: 8px 0 0 15px;
         #top{
             height: 40px;
             line-height: 40px;
-            background: $calendar-color;
-            border: 1px solid $calendar-color;
-            color: $white;
-            padding: 0 10px;
             clear: both;
             input{
             	padding: 0;
@@ -64,8 +60,9 @@
             .step{
                 float: right;
                 font-size: $size-h3;       
-                span{
+                i{
                 	cursor: pointer;
+                    font-size: 22px;
                 }     	
                 #prev{
                 	margin-right: 10px;
@@ -73,7 +70,10 @@
             }       	
             .select{
             	float: left;
-
+                select{
+                    height: 25px;
+                    width: 100px;
+                }
             }
         }
         #wk{
@@ -82,11 +82,9 @@
             height: 35px;
             color: #888;
             font-size: $size-h4;
-            border-left: 1px solid $calendar-color;
-            border-right: 1px solid $calendar-color;
             li{
                 float: left;
-                width: 60px;
+                width: 80px;
                 text-align: center;
                 line-height: 25px;
                 list-style: none;
@@ -97,16 +95,16 @@
             }
         }
         #cm{
+            padding-bottom: 15px;
+            border: 1px dashed #eee;
             clear: left;
             position: relative;
-            border-left: 1px solid $calendar-color;
-            border-right: 1px solid $calendar-color;
             .cell{
                 position: absolute;
                 width: 42px;
                 height: 36px;
                 text-align: center;
-                margin: 0 0 0 9px;
+                margin: 0 0 0 19px;
                 cursor: pointer;
                 .so{
                 	font: $size-h3 arial;
@@ -117,11 +115,8 @@
             text-align: right;
             height: 30px;
             line-height: 30px;
-            padding: 0 13px 0 0;
-            border: 1px solid $calendar-color;
-            border-top: 1px dashed #eee;
             clear: both;
-            padding: 0 10px;
+            padding: 5px 0;
             font-size: $size-base;  
             .heavenly-branch{
                 color: $calendar-color;
@@ -137,6 +132,7 @@
                 line-height: 20px;
                 margin-top: 6px;
                 text-decoration: none;
+                border-radius: 10px;
             }     	
         }
         #fd{

@@ -3,14 +3,13 @@ div.wuji-container.center-block
     el-row(:gutter="20",class="wuji-container-top")
         el-col(:span="16",class="")
             div
-                div.wuji-top.wuji-left-top(v-lazy:background-image="'https://llp0574.github.io/img/iron.jpg'")
-                div.wuji-bottom 不知道写些什么
+                div.wuji-top.wuji-left-top
+                    Calendar.wuji-calendar(@click-callback="calendarCellClick")
         el-col(:span="8",class="") 
             div
                 div.wuji-top
                     a(href="https://llp0574.github.io/img/logo.png") 
                         img(v-lazy="'https://llp0574.github.io/img/logo.png'")
-                div.wuji-bottom 不知道写些什么dd
     el-row(class="wuji-container-item", v-for="item in journalList.items")
         el-col(:span="24")
             div.bg-img-container
@@ -28,15 +27,13 @@ div.wuji-container.center-block
                         div.time {{item.passbyDate | date}}
                 div.pull-right
                     thumbs-up
-
-    Calendar
 </template>
 
 <script>
 import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
 import { mapState, mapActions } from 'vuex'
-import { Row, Col } from 'element-ui'
+import { Row, Col, MessageBox } from 'element-ui'
 import thumbsUp from 'component/thumbsUp'
 import Avatar from 'component/avatar'	
 import Calendar from 'component/calendar'
@@ -69,6 +66,17 @@ export default {
         }
     },
     methods:{
+        calendarCellClick(cell, datedata){
+            MessageBox.confirm('今天没有写日记哦，快来补上~~', '( >﹏<。)～呜呜呜……', {
+                confirmButtonText: '写日记',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                alert('你点击的是'+ datedata.solarYear + '年' + datedata.solarMonth + '月' + datedata.solarDate + '日'); 
+            }).catch(() => {
+                alert('取消');    
+            });            
+        },
         loadData(params = {}){
             this.getJournalList(params)
         },
@@ -96,17 +104,11 @@ $border-radius: 5px;
                 background-color: $white;   
                 border-radius: $border-radius;
                 & > .#{$prefix}-top{
-                    height: 336px;
+                    height: 376px;
                     text-align: center;
                     &.#{$prefix}-left-top{
-                        border-top-left-radius: $border-radius;
-                        border-top-right-radius: $border-radius;
-                        background-repeat: no-repeat;
-                        background-position: top left;
-                        background-size: cover;
-                        &[lazy=loading]{
-                            background-position: center center;
-                            background-size: 200px 150px;
+                        .#{$prefix}-calendar{
+                            margin: auto;
                         }
                     }
                     img{
@@ -118,12 +120,7 @@ $border-radius: 5px;
                             height: 150px;
                         }
                     }
-                }
-                & > .#{$prefix}-bottom{
-                    height: 64px;
-                    line-height: 64px;
-                    text-align: center;
-                }                               
+                }                         
             }          
         }
     }
