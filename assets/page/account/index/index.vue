@@ -11,32 +11,54 @@
                     span.navs-slider-bar(:class="{active: !isLogin}")
             transition(name="fade",  mode="out-in")
                 router-view
+            div.download-app-container
+                a.download-app(href="javascript:;;", @click="showQR", v-text="text")
 </template>
 
 <script>
 import particlesJS from 'particlesJS'
 import particles from '../particles.json'
+const title = {
+    register : '吾记 - 吾记网页版在线写日记 － 注册',
+    login: '吾记 - 吾记网页版在线写日记 － 登录'
+}
 export default {
     name: 'account',
     data () {
         return {
-            isLogin: true
+            isLogin: true,
+            text: '下载吾记',
+            isShowQR: false
         }
     },
     mounted(){
         particlesJS('particles-js', particles);
     },
+    methods:{
+        showQR(){
+            this.isShowQR = !this.isShowQR;
+        }
+    },
     components: {
     },
     watch: {
-      '$route' (to, from) {
-        if(to.name === "register"){
-            this.isLogin = false;
+        '$route' (to, from) {
+            if(to.name === "register"){
+                this.isLogin = false;
+            }
+            if(to.name === "login"){
+                this.isLogin = true;
+            }
+            document.title = title[to.name];
+            this.isShowQR = false;
+        },
+        'isShowQR' (bol){
+            if(bol){
+                this.text = '关闭二维码';
+            }else{
+                this.text = '下载吾记';
+            }
         }
-        if(to.name === "login"){
-            this.isLogin = true;
-        }
-      }
     }
 }
 </script>
@@ -74,7 +96,7 @@ $border-radius: 6px;
                 background-size: contain;
             }
             .subtitle{
-                margin: 15px 0 40px;
+                margin: 15px 0 20px;
                 font-weight: 400;
                 font-size: $size-h2;
                 line-height: 1;
@@ -153,5 +175,25 @@ $border-radius: 6px;
         text-decoration: none;
         text-align: center;
     }
+}
+.download-app-container{
+    position: relative;
+    .download-app{
+        &:link,
+        &:visited,
+        &:hover,
+        &:active{
+            display: block;
+            height: 40px;
+            line-height: 40px; 
+            background-color: transparent;
+            border: 1px $main solid;
+            color: $main;
+            border-radius: $border-radius;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 40px;
+        }
+    }    
 }
 </style>
