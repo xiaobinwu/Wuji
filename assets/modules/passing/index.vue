@@ -41,7 +41,7 @@ import Calendar from 'component/calendar'
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(VueLazyload,{
-    loading: '/public/images/loading.gif'
+    loading: '../../../public/images/loading.gif'
 })
 export default {
     name: 'passingindex',

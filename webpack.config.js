@@ -73,7 +73,8 @@ module.exports = {
     },
     //引入第三方库
     externals: {
-      'calendar': 'calendar' 
+      'calendar': 'calendar',
+      'particlesJS': 'particlesJS'
     },
     module: {
         rules: [{
@@ -105,6 +106,10 @@ module.exports = {
             //同上
             test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
             loader: 'file-loader'
+        },
+        {
+            test: /\.(png|jpg|gif)$/,
+            loader: 'url-loader?limit=8192'
         }]
     },
     resolve: {

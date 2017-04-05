@@ -45,12 +45,10 @@ app.get("/", function(req, res) {
 app.get("/passing", function(req, res) {
     res.sendFile(__dirname + '/passing.html');
 });
-app.get("/login", function(req, res) {
-    res.sendFile(__dirname + '/login.html');
+app.get("/account", function(req, res) {
+    res.sendFile(__dirname + '/account.html');
 });
-app.get("/register", function(req, res) {
-    res.sendFile(__dirname + '/login.html');
-});
+
 
 //设置 proxy 配置host
 // var apiProxy = proxy(hosts, {
@@ -62,7 +60,7 @@ app.get("/register", function(req, res) {
 // app.get("/*", apiProxy);
 // app.post("/*", apiProxy);
 
-//正式环境则不需要
+//正式环境则不需要，对应文件须修改js库路径
 // serve pure static assets
 // app.use('/dist', express.static('dist'));
 app.use('/public', express.static('assets/public'));
