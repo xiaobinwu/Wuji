@@ -1,3 +1,10 @@
+/* fade动画 */
+.fade-leave-active, .fade-enter-active {
+	transition: all .4s cubic-bezier(.55, 0, .1, 1);
+}
+.fade-enter, .fade-leave-active {
+	opacity: 0;
+}
 /* slide动画 */
 .slide-leave-active, .slide-enter-active {
 	transition: all .8s cubic-bezier(.55, 0, .1, 1);

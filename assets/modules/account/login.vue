@@ -1,16 +1,16 @@
 <template lang="jade">
     div.account-content
         div.account-item
-            el-input( placeholder="请输入账号邮箱", v-model="email" )
-                template(slot="prepend") 
+            el-input( placeholder="输入账号邮箱", v-model="email" )
+                template(slot="prepend")
                     i.fa.fa-envelope
         div.account-item
-            el-input( placeholder="请输入密码", type="password" v-model="password" )
-                template(slot="prepend") 
+            el-input( placeholder="输入密码", type="password" v-model="password" )
+                template(slot="prepend")
                     i.fa.fa-lock
         a.account-submit(href="javascript:void(0);") 登录
         div.account-dec
-            a(href="javascript:void(0);") 注册账号
+            router-link(:to="{ path: 'register'}") 注册账号
             a(href="javascript:void(0);") 忘记密码
 </template>
 
@@ -70,7 +70,7 @@ export default {
             margin-top: 15px;
             a{
                 &:link,&:visited,&:hover,&:active{
-                    color: $white;
+                    color: $main;
                     text-decoration: none;
                 }  
                 &:nth-child(1){

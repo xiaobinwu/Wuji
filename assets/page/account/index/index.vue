@@ -4,7 +4,12 @@
             div.account-header
                 h1.logo 吾记
                 h2.subtitle 一款随手记的记账记事本
-            transition(name="slide")
+            div.account-nav
+                div.account-navs-slider
+                    router-link(:to="{ path: '/'}", :class="{active: isLogin}") 登录
+                    router-link(:to="{ path: 'register'}", :class="{active: !isLogin}") 注册
+                    span.navs-slider-bar(:class="{active: !isLogin}")
+            transition(name="fade",  mode="out-in")
                 router-view
 </template>
 
@@ -15,6 +20,7 @@ export default {
     name: 'account',
     data () {
         return {
+            isLogin: true
         }
     },
     mounted(){
@@ -24,6 +30,12 @@ export default {
     },
     watch: {
       '$route' (to, from) {
+        if(to.name === "register"){
+            this.isLogin = false;
+        }
+        if(to.name === "login"){
+            this.isLogin = true;
+        }
       }
     }
 }
@@ -69,6 +81,43 @@ $border-radius: 6px;
                 color: #555;
             }
         }
+        .account-nav{
+            margin-bottom: 10px;
+            font-size: $size-h2;
+            text-align: center;
+            .account-navs-slider{
+                display: inline-block;
+                position: relative;
+                a{
+                    float: left;
+                    width: 72px;
+                    line-height: 35px;
+                    opacity: .7;
+                    -ms-filter: "alpha(Opacity=70)";
+                    -webkit-transition: opacity .15s,color .15s;
+                    transition: opacity .15s,color .15s;
+                    &.active{
+                        opacity: 1;
+                        -ms-filter: "alpha(Opacity=100)";
+                        color: $main;
+                    }
+                }
+                .navs-slider-bar{
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    margin: 0 16px;
+                    width: 40px;
+                    height: 2px;
+                    background: $main;
+                    -webkit-transition: left .15s ease-in;
+                    transition: left .15s ease-in;
+                    &.active{
+                        left: 72px;
+                    }
+                }
+            }
+        }
     }
 }
 .el-input{
@@ -83,11 +132,12 @@ $border-radius: 6px;
     }
     .el-input__inner{
         border-left: 0;
+        height: 45px;
         &:focus {
             outline: none;
             border-color: $main;
-        } 
-    }            
+        }
+    }
 }
 .account-submit{
     &:link,
@@ -95,8 +145,8 @@ $border-radius: 6px;
     &:hover,
     &:active{
         display: block;
-        height: 36px;
-        line-height: 36px; 
+        height: 40px;
+        line-height: 40px; 
         background-color: $main;
         color: $white;
         border-radius: $border-radius;
