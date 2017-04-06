@@ -57,7 +57,7 @@
 * 生成规则：
 * 自动加上浏览器样式前缀，兼容各浏览器（针对份额大于全球统计数据的1%，firefox 15）
 
-##静态资源gulp处理（/public）
+## 静态资源gulp处理（/public）
 ```javascript
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'), //压缩js
@@ -75,7 +75,7 @@ var gulp = require('gulp'),
 * 执行 gulp（压缩js、图片）
 * 执行 gulp sprite（生成雪碧图）[将需要合成雪碧的图片放入images/sprite/中某个新建的文件夹，运行，则可以在该文件夹下看到对应sprite.png、sprite.scss]
 
-#### 前端页面
+## 前端页面
 index.html  =>  我的日记列表
 passing.html  =>  过客列表
 account.html => 登录注册页面
