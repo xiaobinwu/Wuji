@@ -57,6 +57,23 @@
 * 生成规则：
 * 自动加上浏览器样式前缀，兼容各浏览器（针对份额大于全球统计数据的1%，firefox 15）
 
+##静态资源gulp处理（/public）
+```javascript
+var gulp = require('gulp'),
+    uglify = require('gulp-uglify'), //压缩js
+    rename = require("gulp-rename"), //文件重命名
+    changed = require('gulp-changed'), //监听文件是否修改
+    imagemin = require('gulp-imagemin'), // 图片压缩
+    pngquant = require('imagemin-pngquant'), // 深度压缩
+    runSequence = require('run-sequence'),     // 同步运行任务插件
+    del = require('del'), //删除文件
+    spritesmith = require('gulp.spritesmith'), //合成雪碧图
+    find = require("gulp-find-glob"); //得到glob对象
+```
+* 进入wuji/assets/public目录
+* cnpm install
+* 执行 gulp（压缩js、图片）
+* 执行 gulp sprite（生成雪碧图）[将需要合成雪碧的图片放入images/sprite/中某个新建的文件夹，运行，则可以在该文件夹下看到对应sprite.png、sprite.scss]
 
 #### 前端页面
 index.html  =>  我的日记列表
