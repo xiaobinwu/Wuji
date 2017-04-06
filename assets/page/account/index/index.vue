@@ -12,6 +12,9 @@
             transition(name="fade",  mode="out-in")
                 router-view
             div.download-app-container
+                div.qrcode-container(v-show="isShowQR")
+                    img.qrcode-img(src="../../../public/images/dist/wuji_download.png")
+                    div.sprite-index-icon-arrow
                 a.download-app(href="javascript:;;", @click="showQR", v-text="text")
 </template>
 
@@ -178,6 +181,37 @@ $border-radius: 6px;
 }
 .download-app-container{
     position: relative;
+    .qrcode-container{
+        position: absolute;
+        left: -5px;
+        bottom: 68px;
+        width: 310px;
+        height: 310px;
+        color: #555;
+        background-color: $white;
+        box-shadow: 0 0 8px 0 rgba(0,0,0,.15);
+        border-radius: 10px;
+        .qrcode-img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 260px;
+            height: 260px;
+            margin: auto;
+        }
+        .sprite-index-icon-arrow{
+            position: absolute;
+            margin: auto;
+            right: 0;
+            bottom: -10px;
+            left: 0;
+            width: 54px;
+            height: 38px;
+            background: url(../../../public/images/dist/arrow.png) no-repeat 0 0;
+        }
+    }
     .download-app{
         &:link,
         &:visited,
