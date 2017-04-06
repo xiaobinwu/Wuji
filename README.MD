@@ -1,3 +1,7 @@
+![cmd-markdown-logo](imgs/1.png)
+![cmd-markdown-logo](imgs/2.png)
+![cmd-markdown-logo](imgs/3.png)
+
 ## 吾记前端构建流程
 
 #### 本地环境准备
@@ -57,5 +61,4 @@
 #### 前端页面
 index.html  =>  我的日记列表
 passing.html  =>  过客列表
-login.html => 登录页面
-register  =>  注册页面
+account.html => 登录注册页面
