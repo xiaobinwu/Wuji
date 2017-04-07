@@ -15,6 +15,7 @@ var apiPath = path.join(__dirname, './api.json');
 function getApis(){
     fs.readFile(apiPath, 'utf-8', function(err, content){
         api = JSON.parse(content);
+        console.log(content)
     });
 }
 //监听api.json变化
@@ -54,5 +55,10 @@ app.use(function(req, res){
             break;
         }
     }
+    //占位符[https://github.com/nuysoft/Mock/wiki/Mock.Random]
+    console.log(mock.mock('@email'))
+    console.log(mock.mock('@image'))
+    console.log(mock.mock('@color'))
+    console.log(mock.mock('@character'))
     data !== undefined ? setTimeout(() => res.jsonp(data), delay) : res.sendStatus(404);
 });

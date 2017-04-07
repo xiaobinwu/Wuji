@@ -11,7 +11,7 @@
         a.account-submit(href="javascript:void(0);", @click="doLogin") 登录
         div.account-dec
             router-link(:to="{ path: 'register'}") 注册账号
-            a(href="javascript:void(0);") 忘记密码
+            a(href="javascript:void(0);", @click="showDialog") 忘记密码
 </template>
 
 <script>
@@ -27,27 +27,13 @@ export default {
     data () {
         return {
             email: '',
-            password: ''
+            password: '',
+            isShowDialog: false
         }
     },
-    beforeMount(){
-        this.loadData();
-    },
-    mounted(){
-        console.log(this.journalList)
-    },
-    computed: {
-        ...mapState({
-            journalList: state => state.example.journalList
-        })
-    },
-
     methods:{
-        loadData(params = {}){
-            this.getJournalList(params)
-        },
         ...mapActions([
-          'getJournalList'
+          'changeForgetPwdDialogStatus'
         ]),
         doLogin(){
             if(this.email === ''){
@@ -57,6 +43,9 @@ export default {
                 return Message({ message: "邮箱格式错误了！", type: 'error', duration: 2000 });
             }
             //异步请求
+        },
+        showDialog(){
+            this.changeForgetPwdDialogStatus({status:true});
         }
     },
     components: {

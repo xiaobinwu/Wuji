@@ -38,25 +38,7 @@ export default {
             repassword: ''
         }
     },
-    beforeMount(){
-        this.loadData();
-    },
-    mounted(){
-        console.log(this.journalList)
-    },
-    computed: {
-        ...mapState({
-            journalList: state => state.example.journalList
-        })
-    },
-
     methods:{
-        loadData(params = {}){
-            this.getJournalList(params)
-        },
-        ...mapActions([
-          'getJournalList'
-        ]),
         doRegister(){
             if(this.email === ''){
                 return Message({ message: "邮箱不为空！", type: 'error', duration: 2000 });

@@ -3,11 +3,14 @@ import Vuex from 'vuex'
 
 //测试
 import example from './module/example'
+//用户模块
+import account from './module/account'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
-		example
+		example,
+		account
     }
 })

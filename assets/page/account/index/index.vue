@@ -1,26 +1,30 @@
 <template lang="jade">
-    div.main#particles-js
-        div.account-container
-            div.account-header
-                h1.logo 吾记
-                h2.subtitle 一款随手记的记账记事本
-            div.account-nav
-                div.account-navs-slider
-                    router-link(:to="{ path: '/'}", :class="{active: isLogin}") 登录
-                    router-link(:to="{ path: 'register'}", :class="{active: !isLogin}") 注册
-                    span.navs-slider-bar(:class="{active: !isLogin}")
-            transition(name="fade",  mode="out-in")
-                router-view
-            div.download-app-container
-                div.qrcode-container(v-show="isShowQR")
-                    img.qrcode-img(src="../../../public/images/dist/wuji_download.png")
-                    div.sprite-index-icon-arrow
-                a.download-app(href="javascript:;;", @click="showQR", v-text="text")
+    div.main
+        div#particles-js
+            div.account-container
+                div.account-header
+                    h1.logo 吾记
+                    h2.subtitle 一款随手记的记账记事本
+                div.account-nav
+                    div.account-navs-slider
+                        router-link(:to="{ path: '/'}", :class="{active: isLogin}") 登录
+                        router-link(:to="{ path: 'register'}", :class="{active: !isLogin}") 注册
+                        span.navs-slider-bar(:class="{active: !isLogin}")
+                transition(name="fade",  mode="out-in")
+                    router-view
+                div.download-app-container
+                    div.qrcode-container(v-show="isShowQR")
+                        img.qrcode-img(src="../../../public/images/dist/wuji_download.png")
+                        div.sprite-index-icon-arrow
+                    a.download-app(href="javascript:;;", @click="showQR", v-text="text")
+        forgetpwd
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 import particlesJS from 'particlesJS'
 import particles from '../particles.json'
+import forgetpwd from 'modules/account/forgetpwd'
 const title = {
     register : '吾记 - 吾记网页版在线写日记 － 注册',
     login: '吾记 - 吾记网页版在线写日记 － 登录'
@@ -43,6 +47,7 @@ export default {
         }
     },
     components: {
+        forgetpwd
     },
     watch: {
         '$route' (to, from) {
@@ -70,7 +75,7 @@ export default {
 @import "../../../public/scss/_variables.scss";
 @import "../../../public/scss/_base.scss";
 $border-radius: 6px;
-.main{
+#particles-js{
     position: absolute;
     top: 0;
     left: 0;

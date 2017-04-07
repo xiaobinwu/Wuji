@@ -20,25 +20,7 @@ export default {
         return {
         }
     },
-    beforeMount(){
-        this.loadData();
-    },
-    mounted(){
-        console.log(this.journalList)
-    },
-    computed: {
-        ...mapState({
-            journalList: state => state.example.journalList
-        })
-    },
-
     methods:{
-        loadData(params = {}){
-            this.getJournalList(params)
-        },
-        ...mapActions([
-          'getJournalList'
-        ])
     },
     components: {
         timeLine
