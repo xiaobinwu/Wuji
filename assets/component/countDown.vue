@@ -1,8 +1,10 @@
 <template lang="jade">
-	button(:disabeld="disabled", @click="fn") {{text}}
+	el-button(:disabled="disabled",:plain="plain" @click="fn") {{text}}
 </template>
 <script>
     import Vue from 'vue'
+    import {Button} from 'element-ui'
+    Vue.use(Button)
     export default{
         name: 'countDown',
         data(){
@@ -22,7 +24,11 @@
         	},
         	callback: {
         		type: Function
-        	}
+        	},
+            plain:{
+                type: Boolean,
+                default: true
+            }
         },
         watch: {
         	start(bol){
