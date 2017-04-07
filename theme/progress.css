@@ -107,16 +107,16 @@
 }
 
 .el-progress.is-success .el-progress-bar__inner{
-  background-color:#5dac81;
+  background-color:#13ce66;
 }
 
 .el-progress.is-success .el-progress__text{
-  color:#5dac81;
+  color:#13ce66;
 }
 
 .el-progress__text{
   font-size:14px;
-  color:rgb(72, 87, 106);
+  color:rgb(72, 106, 92);
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
@@ -174,7 +174,7 @@
 .el-progress-bar__outer{
   height: 6px;
   border-radius: 100px;
-  background-color:rgb(228, 232, 241);
+  background-color:rgb(228, 241, 237);
   overflow: hidden;
   position: relative;
   vertical-align: middle;
@@ -186,7 +186,7 @@
   top: 0;
   height: 100%;
   border-radius: 2px 0 0 2px;
-  background-color:#20a0ff;
+  background-color:#429e6c;
   text-align: right;
   border-radius: 100px;
   line-height: 1;
@@ -213,6 +213,7 @@
   -------------------------- */
   /* Colors
   -------------------------- */
+  //修改成吾记默认主色调:#5dac81;
   /* Link
   -------------------------- */
   /* Border

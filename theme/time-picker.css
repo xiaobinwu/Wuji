@@ -217,6 +217,13 @@
 .collapse-transition {
     transition: 0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out;
 }
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+.list-enter, .list-leave-active {
+    opacity: 0;
+    transform: translateY(-30px);
+}
 .el-date-editor {
     position: relative;
     display: inline-block;
@@ -333,8 +340,11 @@
 .el-time-spinner.has-seconds .el-time-spinner__wrapper {
     width: 33%;
 }
+.el-time-spinner.has-seconds .el-time-spinner__wrapper .el-scrollbar__wrap:not(.el-scrollbar__wrap--hidden-default) {
+    padding-bottom: 15px;
+}
 .el-time-spinner.has-seconds .el-time-spinner__wrapper:nth-child(2) {
-    padding-left: 1%;
+    margin-left: 1%;
 }
 .el-time-spinner__wrapper {
     max-height: 190px;
@@ -488,7 +498,7 @@
     font-size: 14px;
     margin-top: -15px;
     line-height: 16px;
-    background-color: #20a0ff;
+    background-color: #429e6c;
     height: 32px;
     z-index: -1;
     left: 0;
@@ -529,11 +539,11 @@
     background-color: transparent;
     outline: none;
     font-size: 12px;
-    color: rgb(131, 145, 165);
+    color: rgb(131, 165, 151);
 }
 .el-time-panel__btn.confirm {
     font-weight: 800;
-    color: #20a0ff;
+    color: #429e6c;
 }
 @charset "UTF-8";
 :root {
@@ -639,9 +649,6 @@
 .el-input.is-disabled .el-input__inner::-webkit-input-placeholder {
     color: #c0ccda;
 }
-.el-input.is-disabled .el-input__inner::-moz-placeholder {
-    color: #c0ccda;
-}
 .el-input.is-disabled .el-input__inner:-ms-input-placeholder {
     color: #c0ccda;
 }
@@ -650,7 +657,7 @@
 }
 .el-input.is-active .el-input__inner {
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-input__inner {
     -webkit-appearance: none;
@@ -674,9 +681,6 @@
 .el-input__inner::-webkit-input-placeholder {
     color: #99a9bf;
 }
-.el-input__inner::-moz-placeholder {
-    color: #99a9bf;
-}
 .el-input__inner:-ms-input-placeholder {
     color: #99a9bf;
 }
@@ -688,7 +692,7 @@
 }
 .el-input__inner:focus {
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-input__icon {
     position: absolute;
@@ -747,8 +751,8 @@
     display: table-cell;
 }
 .el-input-group__append, .el-input-group__prepend {
-    background-color: rgb(251, 253, 255);
-    color: rgb(151, 168, 190);
+    background-color: rgb(251, 253, 252);
+    color: rgb(151, 190, 174);
     vertical-align: middle;
     display: table-cell;
     position: relative;
@@ -804,9 +808,6 @@
 .el-textarea.is-disabled .el-textarea__inner::-webkit-input-placeholder {
     color: #c0ccda;
 }
-.el-textarea.is-disabled .el-textarea__inner::-moz-placeholder {
-    color: #c0ccda;
-}
 .el-textarea.is-disabled .el-textarea__inner:-ms-input-placeholder {
     color: #c0ccda;
 }
@@ -831,9 +832,6 @@
 .el-textarea__inner::-webkit-input-placeholder {
     color: #99a9bf;
 }
-.el-textarea__inner::-moz-placeholder {
-    color: #99a9bf;
-}
 .el-textarea__inner:-ms-input-placeholder {
     color: #99a9bf;
 }
@@ -845,7 +843,7 @@
 }
 .el-textarea__inner:focus {
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 @charset "UTF-8";
 :root {
@@ -993,6 +991,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

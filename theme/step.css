@@ -111,7 +111,7 @@
     display: inline-block;
     position: absolute;
     border-color: inherit;
-    background-color: rgb(191, 203, 217);
+    background-color: rgb(191, 217, 205);
 }
 
 .el-step__line.is-vertical{
@@ -168,8 +168,8 @@
 }
 
 .el-step__head.is-finish{
-    color: #20a0ff;
-    border-color: #20a0ff;
+    color: #429e6c;
+    border-color: #429e6c;
 }
 
 .el-step__head.is-error{
@@ -178,18 +178,18 @@
 }
 
 .el-step__head.is-success{
-    color: #5dac81;
-    border-color: #5dac81;
+    color: #13ce66;
+    border-color: #13ce66;
 }
 
 .el-step__head.is-wait{
-    color: rgb(191, 203, 217);
-    border-color: rgb(191, 203, 217);
+    color: rgb(191, 217, 205);
+    border-color: rgb(191, 217, 205);
 }
 
 .el-step__head.is-process{
-    color: rgb(191, 203, 217);
-    border-color: rgb(191, 203, 217);
+    color: rgb(191, 217, 205);
+    border-color: rgb(191, 217, 205);
 }
 
 .el-step__head.is-text{
@@ -200,8 +200,8 @@
 
 .el-step__head.is-text.is-finish{
     color: #fff;
-    background-color: #20a0ff;
-    border-color: #20a0ff;
+    background-color: #429e6c;
+    border-color: #429e6c;
 }
 
 .el-step__head.is-text.is-error{
@@ -212,20 +212,20 @@
 
 .el-step__head.is-text.is-success{
     color: #fff;
-    background-color: #5dac81;
-    border-color: #5dac81;
+    background-color: #13ce66;
+    border-color: #13ce66;
 }
 
 .el-step__head.is-text.is-wait{
-    color: rgb(191, 203, 217);
+    color: rgb(191, 217, 205);
     background-color: #fff;
-    border-color: rgb(191, 203, 217);
+    border-color: rgb(191, 217, 205);
 }
 
 .el-step__head.is-text.is-process{
     color: #fff;
-    background-color: rgb(191, 203, 217);
-    border-color: rgb(191, 203, 217);
+    background-color: rgb(191, 217, 205);
+    border-color: rgb(191, 217, 205);
 }
 
 .el-step__main{
@@ -242,7 +242,7 @@
 
 .el-step__title.is-finish{
     font-weight: 700;
-    color: #20a0ff;
+    color: #429e6c;
 }
 
 .el-step__title.is-error{
@@ -252,17 +252,17 @@
 
 .el-step__title.is-success{
     font-weight: 700;
-    color: #5dac81;
+    color: #13ce66;
 }
 
 .el-step__title.is-wait{
     font-weight: 400;
-    color: rgb(151, 168, 190);
+    color: rgb(151, 190, 174);
 }
 
 .el-step__title.is-process{
     font-weight: 700;
-    color: rgb(72, 87, 106);
+    color: rgb(72, 106, 92);
 }
 
 .el-step__description{
@@ -272,7 +272,7 @@
 }
 
 .el-step__description.is-finish{
-    color: #20a0ff;
+    color: #429e6c;
 }
 
 .el-step__description.is-error{
@@ -280,21 +280,22 @@
 }
 
 .el-step__description.is-success{
-    color: #5dac81;
+    color: #13ce66;
 }
 
 .el-step__description.is-wait{
-    color: rgb(191, 203, 217);
+    color: rgb(191, 217, 205);
 }
 
 .el-step__description.is-process{
-    color: rgb(131, 145, 165);
+    color: rgb(131, 165, 151);
 }
 :root{
     /* Transition
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

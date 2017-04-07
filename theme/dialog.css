@@ -123,6 +123,7 @@
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
+    margin-bottom: 50px;
 }
 
 .el-dialog--tiny{
@@ -140,6 +141,7 @@
 .el-dialog--full{
     width: 100%;
     top: 0;
+    margin-bottom: 0;
     height: 100%;
     overflow: auto;
 }
@@ -164,19 +166,19 @@
 }
 
 .el-dialog__close:hover{
-    color: #20a0ff;
+    color: #429e6c;
 }
 
 .el-dialog__title{
     line-height: 1;
     font-size: 16px;
     font-weight: 700;
-    color: rgb(31, 45, 61);
+    color: rgb(31, 61, 47);
 }
 
 .el-dialog__body{
     padding: 30px 20px;
-    color: rgb(72, 87, 106);
+    color: rgb(72, 106, 92);
     font-size: 14px;
 }
 
@@ -224,6 +226,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

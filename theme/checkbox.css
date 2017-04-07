@@ -114,7 +114,7 @@
 }
 
 .el-checkbox__input.is-indeterminate .el-checkbox__inner{
-    background-color: #20a0ff;
+    background-color: #429e6c;
     border-color: #2e90fe
 }
 
@@ -134,11 +134,11 @@
 }
 
 .el-checkbox__input.is-focus .el-checkbox__inner{
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 
 .el-checkbox__input.is-checked .el-checkbox__inner{
-    background-color: #20a0ff;
+    background-color: #429e6c;
     border-color: #2e90fe
 }
 
@@ -199,7 +199,7 @@
 }
 
 .el-checkbox__inner:hover{
-    border-color: #20a0ff
+    border-color: #429e6c
 }
 
 .el-checkbox__inner::after{
@@ -223,6 +223,7 @@
     outline: none;
     position: absolute;
     margin: 0;
+    visibility: hidden;
     left: -999px
 }
 
@@ -235,6 +236,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81
     /* Link
   -------------------------- */
     /* Border

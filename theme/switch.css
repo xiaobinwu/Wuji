@@ -164,8 +164,8 @@
 }
 
 .el-switch__input:checked + .el-switch__core{
-    border-color: #20a0ff;
-    background-color: #20a0ff
+    border-color: #429e6c;
+    background-color: #429e6c
 }
 
 .el-switch__core{
@@ -209,6 +209,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81
     /* Link
   -------------------------- */
     /* Border

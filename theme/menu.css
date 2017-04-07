@@ -125,19 +125,19 @@
 }
 
 .el-menu--dark .el-menu-item, .el-menu--dark .el-submenu__title{
-  color: rgb(191, 203, 217);
+  color: rgb(191, 217, 205);
 }
 
 .el-menu--dark .el-menu-item:hover, .el-menu--dark .el-submenu__title:hover{
-  background-color: rgb(72, 87, 106);
+  background-color: rgb(72, 106, 92);
 }
 
 .el-menu--dark .el-submenu .el-menu{
-  background-color: rgb(31, 45, 61);
+  background-color: rgb(31, 61, 47);
 }
 
 .el-menu--dark .el-submenu .el-menu .el-menu-item:hover{
-  background-color: rgb(72, 87, 106);
+  background-color: rgb(72, 106, 92);
 }
 
 .el-menu--horizontal{}
@@ -170,7 +170,7 @@
   position: absolute;
   top: 65px;
   left: 0;
-  border: 1px solid rgb(209, 219, 229);
+  border: 1px solid rgb(209, 229, 220);
   padding: 5px 0;
   background-color: #fff;
   z-index: 100;
@@ -196,7 +196,7 @@
   position: static;
   vertical-align: middle;
   margin-left: 5px;
-  color: rgb(151, 168, 190);
+  color: rgb(151, 190, 174);
   margin-top: -3px;
 }
 
@@ -205,7 +205,7 @@
 }
 
 .el-menu--horizontal > .el-menu-item:hover, .el-menu--horizontal > .el-submenu:hover .el-submenu__title, .el-menu--horizontal > .el-submenu.is-active .el-submenu__title{
-  border-bottom: 5px solid #20a0ff;
+  border-bottom: 5px solid #429e6c;
 }
 
 .el-menu--horizontal.el-menu--dark{}
@@ -215,15 +215,15 @@
 }
 
 .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item, .el-menu--horizontal.el-menu--dark .el-submenu .el-submenu-title{
-  color: rgb(72, 87, 106);
+  color: rgb(72, 106, 92);
 }
 
 .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item:hover, .el-menu--horizontal.el-menu--dark .el-submenu .el-submenu-title:hover{
-  background-color: rgb(209, 219, 229);
+  background-color: rgb(209, 229, 220);
 }
 
 .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active{
-  color: #20a0ff;
+  color: #429e6c;
 }
 
 .el-menu-item [class^="el-icon-"]{
@@ -240,11 +240,11 @@
 }
 
 .el-menu-item:hover{
-  background-color: rgb(209, 219, 229);
+  background-color: rgb(209, 229, 220);
 }
 
 .el-menu-item.is-active{
-  color: #20a0ff;
+  color: #429e6c;
 }
 
 .el-submenu [class^="el-icon-"]{
@@ -253,7 +253,7 @@
 }
 
 .el-submenu .el-menu{
-  background-color: rgb(228, 232, 241);
+  background-color: rgb(228, 241, 237);
 }
 
 .el-submenu .el-menu-item{
@@ -263,7 +263,7 @@
 }
 
 .el-submenu .el-menu-item:hover{
-  background-color: rgb(209, 219, 229);
+  background-color: rgb(209, 229, 220);
 }
 
 .el-submenu.is-opened > .el-submenu__title .el-submenu__icon-arrow{
@@ -271,7 +271,7 @@
 }
 
 .el-submenu.is-active .el-submenu__title{
-  border-bottom-color: #20a0ff;
+  border-bottom-color: #429e6c;
 }
 
 .el-submenu__title{
@@ -279,7 +279,7 @@
 }
 
 .el-submenu__title:hover{
-  background-color: rgb(209, 219, 229);
+  background-color: rgb(209, 229, 220);
 }
 
 .el-submenu__icon-arrow{
@@ -300,13 +300,14 @@
   line-height: normal;
   font-size: 14px;
   padding-left: 20px;
-  color: rgb(151, 168, 190);
+  color: rgb(151, 190, 174);
 }
 :root{
   /* Transition
   -------------------------- */
   /* Colors
   -------------------------- */
+  //修改成吾记默认主色调: #5dac81;
   /* Link
   -------------------------- */
   /* Border

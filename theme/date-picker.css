@@ -105,7 +105,18 @@
     color: #ddd;
 }
 .el-date-table td.today {
-    color: #20a0ff;
+    color: #429e6c;
+    position: relative;
+}
+.el-date-table td.today:before {
+    content: " ";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 0;
+    height: 0;
+    border-top: 0.5em solid #429e6c;
+    border-left: .5em solid transparent;
 }
 .el-date-table td.available:hover {
     background-color: #e5e9f2;
@@ -116,8 +127,8 @@
 .el-date-table td.in-range:hover {
     background-color: #AFDCFF;
 }
-.el-date-table td.current, .el-date-table td.start-date, .el-date-table td.end-date {
-    background-color: #20a0ff !important;
+.el-date-table td.current:not(.disabled), .el-date-table td.start-date, .el-date-table td.end-date {
+    background-color: #429e6c !important;
     color: #fff;
 }
 .el-date-table td.disabled {
@@ -255,8 +266,8 @@
     cursor: not-allowed;
     color: #ccc;
 }
-.el-month-table td.current .cell {
-    background-color: #20a0ff !important;
+.el-month-table td.current:not(.disabled) .cell {
+    background-color: #429e6c !important;
     color: #fff;
 }
 :root {
@@ -375,8 +386,8 @@
     cursor: not-allowed;
     color: #ccc;
 }
-.el-year-table td.current .cell {
-    background-color: #20a0ff !important;
+.el-year-table td.current:not(.disabled) .cell {
+    background-color: #429e6c !important;
     color: #fff;
 }
 :root {
@@ -471,8 +482,11 @@
 .el-time-spinner.has-seconds .el-time-spinner__wrapper {
     width: 33%;
 }
+.el-time-spinner.has-seconds .el-time-spinner__wrapper .el-scrollbar__wrap:not(.el-scrollbar__wrap--hidden-default) {
+    padding-bottom: 15px;
+}
 .el-time-spinner.has-seconds .el-time-spinner__wrapper:nth-child(2) {
-    padding-left: 1%;
+    margin-left: 1%;
 }
 .el-time-spinner__wrapper {
     max-height: 190px;
@@ -729,6 +743,13 @@
 .collapse-transition {
     transition: 0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out;
 }
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+.list-enter, .list-leave-active {
+    opacity: 0;
+    transform: translateY(-30px);
+}
 .el-date-editor {
     position: relative;
     display: inline-block;
@@ -973,7 +994,7 @@
 }
 .el-picker-panel__shortcut.active {
     background-color: #e6f1fe;
-    color: #20a0ff;
+    color: #429e6c;
 }
 .el-picker-panel__btn {
     border: 1px solid #dcdcdc;
@@ -1000,11 +1021,11 @@
     margin-top: 3px;
 }
 .el-picker-panel__icon-btn:hover {
-    color: #20a0ff;
+    color: #429e6c;
 }
 .el-picker-panel__link-btn {
     cursor: pointer;
-    color: #20a0ff;
+    color: #429e6c;
     text-decoration: none;
     padding: 15px;
     font-size: 12px;
@@ -1017,7 +1038,7 @@
     border-right: 1px solid #e4e4e4;
     box-sizing: border-box;
     padding-top: 6px;
-    background-color: rgb(251, 253, 255);
+    background-color: rgb(251, 253, 252);
 }
 .el-picker-panel *[slot=sidebar] + .el-picker-panel__body, .el-picker-panel__sidebar + .el-picker-panel__body {
     margin-left: 110px;
@@ -1067,10 +1088,10 @@
     cursor: pointer;
 }
 .el-date-picker__header-label:hover {
-    color: #20a0ff;
+    color: #429e6c;
 }
 .el-date-picker__header-label.active {
-    color: #20a0ff;
+    color: #429e6c;
 }
 .el-date-picker__prev-btn {
     float: left;
@@ -1490,7 +1511,7 @@
     font-size: 14px;
     margin-top: -15px;
     line-height: 16px;
-    background-color: #20a0ff;
+    background-color: #429e6c;
     height: 32px;
     z-index: -1;
     left: 0;
@@ -1531,11 +1552,11 @@
     background-color: transparent;
     outline: none;
     font-size: 12px;
-    color: rgb(131, 145, 165);
+    color: rgb(131, 165, 151);
 }
 .el-time-panel__btn.confirm {
     font-weight: 800;
-    color: #20a0ff;
+    color: #429e6c;
 }
 @charset "UTF-8";
 :root {
@@ -1641,9 +1662,6 @@
 .el-input.is-disabled .el-input__inner::-webkit-input-placeholder {
     color: #c0ccda;
 }
-.el-input.is-disabled .el-input__inner::-moz-placeholder {
-    color: #c0ccda;
-}
 .el-input.is-disabled .el-input__inner:-ms-input-placeholder {
     color: #c0ccda;
 }
@@ -1652,7 +1670,7 @@
 }
 .el-input.is-active .el-input__inner {
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-input__inner {
     -webkit-appearance: none;
@@ -1676,9 +1694,6 @@
 .el-input__inner::-webkit-input-placeholder {
     color: #99a9bf;
 }
-.el-input__inner::-moz-placeholder {
-    color: #99a9bf;
-}
 .el-input__inner:-ms-input-placeholder {
     color: #99a9bf;
 }
@@ -1690,7 +1705,7 @@
 }
 .el-input__inner:focus {
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-input__icon {
     position: absolute;
@@ -1749,8 +1764,8 @@
     display: table-cell;
 }
 .el-input-group__append, .el-input-group__prepend {
-    background-color: rgb(251, 253, 255);
-    color: rgb(151, 168, 190);
+    background-color: rgb(251, 253, 252);
+    color: rgb(151, 190, 174);
     vertical-align: middle;
     display: table-cell;
     position: relative;
@@ -1806,9 +1821,6 @@
 .el-textarea.is-disabled .el-textarea__inner::-webkit-input-placeholder {
     color: #c0ccda;
 }
-.el-textarea.is-disabled .el-textarea__inner::-moz-placeholder {
-    color: #c0ccda;
-}
 .el-textarea.is-disabled .el-textarea__inner:-ms-input-placeholder {
     color: #c0ccda;
 }
@@ -1833,9 +1845,6 @@
 .el-textarea__inner::-webkit-input-placeholder {
     color: #99a9bf;
 }
-.el-textarea__inner::-moz-placeholder {
-    color: #99a9bf;
-}
 .el-textarea__inner:-ms-input-placeholder {
     color: #99a9bf;
 }
@@ -1847,7 +1856,7 @@
 }
 .el-textarea__inner:focus {
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 @charset "UTF-8";
 :root {
@@ -1994,6 +2003,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

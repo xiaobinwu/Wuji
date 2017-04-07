@@ -565,20 +565,20 @@ body {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: rgb(31, 45, 61);
+  color: rgb(31, 61, 47);
 }
 
 a {
-  color: #20a0ff;
+  color: #429e6c;
   text-decoration: none
 }
 
 a:hover, a:focus {
-  color: rgb(77, 179, 255);
+  color: rgb(104, 177, 137);
 }
 
 a:active {
-  color: rgb(29, 144, 230);
+  color: rgb(59, 142, 97);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -634,6 +634,7 @@ small {
   -------------------------- */
   /* Colors
   -------------------------- */
+  //修改成吾记默认主色调: #5dac81;
   /* Link
   -------------------------- */
   /* Border

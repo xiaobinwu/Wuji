@@ -110,7 +110,7 @@
 
 .el-select-dropdown__item.selected{
     color: #fff;
-    background-color: #20a0ff
+    background-color: #429e6c
 }
 
 .el-select-dropdown__item.selected.hover{
@@ -134,6 +134,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81
     /* Link
   -------------------------- */
     /* Border

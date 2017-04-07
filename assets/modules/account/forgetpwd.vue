@@ -1,11 +1,12 @@
 <template lang="jade">
 
     el-dialog(title="忘记密码", v-model="isShowDialog", :close-on-click-modal="false", :close-on-press-escape="false", @close="closeDialog")
-        el-steps( :active="1", finish-status="success", :center="true", :align-center="true")
+        el-steps( :active="step", :center="true", :align-center="true")
             el-step(title="输入邮箱")
             el-step(title="设置新密码")
             el-step(title="设置成功")
-
+        div.step(v-show="step===1")
+            
 </template>
 
 <script>
@@ -24,6 +25,7 @@ export default {
     },
     data () {
         return {
+            step: 1
         }
     },
     computed: {
@@ -46,5 +48,4 @@ export default {
 <style lang="sass">
     @import "../../public/scss/_variables.scss";
     @import "../../public/scss/_mixins.scss";
-
 </style>

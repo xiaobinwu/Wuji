@@ -111,7 +111,7 @@
     vertical-align: middle;
 }
 .el-checkbox__input.is-indeterminate .el-checkbox__inner{
-    background-color: #20a0ff;
+    background-color: #429e6c;
     border-color: #2e90fe;
 }
 .el-checkbox__input.is-indeterminate .el-checkbox__inner::before{
@@ -128,10 +128,10 @@
     display: none;
 }
 .el-checkbox__input.is-focus .el-checkbox__inner{
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-checkbox__input.is-checked .el-checkbox__inner{
-    background-color: #20a0ff;
+    background-color: #429e6c;
     border-color: #2e90fe;
 }
 .el-checkbox__input.is-checked .el-checkbox__inner::after{
@@ -181,7 +181,7 @@
                   background-color .25s cubic-bezier(.71,-.46,.29,1.46);
 }
 .el-checkbox__inner:hover{
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-checkbox__inner::after{
     box-sizing: content-box;
@@ -203,6 +203,7 @@
     outline: none;
     position: absolute;
     margin: 0;
+    visibility: hidden;
     left: -999px;
 }
 .el-checkbox__label{
@@ -344,26 +345,26 @@
 .el-tag--primary{
     background-color: rgba(32,159,255,0.10);
     border-color: rgba(32,159,255,0.20);
-    color: #20a0ff;
+    color: #429e6c;
 }
 .el-tag--primary .el-tag__close:hover{
-    background-color: #20a0ff;
+    background-color: #429e6c;
     color: #fff;
 }
 .el-tag--primary.is-hit{
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-tag--success{
     background-color: rgba(18,206,102,0.10);
     border-color: rgba(18,206,102,0.20);
-    color: #5dac81;
+    color: #13ce66;
 }
 .el-tag--success .el-tag__close:hover{
-    background-color: #5dac81;
+    background-color: #13ce66;
     color: #fff;
 }
 .el-tag--success.is-hit{
-    border-color: #5dac81;
+    border-color: #13ce66;
 }
 .el-tag--warning{
     background-color: rgba(247,186,41,0.10);
@@ -490,15 +491,7 @@
     color: #1f2d3d;
 }
 
-.el-table .el-tooltip{
-    display: block;
-}
-
-.el-table .el-tooltip__rel{
-    display: block;
-}
-
-.el-table .el-tooltip__rel .cell{
+.el-table .el-tooltip.cell{
     white-space: nowrap;
 }
 
@@ -608,7 +601,7 @@
 }
 
 .el-table th > .cell.highlight{
-    color: #20a0ff;
+    color: #429e6c;
 }
 
 .el-table .caret-wrapper{
@@ -639,24 +632,24 @@
     top: 11px;
     border-top: none;
     border-right: 5px solid transparent;
-    border-bottom: 5px solid rgb(151, 168, 190);
+    border-bottom: 5px solid rgb(151, 190, 174);
     border-left: 5px solid transparent;
 }
 
 .el-table .sort-caret.descending{
     bottom: 11px;
-    border-top: 5px solid rgb(151, 168, 190);
+    border-top: 5px solid rgb(151, 190, 174);
     border-right: 5px solid transparent;
     border-bottom: none;
     border-left: 5px solid transparent;
 }
 
 .el-table .ascending .sort-caret.ascending{
-    border-bottom-color: rgb(72, 87, 106);
+    border-bottom-color: rgb(72, 106, 92);
 }
 
 .el-table .descending .sort-caret.descending{
-    border-top-color: rgb(72, 87, 106);
+    border-top-color: rgb(72, 106, 92);
 }
 
 .el-table td.gutter{
@@ -701,7 +694,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(94, 115, 130);
+    color: rgb(94, 130, 110);
 }
 
 .el-table__expand-column .cell {
@@ -732,12 +725,12 @@
 
 .el-table__expanded-cell{
     padding: 20px 50px;
-    background-color: rgb(251, 253, 255);
+    background-color: rgb(251, 253, 252);
     box-shadow: inset 0 2px 0 #f4f4f4;
 }
 
 .el-table__expanded-cell:hover{
-    background-color: rgb(251, 253, 255) !important;
+    background-color: rgb(251, 253, 252) !important;
 }
 
 .el-table--fit{
@@ -847,15 +840,15 @@
 }
 
 .el-table--striped .el-table__body tr:nth-child(2n).current-row td{
-    background: rgb(237, 247, 255);
+    background: rgb(240, 247, 243);
 }
 
 .el-table__body tr.hover-row > td {
-    background-color: rgb(238, 241, 246);
+    background-color: rgb(238, 246, 243);
 }
 
 .el-table__body tr.current-row > td {
-    background: rgb(237, 247, 255);
+    background: rgb(240, 247, 243);
 }
 
 .el-table__column-resize-proxy{
@@ -876,7 +869,7 @@
 }
 
 .el-table__column-filter-trigger i{
-    color: rgb(151, 168, 190);
+    color: rgb(151, 190, 174);
 }
 
 .el-table--enable-row-transition .el-table__body td {
@@ -884,7 +877,7 @@
 }
 
 .el-table--enable-row-hover tr:hover > td {
-    background-color: rgb(238, 241, 246);
+    background-color: rgb(238, 246, 243);
 }
 
 .el-table--fluid-height .el-table__fixed, .el-table--fluid-height .el-table__fixed-right {
@@ -896,6 +889,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

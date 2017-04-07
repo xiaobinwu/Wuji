@@ -110,7 +110,7 @@
 }
 
 .el-alert--success{
-    background-color: #5dac81;
+    background-color: #13ce66;
 }
 
 .el-alert--info{
@@ -176,6 +176,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

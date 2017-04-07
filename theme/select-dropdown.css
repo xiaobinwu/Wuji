@@ -106,7 +106,7 @@
 .el-select-dropdown.is-multiple{}
 
 .el-select-dropdown.is-multiple .el-select-dropdown__item.selected{
-    color: #20a0ff;
+    color: #429e6c;
     background-color: #fff;
 }
 
@@ -134,7 +134,6 @@
 
 .el-select-dropdown__wrap{
     max-height: 274px;
-    width: 100%;
 }
 
 .el-select-dropdown__list{
@@ -148,6 +147,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

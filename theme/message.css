@@ -104,7 +104,7 @@
 }
 
 .el-message .el-icon-circle-check{
-    color: #5dac81;
+    color: #13ce66;
 }
 
 .el-message .el-icon-circle-cross{
@@ -123,17 +123,15 @@
     margin-left: 38px;
     position: relative;
     height: 20px;
+    line-height: 20px;
 }
 
 .el-message__group p{
     font-size: 14px;
-    line-height: 20px;
     margin: 0 34px 0 0;
     white-space: nowrap;
     color: #8492a6;
     text-align: justify;
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .el-message__group.is-with-icon{
@@ -175,6 +173,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

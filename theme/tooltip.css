@@ -88,14 +88,7 @@
   --------------------------*/
 }
 
-.el-tooltip{
-    display: inline-block;
-}
-
-.el-tooltip__rel{
-    display: inline-block;
-    position: relative;
-}
+.el-tooltip{}
 
 .el-tooltip__popper{
     position: absolute;
@@ -239,6 +232,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

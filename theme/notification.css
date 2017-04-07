@@ -102,7 +102,7 @@
 }
 
 .el-notification .el-icon-circle-check{
-    color: #5dac81;
+    color: #13ce66;
 }
 
 .el-notification .el-icon-circle-cross{
@@ -129,6 +129,7 @@
     font-weight: 400;
     font-size: 16px;
     color: #1f2d3d;
+    margin: 0;
 }
 
 .el-notification__content{
@@ -174,6 +175,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

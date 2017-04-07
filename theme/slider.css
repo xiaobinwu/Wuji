@@ -1,3 +1,9 @@
+.el-slider__button-wrapper:after{
+    display: inline-block;
+    content: "";
+    height: 100%;
+    vertical-align: middle;
+}
 .el-slider:before, .el-slider:after{
     display: table;
     content: "";
@@ -110,9 +116,6 @@
 .el-input.is-disabled .el-input__inner::-webkit-input-placeholder{
     color: #c0ccda;
 }
-.el-input.is-disabled .el-input__inner::-moz-placeholder{
-    color: #c0ccda;
-}
 .el-input.is-disabled .el-input__inner:-ms-input-placeholder{
     color: #c0ccda;
 }
@@ -121,7 +124,7 @@
 }
 .el-input.is-active .el-input__inner{
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-input__inner{
     -webkit-appearance: none;
@@ -145,9 +148,6 @@
 .el-input__inner::-webkit-input-placeholder{
     color: #99a9bf;
 }
-.el-input__inner::-moz-placeholder{
-    color: #99a9bf;
-}
 .el-input__inner:-ms-input-placeholder{
     color: #99a9bf;
 }
@@ -159,7 +159,7 @@
 }
 .el-input__inner:focus{
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-input__icon{
     position: absolute;
@@ -218,8 +218,8 @@
     display: table-cell;
 }
 .el-input-group__append, .el-input-group__prepend{
-    background-color: rgb(251, 253, 255);
-    color: rgb(151, 168, 190);
+    background-color: rgb(251, 253, 252);
+    color: rgb(151, 190, 174);
     vertical-align: middle;
     display: table-cell;
     position: relative;
@@ -275,9 +275,6 @@
 .el-textarea.is-disabled .el-textarea__inner::-webkit-input-placeholder{
     color: #c0ccda;
 }
-.el-textarea.is-disabled .el-textarea__inner::-moz-placeholder{
-    color: #c0ccda;
-}
 .el-textarea.is-disabled .el-textarea__inner:-ms-input-placeholder{
     color: #c0ccda;
 }
@@ -302,9 +299,6 @@
 .el-textarea__inner::-webkit-input-placeholder{
     color: #99a9bf;
 }
-.el-textarea__inner::-moz-placeholder{
-    color: #99a9bf;
-}
 .el-textarea__inner:-ms-input-placeholder{
     color: #99a9bf;
 }
@@ -316,7 +310,7 @@
 }
 .el-textarea__inner:focus{
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 :root{
     /* Transition
@@ -412,6 +406,9 @@
     width: 180px;
     position: relative;
 }
+.el-input-number .el-input{
+    display: block;
+}
 .el-input-number .el-input__inner{
     -webkit-appearance: none;
        -moz-appearance: none;
@@ -437,16 +434,16 @@
     line-height: 34px;
     top: 1px;
     text-align: center;
-    color: rgb(151, 168, 190);
+    color: rgb(151, 190, 174);
     cursor: pointer;
     position: absolute;
     z-index: 1;
 }
 .el-input-number__increase:hover, .el-input-number__decrease:hover{
-    color: #20a0ff;
+    color: #429e6c;
 }
 .el-input-number__increase:hover:not(.is-disabled) ~ .el-input .el-input__inner:not(.is-disabled), .el-input-number__decrease:hover:not(.is-disabled) ~ .el-input .el-input__inner:not(.is-disabled){
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-input-number__increase.is-disabled, .el-input-number__decrease.is-disabled{
     color: #D3DCE6;
@@ -575,13 +572,7 @@
     /* Collapse
   --------------------------*/
 }
-.el-tooltip{
-    display: inline-block;
-}
-.el-tooltip__rel{
-    display: inline-block;
-    position: relative;
-}
+.el-tooltip{}
 .el-tooltip__popper{
     position: absolute;
     border-radius: 4px;
@@ -840,7 +831,7 @@
 
 .el-slider__bar{
     height: 4px;
-    background-color: #20a0ff;
+    background-color: #429e6c;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     position: absolute;
@@ -862,21 +853,8 @@
 }
 
 .el-slider__button-wrapper .el-tooltip {
-    line-height: 1;
-    height: 100%;
-    display: block;
-}
-
-.el-slider__button-wrapper .el-tooltip::after {
-    content: '';
-    width: 0;
-    height: 100%;
+    vertical-align: middle;
     display: inline-block;
-    vertical-align: middle;
-}
-
-.el-slider__button-wrapper .el-tooltip__rel {
-    vertical-align: middle;
 }
 
 .el-slider__button-wrapper:hover, .el-slider__button-wrapper.hover{
@@ -892,7 +870,7 @@
 .el-slider__button{
     width: 12px;
     height: 12px;
-    background-color: #20a0ff;
+    background-color: #429e6c;
     border-radius: 50%;
     transition: .2s;
     -webkit-user-select: none;
@@ -929,6 +907,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

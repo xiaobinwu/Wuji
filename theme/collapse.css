@@ -99,7 +99,7 @@
     margin-bottom: -1px;
 }
 
-.el-collapse-item.is-active .el-collapse-item__header__arrow{
+.el-collapse-item.is-active > .el-collapse-item__header .el-collapse-item__header__arrow{
     transform: rotate(90deg);
 }
 
@@ -138,6 +138,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

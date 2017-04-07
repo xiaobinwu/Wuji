@@ -122,7 +122,7 @@
 }
 
 .el-loading-spinner .el-loading-text{
-  color: #20a0ff;
+  color: #429e6c;
   margin: 3px 0;
   font-size: 14px;
 }
@@ -138,7 +138,7 @@
   stroke-dasharray: 90, 150;
   stroke-dashoffset: 0;
   stroke-width: 2;
-  stroke: #20a0ff;
+  stroke: #429e6c;
   stroke-linecap: round;
 }
 
@@ -171,6 +171,7 @@
   -------------------------- */
   /* Colors
   -------------------------- */
+  //修改成吾记默认主色调: #5dac81;
   /* Link
   -------------------------- */
   /* Border

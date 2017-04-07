@@ -198,7 +198,7 @@
 }
 .el-select-dropdown.is-multiple{}
 .el-select-dropdown.is-multiple .el-select-dropdown__item.selected{
-    color: #20a0ff;
+    color: #429e6c;
     background-color: #fff;
 }
 .el-select-dropdown.is-multiple .el-select-dropdown__item.selected.hover{
@@ -222,7 +222,6 @@
 }
 .el-select-dropdown__wrap{
     max-height: 274px;
-    width: 100%;
 }
 .el-select-dropdown__list{
     list-style: none;
@@ -334,9 +333,6 @@
 .el-input.is-disabled .el-input__inner::-webkit-input-placeholder{
     color: #c0ccda;
 }
-.el-input.is-disabled .el-input__inner::-moz-placeholder{
-    color: #c0ccda;
-}
 .el-input.is-disabled .el-input__inner:-ms-input-placeholder{
     color: #c0ccda;
 }
@@ -345,7 +341,7 @@
 }
 .el-input.is-active .el-input__inner{
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-input__inner{
     -webkit-appearance: none;
@@ -369,9 +365,6 @@
 .el-input__inner::-webkit-input-placeholder{
     color: #99a9bf;
 }
-.el-input__inner::-moz-placeholder{
-    color: #99a9bf;
-}
 .el-input__inner:-ms-input-placeholder{
     color: #99a9bf;
 }
@@ -383,7 +376,7 @@
 }
 .el-input__inner:focus{
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-input__icon{
     position: absolute;
@@ -442,8 +435,8 @@
     display: table-cell;
 }
 .el-input-group__append, .el-input-group__prepend{
-    background-color: rgb(251, 253, 255);
-    color: rgb(151, 168, 190);
+    background-color: rgb(251, 253, 252);
+    color: rgb(151, 190, 174);
     vertical-align: middle;
     display: table-cell;
     position: relative;
@@ -499,9 +492,6 @@
 .el-textarea.is-disabled .el-textarea__inner::-webkit-input-placeholder{
     color: #c0ccda;
 }
-.el-textarea.is-disabled .el-textarea__inner::-moz-placeholder{
-    color: #c0ccda;
-}
 .el-textarea.is-disabled .el-textarea__inner:-ms-input-placeholder{
     color: #c0ccda;
 }
@@ -526,9 +516,6 @@
 .el-textarea__inner::-webkit-input-placeholder{
     color: #99a9bf;
 }
-.el-textarea__inner::-moz-placeholder{
-    color: #99a9bf;
-}
 .el-textarea__inner:-ms-input-placeholder{
     color: #99a9bf;
 }
@@ -540,7 +527,7 @@
 }
 .el-textarea__inner:focus{
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 @charset "UTF-8";
 :root{
@@ -677,26 +664,26 @@
 .el-tag--primary{
     background-color: rgba(32,159,255,0.10);
     border-color: rgba(32,159,255,0.20);
-    color: #20a0ff;
+    color: #429e6c;
 }
 .el-tag--primary .el-tag__close:hover{
-    background-color: #20a0ff;
+    background-color: #429e6c;
     color: #fff;
 }
 .el-tag--primary.is-hit{
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-tag--success{
     background-color: rgba(18,206,102,0.10);
     border-color: rgba(18,206,102,0.20);
-    color: #5dac81;
+    color: #13ce66;
 }
 .el-tag--success .el-tag__close:hover{
-    background-color: #5dac81;
+    background-color: #13ce66;
     color: #fff;
 }
 .el-tag--success.is-hit{
-    border-color: #5dac81;
+    border-color: #13ce66;
 }
 .el-tag--warning{
     background-color: rgba(247,186,41,0.10);
@@ -830,7 +817,7 @@
 }
 .el-select-dropdown__item.selected{
     color: #fff;
-    background-color: #20a0ff;
+    background-color: #429e6c;
 }
 .el-select-dropdown__item.selected.hover{
     background-color: #1D8CE0;
@@ -1105,7 +1092,7 @@
     cursor: pointer;
 }
 .el-select .el-input__inner:focus{
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 .el-select .el-input{}
 .el-select .el-input .el-input__icon{
@@ -1140,6 +1127,9 @@
 }
 .el-select .el-input.is-disabled .el-input__inner:hover{
     border-color: #D3DCE6;
+}
+.el-select > .el-input{
+    display: block;
 }
 .el-select .el-tag__close{
     margin-top: -2px;
@@ -1195,7 +1185,7 @@
     font-size: 14px;
     border-radius: 4px;
     color: #fff;
-    background-color: #20a0ff;
+    background-color: #429e6c;
 }
 .el-select__tag .el-icon-close{
     font-size: 12px;
@@ -1326,7 +1316,7 @@
 }
 
 .el-pagination button:hover{
-    color: #20a0ff;
+    color: #429e6c;
 }
 
 .el-pagination button.disabled{
@@ -1386,7 +1376,7 @@
 }
 
 .el-pagination__sizes .el-input .el-input__inner:hover{
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 
 .el-pagination__jump{
@@ -1420,7 +1410,7 @@
 
 .el-pagination__editor:focus{
     outline: none;
-    border-color: #20a0ff;
+    border-color: #429e6c;
 }
 
 .el-pager{
@@ -1476,12 +1466,12 @@
 }
 
 .el-pager li:hover{
-    color: #20a0ff;
+    color: #429e6c;
 }
 
 .el-pager li.active{
-    border-color: #20a0ff;
-    background-color: #20a0ff;
+    border-color: #429e6c;
+    background-color: #429e6c;
     color: #fff;
     cursor: default;
 }
@@ -1490,6 +1480,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81;
     /* Link
   -------------------------- */
     /* Border

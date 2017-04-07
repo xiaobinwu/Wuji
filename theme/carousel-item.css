@@ -98,12 +98,16 @@
     height: 100%;
     display: inline-block;
     transition: .4s ease-in-out;
-    overflow: hidden
+    overflow: hidden;
+    z-index: 0
+}
+
+.el-carousel__item.is-active{
+    z-index: 2
 }
 
 .el-carousel__item--card{
-    width: 50%;
-    z-index: 0
+    width: 50%
 }
 
 .el-carousel__item--card.is-in-stage{
@@ -133,6 +137,7 @@
   -------------------------- */
     /* Colors
   -------------------------- */
+    //修改成吾记默认主色调: #5dac81
     /* Link
   -------------------------- */
     /* Border
