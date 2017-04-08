@@ -15,10 +15,10 @@
                 el-input.input(v-model="pwd", placeholder="输入新密码")
                 el-input.input(v-model="repwd", placeholder="请输确认密码")
                 el-button.save-btn(type="primary", @click="doSave") 保存
-                el-button.prev-btn(:plain="plain", @click="prev") 上一步
+                el-button.prev-btn(:plain="true", @click="prev") 上一步
                 div.tip *收不到验证码请检查邮箱的垃圾箱哦～
             div.step(v-show="step===3")
-                <img src="../../../public/images/dist/yes.svg" width="300" height="100"/>
+                //- <img src="../../../public/images/dist/yes.svg" width="300" height="100"/>
 
 </template>
 
@@ -26,7 +26,7 @@
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import { Steps, Step, Dialog, Input, Button, Message} from 'element-ui'
-
+import Validator from 'utils/validator'
 // 引入组件
 Vue.use(Dialog)
 Vue.use(Steps)
@@ -58,23 +58,45 @@ export default {
         closeDialog(){
             this.changeForgetPwdDialogStatus({status:false});
         },
+        step1Valid(){
+            let validator = new Validator();
+            const errorMsg = validator.add(this.yEmail, [
+                {strategy: 'isNotEmpty', errorMsg:'邮箱不能为空！'},
+                {strategy: 'emailFormat', errorMsg:'邮箱格式错误了！'}
+            ]).start();
+            validator = null;
+            return errorMsg;
+        },
         doNext(){
-            if(!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/ .test(this.yEmail)){
-                return Message({ message: "邮箱格式错误了！", type: 'error', duration: 2000 });
+            const errorMsg = this.step1Valid();
+            if(errorMsg){
+                return Message({ message: errorMsg, type: 'error', duration: 2000 });
             }
+            //异步操作
+            //...
             this.next();
         },
+        step2Valid(){
+            let validator = new Validator();
+            const errorMsg = validator.add(this.code, [
+                {strategy: 'isNotEmpty', errorMsg:'验证码不为空！'}
+            ]).add(this.pwd, [
+                {strategy: 'isNotEmpty', errorMsg:'新密码不为空！'}
+            ]).add(this.repwd, [
+                {strategy: 'isNotEmpty', errorMsg:'确认密码不为空！'},
+                {strategy: 'confirmPwd:' + this.pwd, errorMsg:'前后密码要一致！'}
+            ]).start();
+            validator = null;
+            return errorMsg;
+        },
         doSave(){
-            // if(this.code === ''){
-            //     return Message({ message: "验证码不为空！", type: 'error', duration: 2000 });
-            // }
-            // if(this.pwd === ''){
-            //     return Message({ message: "新密码不为空！", type: 'error', duration: 2000 });
-            // } 
-            // if(this.repwd !== this.pwd){
-            //     return Message({ message: "请输入与其上相同的密码！", type: 'error', duration: 2000 });
-            // } 
-            this.next();                                       
+            const errorMsg = this.step2Valid();
+            if(errorMsg){
+                return Message({ message: errorMsg, type: 'error', duration: 2000 });
+            }
+            //异步操作
+            //...
+            this.next();
         },
         next(){
             if (this.step++ > 2){
@@ -84,7 +106,7 @@ export default {
         },
         prev(){
             this.step--;
-        }        
+        }
     },
     components: {
     }

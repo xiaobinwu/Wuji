@@ -24,7 +24,7 @@
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import { Input, Message} from 'element-ui'
-
+import Validator from 'utils/validator'
 // 引入组件
 Vue.use(Input)
 
@@ -39,19 +39,27 @@ export default {
         }
     },
     methods:{
+        vaild(){
+            let validator = new Validator();
+            const errorMsg = validator.add(this.email, [
+                {strategy: 'isNotEmpty', errorMsg:'邮箱不能为空！'},
+                {strategy: 'emailFormat', errorMsg:'邮箱格式错误了！'}
+            ]).add(this.nickname, [
+                {strategy: 'isNotEmpty', errorMsg:'昵称不能为空！'},
+            ]).add(this.password, [
+                {strategy: 'isNotEmpty', errorMsg:'密码不为空！'}
+            ]).add(this.repassword, [
+                {strategy: 'isNotEmpty', errorMsg:'确认密码不为空！'},
+                {strategy: 'confirmPwd:' + this.password, errorMsg:'前后密码要一致！'}
+            ]).start();
+            validator = null;
+            return errorMsg;
+        },
         doRegister(){
-            if(this.email === ''){
-                return Message({ message: "邮箱不为空！", type: 'error', duration: 2000 });
+            const errorMsg = this.vaild();
+            if(errorMsg){
+                return Message({ message: errorMsg, type: 'error', duration: 2000 });
             }
-            if(!/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/.test(this.email)){
-                return Message({ message: "邮箱格式错误了！", type: 'error', duration: 2000 });
-            }    
-            if(this.password === ''){
-                return Message({ message: "密码不为空！", type: 'error', duration: 2000 });
-            }    
-            if(this.password !== this.repassword){
-                return Message({ message: "前后密码不一致！", type: 'error', duration: 2000 });
-            }         
             //异步请求
         }
     },

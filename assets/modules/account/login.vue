@@ -18,7 +18,7 @@
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import { Input, Message } from 'element-ui'
-
+import Validator from 'utils/validator'
 // 引入组件
 Vue.use(Input)
 
@@ -35,12 +35,21 @@ export default {
         ...mapActions([
           'changeForgetPwdDialogStatus'
         ]),
+        vaild(){
+            let validator = new Validator();
+            const errorMsg = validator.add(this.email, [
+                {strategy: 'isNotEmpty', errorMsg:'邮箱不能为空！'},
+                {strategy: 'emailFormat', errorMsg:'邮箱格式错误了！'}
+            ]).add(this.password, [
+                {strategy: 'isNotEmpty', errorMsg:'密码不为空！'}
+            ]).start();
+            validator = null;
+            return errorMsg;
+        },
         doLogin(){
-            if(this.email === ''){
-                return Message({ message: "邮箱不为空！", type: 'error', duration: 2000 });
-            }
-            if(!/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/.test(this.email)){
-                return Message({ message: "邮箱格式错误了！", type: 'error', duration: 2000 });
+            const errorMsg = this.vaild();
+            if(errorMsg){
+                return Message({ message: errorMsg, type: 'error', duration: 2000 });
             }
             //异步请求
         },
