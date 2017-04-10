@@ -43,7 +43,8 @@ const checkRespStatus = (respPromise) =>{
                 window.location.reload();
             }else{
                 resp.msg && Message({message: resp.msg, type: 'warning', showClose: true});
-                reject(resp);
+                // reject(resp);
+                return;
             }
         });
     });
@@ -74,6 +75,13 @@ export const createAction = (type, payloadCreator, metaCreator) =>{
 
 
 export default {
-    getJournalList: params => request(API.JOURNAL_LIST, params),
+    /******************过客模块*********************/
+    //获取过客列表
+    getJournalList: params => request(API.JOURNAL_LIST, params, METHODS.POST),
+    /******************日记模块*********************/
+    //获取我的分类列表
+    getCategoryList: params => request(API.MY_CATEGORY_LIST, params, METHODS.POST),
+    //获取我的日记
+    getMyDiarys: params => request(API.MY_DIARYS_LIST, params, METHODS.POST),
 };
 

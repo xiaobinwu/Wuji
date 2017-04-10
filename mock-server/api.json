@@ -1,7 +1,7 @@
 {
     "TestData": [
         {
-            "url": "/passing/getList",
+            "url": "/WuJi/GetPasserBy",
             "desc": "获取过客列表",
             "mock": true,
             "res": {
@@ -17,7 +17,7 @@
                         "passbyDate": "20170122130853",
                         "userBGUrl": "http://bpic.588ku.com/back_pic/04/81/74/4558c65397ef934.jpg",
                         "content": "而我不知道，除此之外（音乐），人类还能拥有什么更好的天赋，因为从三个音阶（三和弦）中他所构造出的，不是第四个音阶，而是星辰。",
-                        "avatarUrl": "http://user.xiejianji.com/20170122215110533519A425088.jpg",
+                        "avatarUrl": "http://user.xiejianji.com/17040812515250721238A845412A.jpg",
                         "isPraised": 0,
                         "isCollection": 0,
                         "browseCount": 11
@@ -136,7 +136,48 @@
                     }
                 ]
             }
+        },
+
+        {
+            "url": "/WuJi/GetCategoryList",
+            "desc": "获取过客列表",
+            "mock": true,
+            "res": {
+                "code": 200,
+                "msg": "查询成功",
+                "data":[
+                    {
+                        "categoryId": 1,
+                        "userId": 533519,
+                        "name": "日常记事",
+                        "colorHex": "00CCBB",
+                        "diaryCount": 5
+                    },
+                    {
+                        "categoryId": 2,
+                        "userId": 533519,
+                        "name": "记账",
+                        "colorHex": "4AD453",
+                        "diaryCount": 10
+                    },
+                    {
+                        "categoryId": 3,
+                        "userId": 533519,
+                        "name": "与男友的那些事",
+                        "colorHex": "C285FF",
+                        "diaryCount": 15
+                    },
+                    {
+                        "categoryId": 4,
+                        "userId": 533519,
+                        "name": "旅游计划",
+                        "colorHex": "90B44B",
+                        "diaryCount": 20
+                    }
+                ]
+            }
         }
+
     ]
 }
 

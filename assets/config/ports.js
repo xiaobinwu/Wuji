@@ -10,7 +10,11 @@ const getApi = (url) => `${window.config.host}/${url}`;
 export const CODE_SUCCESS = 200;
 
 //过客模块
-export const JOURNAL_LIST = getApi('passing/getList');
+export const JOURNAL_LIST = getApi('WuJi/GetPasserBy');
+
+//日记模块
+export const MY_CATEGORY_LIST = getApi('WuJi/GetCategoryList');
+export const MY_DIARYS_LIST = getApi('WuJi/GetMyDiarys');
 
 //用户模块
 export const IS_SHOW_FORGET_PWD_DIALOG = 'IS_SHOW_FORGET_PWD_DIALOG';

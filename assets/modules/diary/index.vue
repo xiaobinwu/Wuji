@@ -3,9 +3,18 @@ div.wuji-container.center-block
     div.wuji-operating
         div.wuji-category
             ul
-                li(v-for="n in 10")
-                    span(style="background-color: #5dac81")
-                    span 分类{{n}}
+                li
+                    span
+                    span 全部
+                    span ({{categoryTotal}})
+                li
+                    span
+                    span 未分类
+                    span (0)
+                li(v-for="category in categoryList", @click="activeCategory = category.categoryId")
+                    span(:style="{backgroundColor: '#' + category.colorHex, borderColor: '#' + category.colorHex}")
+                    span {{category.name}}
+                    span ({{category.diaryCount}})
         div.wuji-add
             i.fa.fa-pencil-square-o
             span 添加日记
@@ -14,13 +23,43 @@ div.wuji-container.center-block
 <script>
 import { mapState, mapActions } from 'vuex'
 import timeLine from 'component/timeline'
+import Api from "utils/api"
+import {Message} from "element-ui"
+
 export default {
     name: 'diaryindex',
     data () {
         return {
+            categoryList: [],
+            activeCategory: 0
         }
     },
+    created(){
+        window.a = this;    
+        this.getCategoryList();
+    },
     methods:{
+        getCategoryList(){
+            let _self = this, params;
+            //params => 参数
+            Api.getCategoryList(params).then(result => {
+                _self.categoryList = result;
+            }).catch(error => {
+                Message({message: error, type: 'error', showClose: true});
+            });
+        }
+    },
+    computed:{
+        categoryTotal(){
+            let total = 0;
+            this.categoryList.forEach(item => {
+                total += parseInt(item.diaryCount);
+            });
+            return total;
+        },
+        categoryFilterList(){
+            
+        }
     },
     components: {
         timeLine
@@ -40,13 +79,18 @@ $prefix: 'wuji';
             width: $container-width - 200px;
             ul{
                 li{
+                    cursor: pointer;
                     float: left;
                     margin: 0 30px 15px 0;
                     span:nth-child(1){
+                        position: relative;
+                        top: 2px;
+                        box-sizing: border-box;
                         margin-right: 5px;
                         display: inline-block;
                         width: 14px;
                         height: 14px;
+                        border: 1px $gray solid;
                         border-radius: $circle-radius;
                     }
                 }
