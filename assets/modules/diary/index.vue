@@ -7,12 +7,8 @@ div.wuji-container.center-block
                     span
                     span 全部
                     span ({{categoryTotal}})
-                li
-                    span
-                    span 未分类
-                    span (0)
                 li(v-for="category in categoryList", @click="activeCategory = category.categoryId")
-                    span(:style="{backgroundColor: '#' + category.colorHex, borderColor: '#' + category.colorHex}")
+                    span(:style="{backgroundColor: '#' + (category.colorHex ? category.colorHex : 'transparent'), borderColor: '#' + (category.colorHex ? category.colorHex : '808080')}")
                     span {{category.name}}
                     span ({{category.diaryCount}})
         div.wuji-add
@@ -31,12 +27,14 @@ export default {
     data () {
         return {
             categoryList: [],
+            diaryList: [],
             activeCategory: 0
         }
     },
     created(){
         window.a = this;    
         this.getCategoryList();
+        this.getMyDiarys();
     },
     methods:{
         getCategoryList(){
@@ -47,7 +45,17 @@ export default {
             }).catch(error => {
                 Message({message: error, type: 'error', showClose: true});
             });
-        }
+        },
+        getMyDiarys(){
+            let _self = this, params;
+            //params => 参数
+            Api.getMyDiarys(params).then(result => {
+                _self.diaryList = result;
+                console.log(_self.diaryList);
+            }).catch(error => {
+                Message({message: error, type: 'error', showClose: true});
+            });
+        },
     },
     computed:{
         categoryTotal(){
