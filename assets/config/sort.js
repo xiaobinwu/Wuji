@@ -31,7 +31,7 @@ const colorLib = [
 	'#BF9999',
 	'#D93448',
 	'#434343'
-]
+];
 
 export default colorLib;
 

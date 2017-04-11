@@ -3,18 +3,18 @@ div.wuji-container.center-block
     div.wuji-operating
         div.wuji-category
             ul
-                li
+                li(@click="activeCategory = null")
                     span
-                    span 全部
-                    span ({{categoryTotal}})
+                    span(:class="{active: isActiveCategory }") 全部
+                    span(:class="{active: isActiveCategory }") ({{categoryTotal}})
                 li(v-for="category in categoryList", @click="activeCategory = category.categoryId")
                     span(:style="{backgroundColor: '#' + (category.colorHex ? category.colorHex : 'transparent'), borderColor: '#' + (category.colorHex ? category.colorHex : '808080')}")
-                    span {{category.name}}
-                    span ({{category.diaryCount}})
+                    span(:class="{active: (activeCategory === category.categoryId) }") {{category.name}}
+                    span(:class="{active: (activeCategory === category.categoryId) }") ({{category.diaryCount}})
         div.wuji-add
             i.fa.fa-pencil-square-o
             span 添加日记
-    time-line(width="450")
+    time-line(width="450", :list="diaryFilterList")
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
@@ -28,11 +28,11 @@ export default {
         return {
             categoryList: [],
             diaryList: [],
-            activeCategory: 0
+            activeCategory: null
         }
     },
     created(){
-        window.a = this;    
+        window.a = this;
         this.getCategoryList();
         this.getMyDiarys();
     },
@@ -65,8 +65,16 @@ export default {
             });
             return total;
         },
-        categoryFilterList(){
-            
+        diaryFilterList(){
+            if(this.isActiveCategory){
+                return this.diaryList;
+            }
+            return this.diaryList.filter(item => {
+                return item.categoryId === this.activeCategory;
+            });
+        },
+        isActiveCategory(){
+            return Object.prototype.toString.call(this.activeCategory) === "[object Null]";
         }
     },
     components: {
@@ -77,6 +85,7 @@ export default {
 <style lang="sass">
 @import "../../public/scss/index.scss";
 $prefix: 'wuji';
+$container-width: 886px;
 .#{$prefix}-container{
     width: $container-width;
     .#{$prefix}-operating{
@@ -100,6 +109,10 @@ $prefix: 'wuji';
                         height: 14px;
                         border: 1px $gray solid;
                         border-radius: $circle-radius;
+                    }
+                    .active{
+                        color: $main;
+                        font-weight: 800;
                     }
                 }
             }

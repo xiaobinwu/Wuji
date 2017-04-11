@@ -1,31 +1,95 @@
 <template lang="jade">
 	div.timeline(:style="timeLineStyle")
-		div.line
-		ul
-			li(v-for="n in 10", :style="{marginLeft: n % 2 === 0 ? liEvenStyle : 0}") 
-				div.item-container
-					div.item-header 2017.01.29 周日
-					div.item-content 2011-2013在学校获得了各种奖项2011-2013在学校获得了各种奖项2011-2013在学校获得了各种奖项text
+		template(v-if="list.length > 0")
+			div.line
+			ul
+				li(v-for="(item, index) in list", :style="{marginLeft: (index+1) % 2 === 0 ? liEvenStyle : '0'}")
+					span.circle(:style="{backgroundColor: '#' + (item.colorHex ? item.colorHex : 'f5f5f5'), borderColor: '#' + (item.colorHex ? item.colorHex : '808080')}")
+						i.fa(:style="{color: '#' + (item.colorHex ? 'fff' : '808080')}", :class="'fa-' + computedType(item)")
+					div.item-container
+						div.item-header
+							span {{item.createDate | date}}&nbsp;{{item.weekday | weekday}}
+							span {{item.createDate | time}}&nbsp;{{item.weather | weather}}
+						div.item-content
+							p.text-container(v-html="item.content")
+							div.img-container
+								img.item-content-img(:src="getImg(item)")
+		template(v-else)
+			p 没有数据
 </template>
 <script>
     import Vue from 'vue'
     import t from 'utils/transform'
+	import weather from 'config/weather'
+	import weekday from 'config/weekday'
     export default{
         name: 'timeline',
+        data(){
+        	return{
+        	}
+        },
         props: {
             width: {
                 type: [String, Number],
                 required: true
+            },
+            list: {
+            	type: Array,
+            	default: []
             }
+        },
+	    filters: {
+	        'date': value => {
+	            return value.substr(0,4) + '-' + value.substr(4,2) + '-' + value.substr(6,2);
+	        },
+  			'weekday': index => {
+  				return weekday[index-1].name;
+  			},
+  			'time': value =>{
+  				return value.substr(8,2) + ':' + value.substr(10,2);
+  			},
+  			'weather': index =>{
+  				return weather[index].name;
+  			}
+	    },
+        methods: {
+        	computedType(item){
+        		const len = item.MediaChildren.length;
+        		if(len > 0){
+        			for (let i = len - 1; i >= 0; i--) {
+        				if(item.MediaChildren[i].mediaType === 2){
+        					return 'video-camera';
+        				}
+        			}
+        			return 'picture-o';
+        		}else{
+        			return 'file-text';
+        		}
+        	},
+        	getImg(item){
+        		// const len = item.MediaChildren.length;
+        		// if(len > 0){
+        		// 	for (let i = len - 1; i >= 0; i--) {
+        		// 		if(item.MediaChildren[i].mediaType === 2){
+        		// 			return item.MediaChildren[i].videoThumbnail;
+        		// 		}
+        		// 	}
+        		// 	console.log(item.MediaChildren[0].Qnurl)
+        		// 	return item.MediaChildren[0].Qnurl;
+        		// }else{
+        		// 	this.hasImg = false;
+        		// }
+        		return 'http://media.xiejianji.com/16111716212141315A595543IMG_0567.PNG'
+        	}
         },
         computed: {
         	timeLineStyle(){
 				return {
 	                width: t.transformCssUnit(this.width)
-	            }       		
+	            }
         	},
         	liEvenStyle(){
-				return t.transformCssUnit(15 - this.width);      		
+				return t.transformCssUnit(15 - this.width);	
         	}
         },
         components: {}
@@ -36,13 +100,14 @@
 	@import "../public/scss/_mixins.scss";
 	$border-radius: 5px;
 	$item-padding: 10px;
+	$base-color: #e4e4e4;
 	.timeline{
 		position: relative;
 		float: right;
 		.line{
 			width: 1px;
 			height: 100%;
-			background-color: $gray;
+			background-color: #c5c5c5;
 			position: absolute;
 			left: 7px;
 			z-index: -1;
@@ -53,18 +118,19 @@
 				position: relative;
 				width: 100%;
 			    padding-left: 25px;
-			    line-height: 30px;
 			    margin-bottom: 30px;
-				&:before{
-					content: '';
-					width: 13px;
-					height: 13px;
-					background-color: #f5f5f5;
+			    .circle{
+			    	box-sizing: border-box;
+					width: 30px;
+					height: 30px;
+					line-height: 28px;
 					border: 1px solid $main;
 					border-radius: $circle-radius;
 					position: absolute;
-					top: 15px;
-				}
+					top: 8px;
+					text-align: center;
+					font-size: 12px;
+			    }
 				&:after{
 					content: '';
 					width: 0;
@@ -75,48 +141,80 @@
 					top: 13px;
 				}
 				&:nth-child(odd){
-					&:before{
-						left: 0;
-					}		
-					&:after{
-						border-color: transparent $main transparent transparent;
-						left: 9px;
-					}			
-				}
-			    &:nth-child(even){
-					padding: 0 25px 0 0;
-					&:before{
-						right: 0;
+					padding: 0 0 0 38px;
+					.circle{
+						left: -8px;
 					}
 					&:after{
-						border-color: transparent transparent transparent $main;
-						right: 9px;
-					}						
-			    }			
+						border-color: transparent $white transparent transparent;
+						left: 22px;
+					}
+				}
+			    &:nth-child(even){
+					padding: 0 38px 0 0;
+					.circle{
+						right: -8px;
+					}
+					&:after{
+						border-color: transparent transparent transparent $white;
+						right: 22px;
+					}
+			    }
 			}
 		}
 		.item-container{
 			display: block;
 			width: 100%;
-			box-shadow: 0 2px 0 rgba(0,0,0,.2);
 			border-radius: 5px;
 			.item-header{
+				@include clearfix();
 				padding: 0 $item-padding;
 				height: 40px;
 				line-height: 40px;
-				background-color: $main;
-				border: 1px solid $main;
-				color: $white;
-				border-top-left-radius: $border-radius; 
-				border-top-right-radius: $border-radius; 
+				background-color: $white;
+				border: 1px solid $white;
+				color: $gray;
+				border-top-left-radius: $border-radius;
+				border-top-right-radius: $border-radius;
+				span{
+					&:first-child{
+						float: left;
+					}
+					&:last-child{
+						float: right;
+					}
+				}
 			}
 			.item-content{
+				@include clearfix();
 				padding: $item-padding;
 				color: $gray;
-				border: 1px solid rgba(0,0,0,.2);
+				background-color: $white;
+				border: 1px solid $white;
 				border-top: 0;
-				border-bottom-left-radius: $border-radius; 
-				border-bottom-right-radius: $border-radius; 
+				border-bottom-left-radius: $border-radius;
+				border-bottom-right-radius: $border-radius;
+				.text-container{
+					line-height: 1.5;
+					float: left;
+					width: 300px;
+				}
+				.img-container{
+					float: left;
+					width: 100px;
+					height: 100px;
+					overflow: hidden;
+					position: relative;
+					.item-content-img{
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						width: 100%;
+						height: auto;
+					}
+				}
 			}
 		}
 	}

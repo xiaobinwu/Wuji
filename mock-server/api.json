@@ -151,35 +151,35 @@
                         "userId": 533519,
                         "name": "未分类",
                         "colorHex": "",
-                        "diaryCount": 5
-                    },                
+                        "diaryCount": 9
+                    },
                     {
                         "categoryId": 1,
                         "userId": 533519,
                         "name": "日常记事",
                         "colorHex": "00CCBB",
-                        "diaryCount": 5
+                        "diaryCount": 4
                     },
                     {
                         "categoryId": 2,
                         "userId": 533519,
                         "name": "记账",
                         "colorHex": "4AD453",
-                        "diaryCount": 10
+                        "diaryCount": 2
                     },
                     {
                         "categoryId": 3,
                         "userId": 533519,
                         "name": "与男友的那些事",
                         "colorHex": "C285FF",
-                        "diaryCount": 15
+                        "diaryCount": 3
                     },
                     {
                         "categoryId": 4,
                         "userId": 533519,
                         "name": "旅游计划",
                         "colorHex": "90B44B",
-                        "diaryCount": 20
+                        "diaryCount": 2
                     }
                 ]
             }
@@ -256,8 +256,8 @@
                         "colorHex": "4AD453", 
                         "MediaChildren": [
                             {
-                                "Qnurl": "http://video.xiejianji.com/dca6b50a7456dd0602e7b3803f392e88.mp4?e=1485185985&token=vl82-w1ZItdvucyb0gejjhplWjZSkxHh3nwdrC29:i3ta2LMFiLY7N73r1BtZJB07TA4=", 
-                                "videoThumbnail": "http://video.xiejianji.com/dca6b50a7456dd0602e7b3803f392e88.mp4?vframe/jpg/offset/1/w/480/h/480&e=1493822385&token=vl82-w1ZItdvucyb0gejjhplWjZSkxHh3nwdrC29:Af8dkXVCtgsqDfSsPU1XLENGcT8=", 
+                                "Qnurl": "http://video.xiejianji.com/45e5f2a723d59d2c18e7d45a9bae751f.mp4?e=1491905393&token=vl82-w1ZItdvucyb0gejjhplWjZSkxHh3nwdrC29:hIq67pQrz11XyW6066VucDxOHDg=", 
+                                "videoThumbnail": "http://video.xiejianji.com/45e5f2a723d59d2c18e7d45a9bae751f.mp4?vframe/jpg/offset/1/w/480/h/480&e=1500541793&token=vl82-w1ZItdvucyb0gejjhplWjZSkxHh3nwdrC29:-bXqT7s013rSMq9mUtua0kHFzDo=", 
                                 "id": 3611121, 
                                 "diaryId": 5559423, 
                                 "mediaType": 2, 
