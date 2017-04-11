@@ -11,9 +11,11 @@
 							span {{item.createDate | date}}&nbsp;{{item.weekday | weekday}}
 							span {{item.createDate | time}}&nbsp;{{item.weather | weather}}
 						div.item-content
-							p.text-container(v-html="item.content")
-							div.img-container
+							p.text-container(v-html="item.content", :class="{ hasImg: item.MediaChildren.length > 0 }")
+							div.img-container(v-if="item.MediaChildren.length > 0")
 								img.item-content-img(:src="getImg(item)")
+								div.mask(v-if="isVideo(item)")
+									i.fa.fa-video-camera
 		template(v-else)
 			p 没有数据
 </template>
@@ -67,19 +69,22 @@
         		}
         	},
         	getImg(item){
-        		// const len = item.MediaChildren.length;
-        		// if(len > 0){
-        		// 	for (let i = len - 1; i >= 0; i--) {
-        		// 		if(item.MediaChildren[i].mediaType === 2){
-        		// 			return item.MediaChildren[i].videoThumbnail;
-        		// 		}
-        		// 	}
-        		// 	console.log(item.MediaChildren[0].Qnurl)
-        		// 	return item.MediaChildren[0].Qnurl;
-        		// }else{
-        		// 	this.hasImg = false;
-        		// }
-        		return 'http://media.xiejianji.com/16111716212141315A595543IMG_0567.PNG'
+        		const len = item.MediaChildren.length;
+    			for (let i = len - 1; i >= 0; i--) {
+    				if(item.MediaChildren[i].mediaType === 2){
+    					return item.MediaChildren[i].videoThumbnail;
+    				}
+    			}
+    			return item.MediaChildren[0].Qnurl;
+        	},
+        	isVideo(item){
+        		const len = item.MediaChildren.length;
+    			for (let i = len - 1; i >= 0; i--) {
+    				if(item.MediaChildren[i].mediaType === 2){
+    					return true;
+    				}
+    			}        		
+    			return false;
         	}
         },
         computed: {
@@ -100,7 +105,7 @@
 	@import "../public/scss/_mixins.scss";
 	$border-radius: 5px;
 	$item-padding: 10px;
-	$base-color: #e4e4e4;
+	$img-width: 95px;
 	.timeline{
 		position: relative;
 		float: right;
@@ -196,23 +201,35 @@
 				border-bottom-right-radius: $border-radius;
 				.text-container{
 					line-height: 1.5;
-					float: left;
-					width: 300px;
+					text-align: justify;
+					max-height: 100px;
+					overflow: hidden;					
+					&.hasImg{
+						float: left;
+						width: 290px;
+					}
 				}
 				.img-container{
 					float: left;
-					width: 100px;
-					height: 100px;
+					margin-left: 5px;
+					width: $img-width;
+					height: $img-width;
 					overflow: hidden;
 					position: relative;
 					.item-content-img{
 						position: absolute;
-						top: 0;
-						left: 0;
-						right: 0;
-						bottom: 0;
-						width: 100%;
+						width: $img-width;
 						height: auto;
+					}
+					.mask{
+						position: absolute;
+						width: $img-width;
+						height: $img-width;
+						line-height: $img-width;
+						text-align: center;
+						font-size: 28px;
+						background-color: rgba(0,0,0,.5);
+						z-index: 2;
 					}
 				}
 			}
