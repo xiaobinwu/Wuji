@@ -16,33 +16,84 @@
 				el-col(:span="8")
 					div.label 字体
 					el-slider(v-model="fontsize", :min="10", :max="40", format-tooltip="formatTooltip")
-		div.wuji-content(:contenteditable="true")  fasd;dkalda'sld
+			el-row(:gutter="20")			
+				el-col(:span="5")
+					div.label 是否同步过客
+					el-switch(v-model="isPassby", on-text="", off-text="")
+				el-col(:span="7")
+					div.label 当前所在位置：
+					div.location 广东省深圳市福田区
+				el-col(:span="6")
+					el-select.category-select(v-model="weather", placeholder="天气好吗")
+						el-option(v-for="item in weatherList", :label="item.name", :value="item.value")
+							span.weather-name {{ item.name }}
+							span.weather-icon 
+								img(:src="item.url")
+				el-col(:span="6")
+					el-date-picker(v-model="createDate", type="datetime", placeholder="选择创建日期", align="right", :picker-options="pickerOptions")
+		div.wuji-content(:contenteditable="true", :style="styleObject")  吾记网页版
 </template>
 <script>
     import Vue from 'vue'
     import Api from "utils/api"
     import {fontColor} from 'config/color'
-    import {Row, Col, Select, Option, Slider, Message} from "element-ui"
+    import weather from 'config/weather'
+    import {Row, Col, Select, Option, Slider, Switch, Message, DatePicker} from "element-ui"
 	// 引入组件
 	Vue.use(Row)
 	Vue.use(Col)
 	Vue.use(Select)
 	Vue.use(Option)
 	Vue.use(Slider)
+	Vue.use(Switch)
+	Vue.use(DatePicker)
     export default{
         name: 'diarydedit',
         data(){
         	return{
         		categoryList: [],
         		colorList: fontColor,
+        		weatherList: weather,
         		categoryId: 0,
         		fontsize: 14,
-        		fontcolor: '000000'
+        		fontcolor: '000000',
+        		isPassby: false,
+        		weather: 0,
+        		createDate: '',
+		        pickerOptions: {
+		          shortcuts: [{
+		            text: '今天',
+		            onClick(picker) {
+		              picker.$emit('pick', new Date());
+		            }
+		          }, {
+		            text: '昨天',
+		            onClick(picker) {
+		              const date = new Date();
+		              date.setTime(date.getTime() - 3600 * 1000 * 24);
+		              picker.$emit('pick', date);
+		            }
+		          }, {
+		            text: '一周前',
+		            onClick(picker) {
+		              const date = new Date();
+		              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+		              picker.$emit('pick', date);
+		            }
+		          }]
+		        }        		
         	}
         },
         created(){
-        	window.a = this;
         	this.getCategoryList();
+        },
+        computed:{
+        	styleObject(){
+        		return {
+        			fontSize: this.fontsize + 'px',
+        			color: '#' + this.fontcolor
+        		}
+        	}
         },
         methods:{
 	        getCategoryList(){
@@ -67,8 +118,11 @@
 	.#{$prefix}-container{
 	    width: $container-width;
 	    .#{$prefix}-header{
-			padding: 20px 0;
-			.label{
+			padding: 20px 0 10px 0;
+			.el-row{
+				margin-bottom: 10px;
+			}
+			.label, .location{
 				float: left;
 				margin-top: 7px;
 				margin-right: 5px;
@@ -83,19 +137,28 @@
 			.el-slider{
 				padding-left: 45px;
 			}
+			.el-switch__core{
+				top: 4px;
+			}
+			.el-date-editor.el-input{
+				width: 210px;
+			}
 	    }
 		.#{$prefix}-content{
+			padding: 10px;
 			outline: none;
 			background-color: $white;
 			border: 1px $white solid;
 			min-height: 500px;
+			border-radius: 4px;
 			&:focus{
 				border: 1px $main solid;
 			}
 		}
 	}
 	.el-scrollbar{
-		.category-name{
+		.category-name,
+		.weather-name{
 			float: left;
 		}
 		.category-color,
@@ -106,6 +169,13 @@
 			width: 14px;
 			height: 14px;
 			border-radius: 50%;
+		}
+		.weather-icon{
+			float: right;
+			img{
+				width: 20px;
+				height: 20px;
+			}
 		}
 	}
 	//reset
