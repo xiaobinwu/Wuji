@@ -117,6 +117,9 @@ module.exports = {
         extensions: [".js", ".json", ".vue", ".scss", ".css"],
         //require路径简化
         alias: {
+            //Vue 最早会打包生成三个文件，一个是 runtime only 的文件 vue.common.js，一个是 compiler only 的文件 compiler.js，一个是 runtime + compiler 的文件 vue.js。
+            //vue.js = vue.common.js + compiler.js，默认package.json的main是指向vue.common.js，而template 属性的使用一定要用compiler.js，因此需要在alias改变vue指向
+            vue: 'vue/dist/vue',
             config: path.resolve(__dirname, config.srcDir + '/config'),
             filter: path.resolve(__dirname, config.srcDir + '/filters'),
             utils: path.resolve(__dirname, config.srcDir + '/utils'),

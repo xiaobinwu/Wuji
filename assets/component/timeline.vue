@@ -3,7 +3,7 @@
 		template(v-if="list.length > 0")
 			div.line
 			ul
-				li(v-for="(item, index) in list", :style="{marginLeft: (index+1) % 2 === 0 ? liEvenStyle : '0'}", :key="item.id")
+				li(v-for="(item, index) in list", :style="{marginLeft: (index+1) % 2 === 0 ? liEvenStyle : '0'}", :key="item.id", @click="detail(item.id)")
 					span.circle(:style="{backgroundColor: '#' + (item.colorHex ? item.colorHex : 'f5f5f5'), borderColor: '#' + (item.colorHex ? item.colorHex : '808080')}")
 						i.fa(:style="{color: '#' + (item.colorHex ? 'fff' : '808080')}", :class="'fa-' + computedType(item)")
 					div.item-container
@@ -87,6 +87,11 @@
     				}
     			}
     			return false;
+        	},
+        	detail(id){
+        		if(id){
+        			this.$router.push({ path: 'detail', query: { id: id }});
+        		}
         	}
         },
         computed: {
@@ -124,6 +129,7 @@
 		}
 		ul{
 			li{
+				cursor: pointer;
 				box-sizing: border-box;
 				position: relative;
 				width: 100%;

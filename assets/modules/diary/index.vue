@@ -13,7 +13,8 @@ div.wuji-container.center-block
                     span(:class="{active: (activeCategory === category.categoryId) }") ({{category.diaryCount}})
         div.wuji-add
             i.fa.fa-pencil-square-o
-            span 添加日记
+            span
+                router-link(:to = "{ path: 'create' }") 添加日记
     time-line(width="450", :list="diaryFilterList")
 </template>
 <script>
