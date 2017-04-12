@@ -1,6 +1,5 @@
 ![cmd-markdown-logo](imgs/1.gif)
-![cmd-markdown-logo](imgs/1.png)
-![cmd-markdown-logo](imgs/2.png)
+![cmd-markdown-logo](imgs/2.gif)
 ![cmd-markdown-logo](imgs/3.png)
 
 ## 吾记前端构建流程
