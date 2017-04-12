@@ -3,13 +3,15 @@
 		template(v-if="list.length > 0")
 			div.line
 			ul
-				li(v-for="(item, index) in list", :style="{marginLeft: (index+1) % 2 === 0 ? liEvenStyle : '0'}")
+				li(v-for="(item, index) in list", :style="{marginLeft: (index+1) % 2 === 0 ? liEvenStyle : '0'}", :key="item.id")
 					span.circle(:style="{backgroundColor: '#' + (item.colorHex ? item.colorHex : 'f5f5f5'), borderColor: '#' + (item.colorHex ? item.colorHex : '808080')}")
 						i.fa(:style="{color: '#' + (item.colorHex ? 'fff' : '808080')}", :class="'fa-' + computedType(item)")
 					div.item-container
 						div.item-header
 							span {{item.createDate | date}}&nbsp;{{item.weekday | weekday}}
-							span {{item.createDate | time}}&nbsp;{{item.weather | weather}}
+							span
+								{{item.createDate | time}}&nbsp;&nbsp;
+								img.weather-icon(:src="item.weather | weather")
 						div.item-content
 							p.text-container(v-html="item.content", :class="{ hasImg: item.MediaChildren.length > 0 }")
 							div.img-container(v-if="item.MediaChildren.length > 0")
@@ -17,7 +19,7 @@
 								div.mask(v-if="isVideo(item)")
 									i.fa.fa-video-camera
 		template(v-else)
-			p 没有数据
+			img.no-data(src="../public/images/dist/noDataFound.png")
 </template>
 <script>
     import Vue from 'vue'
@@ -51,7 +53,7 @@
   				return value.substr(8,2) + ':' + value.substr(10,2);
   			},
   			'weather': index =>{
-  				return weather[index].name;
+  				return weather[index].url;
   			}
 	    },
         methods: {
@@ -83,7 +85,7 @@
     				if(item.MediaChildren[i].mediaType === 2){
     					return true;
     				}
-    			}        		
+    			}
     			return false;
         	}
         },
@@ -116,6 +118,9 @@
 			position: absolute;
 			left: 7px;
 			z-index: -1;
+		}
+		.no-data{
+			margin: 100px auto;
 		}
 		ul{
 			li{
@@ -181,6 +186,11 @@
 				color: $gray;
 				border-top-left-radius: $border-radius;
 				border-top-right-radius: $border-radius;
+				.weather-icon{
+					width: 23px;
+					height: auto;
+					vertical-align: text-top;
+				}
 				span{
 					&:first-child{
 						float: left;
@@ -200,10 +210,10 @@
 				border-bottom-left-radius: $border-radius;
 				border-bottom-right-radius: $border-radius;
 				.text-container{
-					line-height: 1.5;
+					line-height: 1.4;
 					text-align: justify;
 					max-height: 100px;
-					overflow: hidden;					
+					overflow: hidden;
 					&.hasImg{
 						float: left;
 						width: 290px;
