@@ -154,7 +154,7 @@
 			position: fixed;
 			top: $icon-top;
 			left: 20px;
-			z-index: 8;
+			z-index: 997;
 			font-size: $icon-size;
 			width: 20px;
 			height: 20px;
@@ -168,7 +168,7 @@
 		    top: 0;
 		    bottom: 0;
 		    left: 0;	    
-		    z-index: 10;
+		    z-index: 999;
 		    background-color: $white;
 		    overflow-y: auto;
 	    	overflow-x: hidden;
@@ -236,7 +236,7 @@
 		    bottom: 0;
 		    opacity: 0;
 		    background: $black;
-		    z-index: 9;
+		    z-index: 998;
 		    transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
 		    transform: translateZ(0);
 		}

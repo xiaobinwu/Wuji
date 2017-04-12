@@ -33,7 +33,6 @@ export default {
         }
     },
     created(){
-        window.a = this;
         this.getCategoryList();
         this.getMyDiarys();
     },
@@ -52,7 +51,6 @@ export default {
             //params => 参数
             Api.getMyDiarys(params).then(result => {
                 _self.diaryList = result;
-                console.log(_self.diaryList);
             }).catch(error => {
                 Message({message: error, type: 'error', showClose: true});
             });
