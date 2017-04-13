@@ -11,7 +11,7 @@
 					div.label 颜色
 					el-select.font-select(v-model="fontcolor", placeholder="请选择字体颜色")
 						el-option(v-for="item in colorList", :label="item", :value="item.substr(1)")
-							span {{ item }}
+							span.font-name {{ item }}
 							span.font-color(:style="{backgroundColor: item}")
 				el-col(:span="8")
 					div.label 字体
@@ -22,22 +22,23 @@
 					el-switch(v-model="isPassby", on-text="", off-text="")
 				el-col(:span="7")
 					div.label 当前所在位置：
-					div.location {{location}}
+					div.location(:title="location") {{location}}
 				el-col(:span="6")
 					el-select.category-select(v-model="weather", placeholder="天气好吗")
 						el-option(v-for="item in weatherList", :label="item.name", :value="item.value")
 							span.weather-name {{ item.name }}
-							span.weather-icon 
+							span.weather-icon
 								img(:src="item.url")
 				el-col(:span="6")
 					el-date-picker(v-model="createDate", type="datetime", placeholder="选择创建日期", align="right", :picker-options="pickerOptions")
-		div.wuji-content(:contenteditable="true", :style="styleObject")  吾记网页版
-		el-upload.wuji-upload(name="MediaChildren", :drag="true", action="https://jsonplaceholder.typicode.com/posts/", :multiple="true", :list-type="listType", accept=".jpg,.png,.gif,.mp4", :file-list="fileList")
+		div.wuji-content(:contenteditable="true", :style="styleObject")  {{content}}
+		el-upload.wuji-upload(name="MediaChildren", :drag="true", action="https://jsonplaceholder.typicode.com/posts/", :multiple="true", :list-type="listType", accept=".jpg,.png,.gif,.mp4", :file-list="fileList", :on-success="fileUploadSuccess", :on-error="fileUploadError", :on-progress="fileUploadProgress")
 			i.el-icon-upload
 			div.el-upload__text 将文件拖到此处，或<em>点击上传</em>
-			div.el-upload__tip(slot="tip") 
-				span 默认只能上传jpg/png文件，且不超过500kb，是否上传小视频 
+			div.el-upload__tip(slot="tip")
+				span 默认只能上传jpg/png文件，且不超过500kb，是否上传小视频(暂时没用)&nbsp;
 				el-switch(v-model="isUploadVideo", on-text="是", off-text="否", :width="50")
+		a.wuji-submit(href="javascript:void(0);", @click="doSave" v-text="isCreate ? '记录' : '修改'")
 </template>
 <script>
     import Vue from 'vue'
@@ -58,6 +59,7 @@
         name: 'diarydedit',
         data(){
         	return{
+        		isCreate: true,
         		categoryList: [],
         		colorList: fontColor,
         		weatherList: weather,
@@ -66,8 +68,9 @@
         		fontcolor: '000000',
         		isPassby: false,
         		weather: 0,
-        		createDate: '',
+        		createDate: new Date(),
         		location: '',
+        		content: '',
 		        pickerOptions: {
 		          shortcuts: [{
 		            text: '今天',
@@ -96,9 +99,12 @@
         },
         created(){
         	this.getCategoryList();
+        	this.init();
         },
         mounted(){
-        	this.getLocation();
+        	if(this.isCreate){
+        		this.getLocation();
+        	}
         },
         computed:{
         	styleObject(){
@@ -112,6 +118,79 @@
         	}
         },
         methods:{
+        	//文件上传
+        	fileUploadSuccess(response, file, fileList){
+        		console.log("上传成功start");
+        		console.log(response);
+        		console.log(file);
+        		console.log(fileList);
+        		console.log("上传成功end");
+        		//从这里获得每次上传的文件，以及文件列表有哪些上传图片信息
+        	},
+        	fileUploadError(err, file, fileList){
+        		console.log("上传失败start");
+        		console.log(err);
+        		console.log(file);
+        		console.log(fileList);
+        		console.log("上传失败end");
+        	},
+        	fileUploadProgress(event, file, fileList){
+        		console.log("上传过程start");
+        		console.log(event);
+        		console.log(file);
+        		console.log(fileList);
+        		console.log("上传过程end");
+        	},
+        	init(){
+        		if(this.$route.query.id){
+        			this.isCreate = false;
+        		}else{
+        			return;
+        		}
+        		this.getEditDiary(this.$route.query.id);
+        	},
+        	getEditDiary(token){
+	            let _self = this, params = { keyValue: token };
+	            //params => 参数
+	            Api.getEditDiary(params).then(result => {
+	            	console.log(result);
+	                _self.initData(result);
+	            }).catch(error => {
+	                Message({message: error, type: 'error', showClose: true});
+	            });
+        	},
+        	initData(data){
+        		this.content = data.content;
+        		this.categoryId = data.categoryId;
+        		this.fontsize = data.fontsize;
+        		this.fontcolor = data.fontcolor;
+        		this.weather = data.weather;
+        		this.isPassby = data.isPassby === 0 ? false : true;
+        		this.location = data.address;
+        		let date = data.createDate;
+        		this.createDate = new Date(date.substr(0,4), date.substr(4,2), date.substr(6,2), date.substr(8,2), date.substr(10,2), date.substr(12,2));
+        		this.fileList = this.transformImages(data.MediaChildren);
+        	},
+        	transformImages(mediaChildren){
+        		//暂时不支持视频文件
+        		if(mediaChildren.length === 0){
+        			return [];
+        		}
+        		let arr = [];
+        		mediaChildren.forEach((item) => {
+        			if (item.mediaType === 1) {
+        				arr.push({
+        					name: item.url,
+        					url: item.Qnurl
+        				});
+        			}
+        		});
+        		return arr;
+        	},
+        	doSave(){
+        		//保存操作，需要对上传图片进行组装
+        		alert('保存')
+        	},
         	getLocation(){
         		//动态创建script，实现跨域
         		const head = document.getElementsByTagName('head')[0];
@@ -162,6 +241,11 @@
 				margin-top: 7px;
 				margin-right: 5px;
 			}
+			.location{
+				width: 140px;
+				display: inline-block;
+				@extend %ellipsis;
+			}
 			.category-select{
 				display: block;
 			}
@@ -194,10 +278,22 @@
 		.#{$prefix}-upload{
 			margin: 20px 0;
 		}
+		.#{$prefix}-submit{
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			display: block;
+			color: $white;
+			background-color: $main;
+			font-size: 16px;
+			border-radius: 4px;
+			margin-bottom: 20px;
+		}
 	}
 	.el-scrollbar{
 		.category-name,
-		.weather-name{
+		.weather-name,
+		.font-name{
 			float: left;
 		}
 		.category-color,

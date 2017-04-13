@@ -756,7 +756,54 @@
                     }
                 ]
             }
+        },
+
+        {
+            "url": "/WuJi/GetEditDiary",
+            "desc": "修改某条日记",
+            "mock": true,
+            "res": {
+                "code": 200,
+                "msg": "查询成功",
+                "data":{
+                        "id": 5754982, 
+                        "content": "这也是测试", 
+                        "createDate": "20161029153409", 
+                        "weekday": 7, 
+                        "weather": 1, 
+                        "address": "广东省深圳市南山区", 
+                        "categoryId": 1, 
+                        "isPassby": 1, 
+                        "categoryName": "日常记事", 
+                        "colorHex": "00CCBB", 
+                        "MediaChildren": [
+                            {
+                                "Qnurl": "http://media.xiejianji.com/16111716212141315A595543IMG_0567.PNG", 
+                                "videoThumbnail": "", 
+                                "id": 3945804, 
+                                "diaryId": 5754982, 
+                                "mediaType": 1, 
+                                "url": "16111716212141315A595543IMG_0567.PNG", 
+                                "qiniuUrl": 1
+                            }, 
+                            {
+                                "Qnurl": "http://media.xiejianji.com/16111716242391315A840695IMG_0523.PNG", 
+                                "videoThumbnail": "", 
+                                "id": 3945822, 
+                                "diaryId": 5754982, 
+                                "mediaType": 1, 
+                                "url": "16111716242391315A840695IMG_0523.PNG", 
+                                "qiniuUrl": 1
+                            }
+                        ], 
+                        "title": "", 
+                        "fontType": "",
+                        "fontsize": 18,
+                        "fontcolor": "4AD453"
+                    }
+                }
         }
+
 
     ]
 }

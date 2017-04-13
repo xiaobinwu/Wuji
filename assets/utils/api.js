@@ -84,5 +84,7 @@ export default {
     getCategoryList: params => request(API.MY_CATEGORY_LIST, params, METHODS.POST),
     //获取我的日记
     getMyDiarys: params => request(API.MY_DIARYS_LIST, params, METHODS.POST),
+    //修改日记
+    getEditDiary: params => request(API.EDIT_DIARY, params, METHODS.POST),
 };
 
