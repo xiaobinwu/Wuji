@@ -16,7 +16,7 @@
 				el-col(:span="8")
 					div.label 字体
 					el-slider(v-model="fontsize", :min="10", :max="40", format-tooltip="formatTooltip")
-			el-row(:gutter="20")			
+			el-row(:gutter="20")
 				el-col(:span="5")
 					div.label 是否同步过客
 					el-switch(v-model="isPassby", on-text="", off-text="")
@@ -32,13 +32,19 @@
 				el-col(:span="6")
 					el-date-picker(v-model="createDate", type="datetime", placeholder="选择创建日期", align="right", :picker-options="pickerOptions")
 		div.wuji-content(:contenteditable="true", :style="styleObject")  吾记网页版
+		el-upload.wuji-upload(name="MediaChildren", :drag="true", action="https://jsonplaceholder.typicode.com/posts/", :multiple="true", :list-type="listType", accept=".jpg,.png,.gif,.mp4", :file-list="fileList")
+			i.el-icon-upload
+			div.el-upload__text 将文件拖到此处，或<em>点击上传</em>
+			div.el-upload__tip(slot="tip") 
+				span 默认只能上传jpg/png文件，且不超过500kb，是否上传小视频 
+				el-switch(v-model="isUploadVideo", on-text="是", off-text="否", :width="50")
 </template>
 <script>
     import Vue from 'vue'
     import Api from "utils/api"
     import {fontColor} from 'config/color'
     import weather from 'config/weather'
-    import {Row, Col, Select, Option, Slider, Switch, Message, DatePicker} from "element-ui"
+    import {Row, Col, Select, Option, Slider, Switch, Message, DatePicker, Upload} from "element-ui"
 	// 引入组件
 	Vue.use(Row)
 	Vue.use(Col)
@@ -47,6 +53,7 @@
 	Vue.use(Slider)
 	Vue.use(Switch)
 	Vue.use(DatePicker)
+	Vue.use(Upload)
     export default{
         name: 'diarydedit',
         data(){
@@ -82,7 +89,9 @@
 		              picker.$emit('pick', date);
 		            }
 		          }]
-		        }
+		        },
+		        isUploadVideo: false,
+		        fileList: []
         	}
         },
         created(){
@@ -97,6 +106,9 @@
         			fontSize: this.fontsize + 'px',
         			color: '#' + this.fontcolor
         		}
+        	},
+        	listType(){
+        		return this.isUploadVideo ? 'text' : 'picture';
         	}
         },
         methods:{
@@ -168,15 +180,19 @@
 			}
 	    }
 		.#{$prefix}-content{
+			overflow: auto;
 			padding: 10px;
 			outline: none;
 			background-color: $white;
 			border: 1px $white solid;
-			min-height: 500px;
+			height: 500px;
 			border-radius: 4px;
 			&:focus{
 				border: 1px $main solid;
 			}
+		}
+		.#{$prefix}-upload{
+			margin: 20px 0;
 		}
 	}
 	.el-scrollbar{
@@ -202,6 +218,9 @@
 		}
 	}
 	//reset
+	.el-upload-dragger{
+		width: 900px;
+	}
 	.el-select-dropdown__item.selected.hover{
 		background-color: $main;
 	}

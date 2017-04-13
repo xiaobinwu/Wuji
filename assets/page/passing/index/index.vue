@@ -1,7 +1,7 @@
 <template lang="jade">
     div.main
         Aside(route="passing")
-        transition(name="slide")
+        transition(name="slide", mode="out-in")
             router-view
         Footer
 </template>
