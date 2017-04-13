@@ -9,6 +9,7 @@
 <script>
 import Aside from 'component/aside'
 import Footer from 'component/footer'
+import {passing} from 'config/title'
 export default {
     name: 'passing',
     data () {
@@ -20,8 +21,9 @@ export default {
         Aside
     },
     watch: {
-      '$route' (to, from) {
-      }
+        '$route' (to, from) {
+            document.title = passing[to.name];
+        }
     }
 }
 </script>

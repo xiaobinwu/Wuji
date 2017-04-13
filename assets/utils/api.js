@@ -76,6 +76,7 @@ export const createAction = (type, payloadCreator, metaCreator) =>{
 
 export default {
     /******************过客模块*********************/
+
     //获取过客列表
     getJournalList: params => request(API.JOURNAL_LIST, params, METHODS.POST),
     /******************日记模块*********************/

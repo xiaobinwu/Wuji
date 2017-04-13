@@ -9,6 +9,7 @@
 <script>
 import Aside from 'component/aside'
 import Footer from 'component/footer'
+import {diary} from 'config/title'
 export default {
     name: 'diary',
     data () {
@@ -21,6 +22,7 @@ export default {
     },
     watch: {
       '$route' (to, from) {
+            document.title = diary[to.name];
       }
     }
 }

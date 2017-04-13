@@ -25,10 +25,7 @@ import { mapState, mapActions } from 'vuex'
 import particlesJS from 'particlesJS'
 import particles from '../particles.json'
 import forgetpwd from 'modules/account/forgetpwd'
-const title = {
-    register : '吾记 - 吾记网页版在线写日记 － 注册',
-    login: '吾记 - 吾记网页版在线写日记 － 登录'
-}
+import {account} from 'config/title'
 export default {
     name: 'account',
     data () {
@@ -57,7 +54,7 @@ export default {
             if(to.name === "login"){
                 this.isLogin = true;
             }
-            document.title = title[to.name];
+            document.title = account[to.name];
             this.isShowQR = false;
         },
         'isShowQR' (bol){

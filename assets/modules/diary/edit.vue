@@ -22,7 +22,7 @@
 					el-switch(v-model="isPassby", on-text="", off-text="")
 				el-col(:span="7")
 					div.label 当前所在位置：
-					div.location 广东省深圳市福田区
+					div.location {{location}}
 				el-col(:span="6")
 					el-select.category-select(v-model="weather", placeholder="天气好吗")
 						el-option(v-for="item in weatherList", :label="item.name", :value="item.value")
@@ -60,6 +60,7 @@
         		isPassby: false,
         		weather: 0,
         		createDate: '',
+        		location: '',
 		        pickerOptions: {
 		          shortcuts: [{
 		            text: '今天',
@@ -81,11 +82,14 @@
 		              picker.$emit('pick', date);
 		            }
 		          }]
-		        }        		
+		        }
         	}
         },
         created(){
         	this.getCategoryList();
+        },
+        mounted(){
+        	this.getLocation();
         },
         computed:{
         	styleObject(){
@@ -96,6 +100,25 @@
         	}
         },
         methods:{
+        	getLocation(){
+        		//动态创建script，实现跨域
+        		const head = document.getElementsByTagName('head')[0];
+        		let script = document.createElement('script'), _self = this;
+        		script.type = 'text/javascript';
+        		script.src = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js';
+        		head.appendChild(script);
+				script.onload = script.onreadystatechange = function() {
+				    if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
+				        if(remote_ip_info.ret == 1){
+				        	_self.location = remote_ip_info.province + remote_ip_info.city + remote_ip_info.district;
+				        }else{
+				        	_self.location = '获取不到定位';
+				        }
+				        script.onload = script.onreadystatechange = null;
+				        head.removeChild(script);
+				    }
+				};
+        	},
 	        getCategoryList(){
 	            let _self = this, params;
 	            //params => 参数
@@ -174,7 +197,7 @@
 			float: right;
 			img{
 				width: 20px;
-				height: 20px;
+				height: auto;
 			}
 		}
 	}

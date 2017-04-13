@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const Index = resolve => require(['modules/passing/index.vue'], resolve)
 
 const routes = [
-  { path: '/', component: Index },
+  { path: '/', component: Index, name: 'index' },
 
 ]
 
