@@ -17,6 +17,12 @@ var ObjectUtil = {
     },
     toStyle: function(style){
     	return JSON.stringify(style).slice(1, -2).replace(/[\"\']/g,'').split(',').join(';')
+    },
+    isEmptyObject: function(obj){
+        for(var name in obj){
+            return false;
+        }
+        return true;
     }
 }
 

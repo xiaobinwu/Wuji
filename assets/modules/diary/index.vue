@@ -1,6 +1,5 @@
 <template lang="jade">
 div.wuji-container.center-block
-    router-link(:to = "{ path: 'edit', query: { id: 'Iqeu8U+/HhvO4cPKwCAM8ECqoiIb6IDSKC9tiDzZk8LpccfAPn9zLpKzYFesEJiY' }}") 测试修改日记
     div.wuji-operating
         div.wuji-category
             ul

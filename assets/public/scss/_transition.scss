@@ -13,3 +13,13 @@
 	transform: translateX(80px);
 	opacity: 0;
 }
+/*fancy动画*/
+.fancy-leave-active, .fancy-enter-active {
+	transform: scale(1);
+	opacity: 1;
+	transition: all .8s cubic-bezier(.55, 0, .1, 1);
+}
+.fancy-enter, .fancy-leave-active {
+	transform: scale(0);
+	opacity: 0;
+}

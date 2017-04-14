@@ -61,7 +61,7 @@ export default {
         })
     },
     filters: {
-        'date': (value) =>{
+        date(value){
             return Number(value.substr(4,2)) + '月' + Number(value.substr(6,2)) + ',' + value.substr(0,4);
         }
     },

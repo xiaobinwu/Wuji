@@ -3,7 +3,7 @@
 		template(v-if="list.length > 0")
 			div.line
 			ul
-				li(v-for="(item, index) in list", :style="{marginLeft: (index+1) % 2 === 0 ? liEvenStyle : '0'}", :key="item.id", @click="detail(item.id)")
+				li(v-for="(item, index) in list", :style="{marginLeft: (index+1) % 2 === 0 ? liEvenStyle : '0'}", :key="item.id", @click="detail()")
 					span.circle(:style="{backgroundColor: '#' + (item.colorHex ? item.colorHex : 'f5f5f5'), borderColor: '#' + (item.colorHex ? item.colorHex : '808080')}")
 						i.fa(:style="{color: '#' + (item.colorHex ? 'fff' : '808080')}", :class="'fa-' + computedType(item)")
 					div.item-container
@@ -43,16 +43,16 @@
             }
         },
 	    filters: {
-	        'date': value => {
+	        date(value){
 	            return value.substr(0,4) + '-' + value.substr(4,2) + '-' + value.substr(6,2);
 	        },
-  			'weekday': index => {
+  			weekday(index){
   				return weekday[index-1].name;
   			},
-  			'time': value =>{
+  			time(value){
   				return value.substr(8,2) + ':' + value.substr(10,2);
   			},
-  			'weather': index =>{
+  			weather(index){
   				return weather[index].url;
   			}
 	    },
@@ -89,9 +89,8 @@
     			return false;
         	},
         	detail(id){
-        		if(id){
-        			this.$router.push({ path: 'detail', query: { id: id }});
-        		}
+        		//传递token值
+        		this.$router.push({ path: 'detail', query: { id: 'HhvO4cPKwCAM8ECqoiIb6IDSKC9tiDzZk8LpccfAPn9zLpKzYFesEJiY' }});
         	}
         },
         computed: {

@@ -21,9 +21,7 @@ const actions = {
 }
 
 const getters = {
-    filterJournalList: state => {
-      return state.journalList.filter(todo => todo.done)
-    }
+
 }
 
 export default {

@@ -285,7 +285,7 @@
 			display: block;
 			color: $white;
 			background-color: $main;
-			font-size: 16px;
+			font-size: $size-h3;
 			border-radius: 4px;
 			margin-bottom: 20px;
 		}
