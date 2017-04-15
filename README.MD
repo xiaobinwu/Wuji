@@ -1,10 +1,13 @@
-![cmd-markdown-logo](imgs/1.gif =800)
-
-![cmd-markdown-logo](imgs/2.gif =800)
-
-![cmd-markdown-logo](imgs/3.gif =800)
-  
-![cmd-markdown-logo](imgs/3.png =800)
+#### 登录注册模块
+![cmd-markdown-logo](imgs/1.gif)
+#### 日记列表
+![cmd-markdown-logo](imgs/2.gif)
+#### 日记创建与编辑
+![cmd-markdown-logo](imgs/3.gif)
+#### 日记详情
+![cmd-markdown-logo](imgs/4.gif)
+#### 过客列表
+![cmd-markdown-logo](imgs/3.png)
 
 ## 吾记前端构建流程
 
