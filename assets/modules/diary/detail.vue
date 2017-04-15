@@ -22,11 +22,14 @@
                 el-col.wuji-category(:span="6", v-for="(item, index) in media")
                     el-card.card(:body-style="{ padding: '5px' }")
                         div.img-container(@click="showImg(item, index)")
-                            img(:src="item.url")
-                            div.mask(v-if="item.type === 2")
-                                i.fa.fa-video-camera
+                            template(v-if="(!checkVideo && item.type === 2) || item.type === 1")
+                                img(:src="item.url")
+                                div.mask(v-if="item.type === 2")
+                                    i.fa.fa-video-camera
+                            template(v-else)
+                                video(:src="item.src", controls, preload)
                         div.dec {{item.name}}
-        fancy-box(:list="media", :visible="visible", :position="position")
+        fancy-box(:list="mediaImg", :visible="visible", :position="position", @close="closeFancyBox")
 </template>
 <script>
     import Vue from 'vue'
@@ -34,6 +37,7 @@
     import obj from "utils/object"
     import weather from 'config/weather'
     import weekday from 'config/weekday'
+    import Browser from 'utils/browser'
     import fancyBox from 'component/fancyBox'
     import {Message, MessageBox, Card, Row, Col} from 'element-ui'
     Vue.use(Row)
@@ -45,7 +49,8 @@
             return{
                 diary: {},
                 position: 0,
-                visible: false
+                visible: false,
+                checkVideo: Browser.checkVideo()
             }
         },
         created(){
@@ -62,24 +67,10 @@
                 }
             },
             media(){
-                let arr = [];
-                const len = this.diary.MediaChildren.length;
-                for (let i = len - 1; i >= 0; i--) {
-                    if(this.diary.MediaChildren[i].mediaType === 2){
-                        arr.push({
-                            type: this.diary.MediaChildren[i].mediaType,
-                            url: this.diary.MediaChildren[i].videoThumbnail,
-                            name: this.diary.MediaChildren[i].url
-                        });
-                    }else{
-                        arr.push({
-                            type: this.diary.MediaChildren[i].mediaType,
-                            url: this.diary.MediaChildren[i].Qnurl,
-                            name: this.diary.MediaChildren[i].url
-                        });
-                    }
-                }
-                return arr;
+                return this.getMediaArr();
+            },
+            mediaImg(){
+                return this.getMediaArr(true);
             }
         },
         methods:{
@@ -100,6 +91,28 @@
                 this.position = index;
                 this.visible = true;
             },
+            getMediaArr(flag){
+                let arr = [];
+                const len = this.diary.MediaChildren.length;
+                for (let i = len - 1; i >= 0; i--) {
+                    if(this.diary.MediaChildren[i].mediaType === 2){
+                        if(flag){ continue; }
+                        arr.push({
+                            type: this.diary.MediaChildren[i].mediaType,
+                            url: this.diary.MediaChildren[i].videoThumbnail,
+                            name: this.diary.MediaChildren[i].url,
+                            src: this.diary.MediaChildren[i].Qnurl
+                        });
+                    }else{
+                        arr.push({
+                            type: this.diary.MediaChildren[i].mediaType,
+                            url: this.diary.MediaChildren[i].Qnurl,
+                            name: this.diary.MediaChildren[i].url
+                        });
+                    }
+                }
+                return arr;
+            },
             del(){
                 MessageBox.confirm('是否确定删除该日记', '提示', {
                     confirmButtonText: '确定',
@@ -115,6 +128,10 @@
             },
             edit(){
                 this.$router.push({ path: 'edit', query: { id: 'Iqeu8U+/HhvO4cPKwCAM8ECqoiIb6IDSKC9tiDzZk8LpccfAPn9zLpKzYFesEJiY' }});
+            },
+            closeFancyBox(){
+                this.visible = false;
+                setTimeout(()=>{this.position = 0;}, 800);
             }
         },
         filters:{
@@ -197,10 +214,11 @@
             background-color: $white;
             height: 500px;
             text-align: justify;
+            border-bottom: 1px #efefef solid;
         }
         .#{$prefix}-other{
             background-color: $white;
-            padding-bottom: 20px;
+            padding: 20px 0;
             .card{
                 margin: auto;
                 width: 200px;
@@ -229,7 +247,6 @@
                         text-align: center;
                         font-size: 28px;
                         background-color: rgba(0,0,0,.5);
-                        z-index: 2;
                         i{
                             margin-top: 50%;
                         }
@@ -239,6 +256,16 @@
                     margin-top: 10px;
                     overflow: hidden;
                     word-break: break-all;
+                }
+                video{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    max-height: 100%;
+                    max-width: 100%;
                 }
             }
         }

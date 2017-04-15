@@ -1,10 +1,10 @@
-![cmd-markdown-logo](imgs/1.gif)
+![cmd-markdown-logo](imgs/1.gif =800)
 
-![cmd-markdown-logo](imgs/2.gif)
+![cmd-markdown-logo](imgs/2.gif =800)
 
-![cmd-markdown-logo](imgs/3.gif)
+![cmd-markdown-logo](imgs/3.gif =800)
   
-![cmd-markdown-logo](imgs/3.png)
+![cmd-markdown-logo](imgs/3.png =800)
 
 ## 吾记前端构建流程
 
