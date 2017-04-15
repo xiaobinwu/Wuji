@@ -27,7 +27,9 @@
 * 执行cnpm install
 
 ### 构建
-* 开发环境：执行 node server.js（或 npm run serve），热加载 node server.js hot-reload（或 npm run hot）
+* 开发环境：执行 node server.js（或 npm run serve）
+* 热加载 node server.js hot-reload（或 npm run hot）
+* mock数据 npm run mock
 * 生产环境：执行 npm run build
 
 ## 关于source Mapping（仅支持chrome 浏览器）
