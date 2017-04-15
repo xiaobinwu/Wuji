@@ -445,7 +445,7 @@ window.calendar = (function() {
                 var X = R("DIV");
                 if (c[a].isToday) {
                     //选中cell的背景色和边框颜色
-                    X.style.cssText="background:#cde9d9;border-radius:50%;padding:5px 0;"
+                    X.style.cssText="border: 1px dashed #cde9d9;"
                 }
                 X.className = "cell";
                 X.style.left = (a % 7) * 80 + "px";
