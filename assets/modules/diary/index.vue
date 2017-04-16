@@ -11,6 +11,8 @@ div.wuji-container.center-block
                     span(:style="{backgroundColor: '#' + (category.colorHex ? category.colorHex : 'transparent'), borderColor: '#' + (category.colorHex ? category.colorHex : '808080')}")
                     span(:class="{active: (activeCategory === category.categoryId) }") {{category.name}}
                     span(:class="{active: (activeCategory === category.categoryId) }") ({{category.diaryCount}})
+                li 
+                    router-link(:to="{path: 'category'}")管理我的分类
         div.wuji-add
             i.fa.fa-pencil-square-o
             span
@@ -18,6 +20,7 @@ div.wuji-container.center-block
     time-line(width="450", :list="diaryFilterList")
 </template>
 <script>
+import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
 import timeLine from 'component/timeline'
 import Api from "utils/api"
@@ -27,25 +30,15 @@ export default {
     name: 'diaryindex',
     data () {
         return {
-            categoryList: [],
             diaryList: [],
             activeCategory: null
         }
-    },
+    }, 
     created(){
-        this.getCategoryList();
+        this.loadCategoryList();
         this.getMyDiarys();
     },
     methods:{
-        getCategoryList(){
-            let _self = this, params;
-            //params => 参数
-            Api.getCategoryList(params).then(result => {
-                _self.categoryList = result;
-            }).catch(error => {
-                Message({message: error, type: 'error', showClose: true});
-            });
-        },
         getMyDiarys(){
             let _self = this, params;
             //params => 参数
@@ -55,6 +48,12 @@ export default {
                 Message({message: error, type: 'error', showClose: true});
             });
         },
+        loadCategoryList(params = {}){
+            this.getCategoryList(params)
+        },        
+        ...mapActions([
+          'getCategoryList'
+        ])        
     },
     computed:{
         categoryTotal(){
@@ -74,7 +73,10 @@ export default {
         },
         isActiveCategory(){
             return Object.prototype.toString.call(this.activeCategory) === "[object Null]";
-        }
+        },
+        ...mapState({
+            categoryList: state => state.diary.categoryList
+        })        
     },
     components: {
         timeLine

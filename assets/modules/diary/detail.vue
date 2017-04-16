@@ -1,5 +1,5 @@
 <template lang="jade">
-    div.wuji-container.center-block
+    div.wuji-container.center-block(v-if="diary")
         div.wuji-header
             div.wuji-category
                 {{diary.categoryName}}
@@ -47,7 +47,7 @@
         name: 'diarydetail',
         data(){
             return{
-                diary: {},
+                diary: null,
                 position: 0,
                 visible: false,
                 checkVideo: Browser.checkVideo()
