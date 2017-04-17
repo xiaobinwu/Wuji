@@ -21,6 +21,13 @@ const strategys = {
         }
     },
 
+	//限制最大长度
+	maxLength: (value,length,errorMsg, _this) => {
+        if(value.length > length) {
+            return errorMsg;
+        }
+    },
+
     //判断密码前后是否一致
     confirmPwd: (value, pwd, errorMsg, _this) => {
     	if(_this.trim(value) !== _this.trim(pwd)){

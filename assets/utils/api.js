@@ -42,7 +42,7 @@ const checkRespStatus = (respPromise) =>{
             }else if(typeof(resp) === 'string' && resp.indexOf('InvalidSession') > -1){
                 window.location.reload();
             }else{
-                resp.msg && Message({message: resp.msg, type: 'warning', showClose: true});
+                resp.msg && Message({message: resp.msg, type: 'error', showClose: true});
                 // reject(resp);
                 return;
             }
@@ -64,15 +64,17 @@ export const createAction = (type, payloadCreator, metaCreator) =>{
         }
         if(isPromise(payload)){
             return payload.then(result =>{
-                commit(type, Object.assign(action, {payload: result}))
+                commit(type, Object.assign(action, {payload: result}));
+                //返回对应业务逻辑commit之后需要做的业务操作，这里将结果通过promise返回
+                return Promise.resolve(result);
             }).catch(error =>{
-                commit(type, Object.assign(action, {error: true, msg: error.msg}));
+                // commit(type, Object.assign(action, {error: true, msg: error.msg}));
+                return Promise.reject({error: true, msg: error.msg});
             });
         }
         return commit(type, Object.assign(action, {payload}));
     };
 };
-
 
 export default {
     /******************过客模块*********************/
@@ -82,6 +84,13 @@ export default {
     /******************日记模块*********************/
     //获取我的分类列表
     getCategoryList: params => request(API.MY_CATEGORY_LIST, params, METHODS.POST),
+
+    //添加我的分类
+    addCategory: params => {return new Promise((resolve, reject) => { resolve(params); }); } , //暂时怎么写,这样会导致promise无法返回结果
+
+    //编辑我的分类
+    editCategory: params => {return new Promise((resolve, reject) => { resolve(params); }); } , //暂时怎么写,这样会导致promise无法返回结果
+
     //获取我的日记
     getMyDiarys: params => request(API.MY_DIARYS_LIST, params, METHODS.POST),
     //修改日记
