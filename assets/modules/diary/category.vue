@@ -17,6 +17,8 @@ div.wuji-container.center-block
 				a(href="javascript:;;", @click="handleAdd") 快速添加！
 		el-dialog(title="添加分类", v-model="dialogFormVisible")
 			el-form(:model="form")
+				el-form-item
+					el-input(v-model="form.categoryId", type="hidden", auto-complete="off")
 				el-form-item(label="分类名称", :label-width="formLabelWidth")
 					el-input(v-model="form.name", auto-complete="off")
 				el-form-item(label="分类颜色", :label-width="formLabelWidth", placeholder="1-8个字符")
@@ -33,7 +35,7 @@ div.wuji-container.center-block
     import { mapState, mapActions } from 'vuex'
   	import { categoryColor } from 'config/color'
   	import Validator from 'utils/validator'
-    import {Table, TableColumn, Button, Dialog, Form, FormItem, Input, Select, Option, Message} from "element-ui"
+    import {Table, TableColumn, Button, Dialog, Form, FormItem, Input, Select, Option, Message, MessageBox} from "element-ui"
 	// 引入组件
 	Vue.use(Table)
 	Vue.use(TableColumn)
@@ -56,7 +58,8 @@ div.wuji-container.center-block
         		editRow: null,
         		form: {
         			name: '',
-        			colorHex: ''
+        			colorHex: '',
+        			categoryId: ''
         		}
         	}
         },
@@ -89,16 +92,29 @@ div.wuji-container.center-block
 	        	this.dialogFormVisible = true;
 	        },
 	        handleDelete(index, row){
-
+	        	const _self = this;
+		        MessageBox.confirm('此操作将永久删除该分类, 是否继续?', '提示', {
+		          confirmButtonText: '确定',
+		          cancelButtonText: '取消',
+		          type: 'warning'
+		        }).then(() => {
+		            _self.deleteCategory(row).then(result => {
+		            	if(!result.error){
+		            		return Message({ message: '删除成功', type: 'success', duration: 2000 });
+		            	}
+		            });
+		        }).catch(() => {
+		    
+		        });
 	        },
 	        handleAdd(){
 	        	this.dialogFormVisible = true;
 	        },
 	        isSameName(item, index, array){
-	        	return item.name == this.form.name;
+	        	return item.name.trim() == this.form.name.trim();
 	        },
 	        isSameColorHex(item, index, array){
-	        	return item.colorHex == this.form.colorHex;
+	        	return item.colorHex.trim() == this.form.colorHex.trim();
 	        },
 	        doSave(){
 	            const _self = this, errorMsg = this.valid();
@@ -122,8 +138,18 @@ div.wuji-container.center-block
 	            }
 	            if(errorMsg){
 	                return Message({ message: errorMsg, type: 'error', duration: 2000 });
-	            }else if(this.categoryList.some(this.isSameName) || this.categoryList.some(this.isSameColorHex)){
+	            }else if((this.categoryList.some(this.isSameName) || this.categoryList.some(this.isSameColorHex)) && this.isCreate){
 	            	return Message({ message: '分类名称和颜色不能有相同的！', type: 'error', duration: 2000 });
+	            }else if(!this.isCreate){
+	            	let filterList = this.categoryList.filter(item => {
+	            		return item.categoryId !== _self.editRow.categoryId
+	            	});
+	            	console.log(filterList)
+	            	console.log(this.form.name)
+	            	console.log(filterList.some(this.isSameName))
+	            	if(filterList.some(this.isSameName)){
+	            		return Message({ message: '分类名称不能有相同的！', type: 'error', duration: 2000 });
+	            	}
 	            }
 	            /*
 	            	异步保存处理成功后处理store
@@ -154,7 +180,8 @@ div.wuji-container.center-block
 	        ...mapActions([
 	          'getCategoryList',
 	          'addCategory',
-	          'editCategory'
+	          'editCategory',
+	          'deleteCategory'
 	        ])
         },
         computed:{

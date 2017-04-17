@@ -91,6 +91,9 @@ export default {
     //编辑我的分类
     editCategory: params => {return new Promise((resolve, reject) => { resolve(params); }); } , //暂时怎么写,这样会导致promise无法返回结果
 
+    //删除我的分类
+    deleteCategory: params => {return new Promise((resolve, reject) => { resolve(params); }); } , //暂时怎么写,这样会导致promise无法返回结果
+
     //获取我的日记
     getMyDiarys: params => request(API.MY_DIARYS_LIST, params, METHODS.POST),
     //修改日记

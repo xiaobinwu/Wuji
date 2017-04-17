@@ -1,4 +1,4 @@
-import {MY_CATEGORY_LIST, ADD_CATEGORY, EDIT_CATEGORY} from "config/ports";
+import {MY_CATEGORY_LIST, ADD_CATEGORY, EDIT_CATEGORY, DELETE_CATEGORY} from "config/ports";
 import Api, {createAction} from "utils/api";
 import {Message} from "element-ui";
 const state = {
@@ -20,15 +20,25 @@ const mutations = {
                 return;
             }
         });
-
-        state.categoryList.splice(cindex, 1 , result);
+        state.categoryList.splice(cindex, 1 , result.payload);
     },
+    [DELETE_CATEGORY](state, result){
+        let cindex;
+        state.categoryList.forEach((item, index) =>{
+            if(item.categoryId == item.categoryId){
+                cindex = index;
+                return;
+            }
+        });
+        state.categoryList.splice(cindex, 1);
+    },    
 };
 
 const actions = {
     getCategoryList: createAction(MY_CATEGORY_LIST, Api.getCategoryList),
     addCategory: createAction(ADD_CATEGORY, Api.addCategory),
     editCategory: createAction(EDIT_CATEGORY, Api.editCategory),
+    deleteCategory: createAction(DELETE_CATEGORY, Api.deleteCategory),
 }
 
 const getters = {
