@@ -6,6 +6,8 @@
 ![cmd-markdown-logo](imgs/3.gif)
 #### 日记详情
 ![cmd-markdown-logo](imgs/4.gif)
+#### 我的分类
+![cmd-markdown-logo](imgs/5.gif)
 #### 过客列表
 ![cmd-markdown-logo](imgs/3.png)
 

@@ -10,12 +10,12 @@ div.wuji-container.center-block
 			el-table-column(prop="diaryCount", label="日记数", align="center")
 			el-table-column(label="操作", align="center")
 				template(scope="scope")
-					el-button(size="small", @click="handleEdit(scope.$index, scope.row)") 编辑
-					el-button(size="small", type="danger", @click="handleDelete(scope.$index, scope.row)") 删除
+					el-button(size="small", v-if="scope.$index !== 0", @click="handleEdit(scope.$index, scope.row)") 编辑
+					el-button(size="small", type="danger", v-if="scope.$index !== 0", @click="handleDelete(scope.$index, scope.row)") 删除
 			div(slot="empty")
 				span 暂时没有数据，
 				a(href="javascript:;;", @click="handleAdd") 快速添加！
-		el-dialog(title="添加分类", v-model="dialogFormVisible")
+		el-dialog(:title="title", v-model="dialogFormVisible")
 			el-form(:model="form")
 				el-form-item
 					el-input(v-model="form.categoryId", type="hidden", auto-complete="off")
@@ -50,7 +50,6 @@ div.wuji-container.center-block
         name: 'category',
         data(){
         	return{
-        		title: '',
         		categoryColor: categoryColor,
         		dialogFormVisible: false,
         		formLabelWidth: '120px',
@@ -144,9 +143,6 @@ div.wuji-container.center-block
 	            	let filterList = this.categoryList.filter(item => {
 	            		return item.categoryId !== _self.editRow.categoryId
 	            	});
-	            	console.log(filterList)
-	            	console.log(this.form.name)
-	            	console.log(filterList.some(this.isSameName))
 	            	if(filterList.some(this.isSameName)){
 	            		return Message({ message: '分类名称不能有相同的！', type: 'error', duration: 2000 });
 	            	}
@@ -158,7 +154,7 @@ div.wuji-container.center-block
 		            this.addCategory(params).then(result => {
 		            	if(!result.error){
 		            		_self.reset();
-		            		return Message({ message: '提交成功', type: 'success', duration: 2000 });
+		            		return Message({ message: '添加成功', type: 'success', duration: 2000 });
 		            	}
 		            });
 	            }else{
@@ -187,7 +183,10 @@ div.wuji-container.center-block
         computed:{
 	        ...mapState({
 	            categoryList: state => state.diary.categoryList
-	        })
+	        }),
+	        title(){
+	        	return this.isCreate ? '添加分类' : '编辑分类';
+	        }
         },
         components: {}
     }
