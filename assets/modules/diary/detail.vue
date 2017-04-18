@@ -4,8 +4,11 @@
             div.wuji-category
                 {{diary.categoryName}}
                 div.wuji-operate
-                    i.fa.fa-trash-o(@click="del")
-                    i.fa.fa-pencil-square-o(@click="edit")
+                    i.el-icon-delete(@click="del")
+                    i.el-icon-edit(@click="edit")
+                    el-popover(ref="popover1", placement="bottom", trigger="hover")
+                        i.el-icon-share(slot="reference")
+                        share(:description="description", :title="diary.content.substr(0,20) + '...'", image="http://www.sharewuji.com.img.800cdn.com/assets/images/icon.png")
             div.wuji-title
                 span.date {{diary.createDate | date}}
                 span.time {{diary.createDate | time}}
@@ -39,10 +42,12 @@
     import weekday from 'config/weekday'
     import Browser from 'utils/browser'
     import fancyBox from 'component/fancyBox'
-    import {Message, MessageBox, Card, Row, Col} from 'element-ui'
+    import share from 'component/share'
+    import {Message, MessageBox, Card, Row, Col, Popover} from 'element-ui'
     Vue.use(Row)
     Vue.use(Col)
     Vue.use(Card)
+    Vue.use(Popover)
     export default{
         name: 'diarydetail',
         data(){
@@ -50,14 +55,14 @@
                 diary: null,
                 position: 0,
                 visible: false,
-                checkVideo: Browser.checkVideo()
+                checkVideo: Browser.checkVideo(),
+                description: '吾记，属于你的心灵港湾'
             }
         },
         created(){
             this.init();
         },
         mounted(){
-        	console.log(this.$route.query.id);
         },
         computed:{
             styleObject(){
@@ -79,7 +84,6 @@
                 //params => 参数
                 Api.getDiaryDetail(params).then(result => {
                     _self.diary = result;
-                    console.log(_self.diary)
                 }).catch(error => {
                     Message({message: error, type: 'error', showClose: true});
                 });
@@ -149,7 +153,8 @@
             }
         },
         components: {
-            fancyBox
+            fancyBox,
+            share
         }
     }
 </script>
@@ -170,12 +175,12 @@
                 font-size: $size-h2;
                 .#{$prefix}-operate{
                     float: right;
-                    color: $main;
                     font-size: $size-h3;
-                    .fa{
+                    i{
+                        color: $main;
                         cursor: pointer;
                     }
-                    .fa-trash-o{
+                    .el-icon-delete,.el-icon-edit{
                         margin-right: 20px;
                     }
                 }

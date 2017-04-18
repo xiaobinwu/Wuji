@@ -1,12 +1,14 @@
 <template lang="jade">
 	div.footer(:class="{fixed: isFixed}")
-		div.left-section  不知道写什么
-		div.center-section Copyright © 2017 吾记
-		div.right-section 不知道写什么
+		div.left-section
+			share
+		div.center-section Copyright © 2015 - 2017 吾记v1.0
+		div.right-section 粤ICP备17034106号
 </template>
 <script>
     import Vue from 'vue'
     import Browser from 'utils/browser'
+    import share from './share'
     export default{
         name: 'footer',
         data(){
@@ -28,7 +30,9 @@
         		}
         	}
         },
-        components: {}
+        components: {
+        	share
+        }
     }  
 </script>
 <style lang="sass">

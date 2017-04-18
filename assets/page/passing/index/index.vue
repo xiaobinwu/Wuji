@@ -1,7 +1,7 @@
 <template lang="jade">
     div.main
         Aside(route="passing")
-        transition(name="slide", mode="out-in", @after-enter="computedBodyHeight")
+        transition(appear, name="slide", mode="out-in", @after-enter="afterEnter")
             router-view
         Footer(:body-height="bodyHeight")
 </template>
@@ -22,7 +22,7 @@ export default {
         Aside
     },
     methods:{
-        computedBodyHeight(){
+        afterEnter(){
             this.bodyHeight = document.querySelector('body').offsetHeight;
         }
     },
