@@ -8,7 +8,7 @@
                     i.el-icon-edit(@click="edit")
                     el-popover(ref="popover1", placement="bottom", trigger="hover")
                         i.el-icon-share(slot="reference")
-                        share(:description="description", :title="diary.content.substr(0,20) + '...'", image="http://www.sharewuji.com.img.800cdn.com/assets/images/icon.png")
+                        share(:description="description", :title="diary.content.substr(0,20) + '...'", :q-code-position="true")
             div.wuji-title
                 span.date {{diary.createDate | date}}
                 span.time {{diary.createDate | time}}
