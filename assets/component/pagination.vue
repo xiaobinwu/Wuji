@@ -24,6 +24,9 @@
 
         	}
         },
+        created(){
+            this.resetOffset()
+        },
         props: {
         	total: {
         		type: Number,
@@ -76,40 +79,43 @@
 	        ...mapActions([
 	          'toPrePage',
 	          'toNextPage',
-	          'toGoPage'
+	          'toGoPage',
+              'resetOffset'
 	        ]),
         	goPage(i){
         		if(i === 0 || i === this.currentPage) { return; }
-    			this.toGoPage(this.num * (i-1));
-    			this.$emit('getNew');
+    			this.toGoPage({ offset: this.num * (i-1)});
+    			this.$emit('page');
         	},
 			goPrePage() {
-				this.toPrePage(this.num);
-				this.$emit('getNew');
+				this.toPrePage({ offset: this.num});
+				this.$emit('page');
 			},
 			goNextPage() {
-				this.toNextPage(this.num);
-				this.$emit('getNew');
+				this.toNextPage({ offset: this.num});
+				this.$emit('page');
 			}
         },
         components: {
         }
     }
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
 	@import "../public/scss/_variables.scss";
+    @import "../public/scss/_mixins.scss";
 	.page-wrap {
 	    text-align: center;
-	    font-size: 18px;
-	    margin-top: 180px;
+	    margin-top: 20px;
+        @include clearfix();
 	    span {
 			float: left;
-			color: #1e5a6b;
-			padding: 1px 10px;
+			color: $gray;
+			padding: 5px 8px;
 			margin: 0 5px;
-			border-radius: 50%;
-			user-select: none;
-			border: 1px solid transparent;
+			border: 1px solid $gray;
+            a{
+                color: $gray;
+            }
 	      }
 	    .pointer {
 			cursor: pointer;
@@ -118,18 +124,27 @@
 			&:hover {
 				color: $main;
 				border-color: $main;
+                a{
+                    color: $main;
+                }                
 			}
 	    }
 	    .span-page {
 			line-height: 1.5;
 			cursor: pointer;
-			color: #1e5a6b;
+			color: $gray;
 			&:hover {
 				color: $main;
+                border-color: $main;
 			}
 	    }
 	    .active {
+            color: $white;
 			border-color: $main;
+            background-color: $main;
+            a{
+                color: $white;
+            }                  
 	    }
 	}
 </style>

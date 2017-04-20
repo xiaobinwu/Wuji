@@ -87,6 +87,6 @@ var gulp = require('gulp'),
 * 执行 gulp sprite（生成雪碧图）[将需要合成雪碧的图片放入images/sprite/中某个新建的文件夹，运行，则可以在该文件夹下看到对应sprite.png、sprite.scss]
 
 ## 前端页面
-index.html  =>  我的日记列表
-passing.html  =>  过客列表
-account.html => 登录注册页面
+> index.html  =>  我的日记列表
+> passing.html  =>  过客列表
+> account.html => 登录注册页面
