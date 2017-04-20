@@ -9,6 +9,11 @@ const getApi = (url) => `${window.config.host}/${url}`;
 
 export const CODE_SUCCESS = 200;
 
+//公用模块
+export const PRE_PAGE = 'PRE_PAGE';
+export const NEXT_PAGE = 'NEXT_PAGE';
+export const GO_PAGE = 'GO_PAGE';
+
 //过客模块
 export const JOURNAL_LIST = getApi('WuJi/GetPasserBy');
 

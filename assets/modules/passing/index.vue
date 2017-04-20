@@ -27,6 +27,7 @@ div.wuji-container.center-block
                         div.time {{item.passbyDate | date}}
                 div.pull-right
                     thumbs-up
+    //- Pagination(:total="50", :num="5")
 </template>
 
 <script>
@@ -35,8 +36,9 @@ import VueLazyload from 'vue-lazyload'
 import { mapState, mapActions } from 'vuex'
 import { Row, Col, MessageBox } from 'element-ui'
 import thumbsUp from 'component/thumbsUp'
-import Avatar from 'component/avatar'	
+import Avatar from 'component/avatar'
 import Calendar from 'component/calendar'
+import Pagination from 'component/pagination'
 // 引入组件
 Vue.use(Row)
 Vue.use(Col)
@@ -87,7 +89,8 @@ export default {
     components: {
         thumbsUp,
         Avatar,
-        Calendar
+        Calendar,
+        Pagination
     }
 }
 </script>

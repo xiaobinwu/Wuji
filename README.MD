@@ -9,7 +9,7 @@
 #### 我的分类
 ![cmd-markdown-logo](imgs/5.gif)
 #### 过客列表
-![cmd-markdown-logo](imgs/3.png)
+![cmd-markdown-logo](imgs/6.gif)
 
 ## 吾记前端构建流程
 
