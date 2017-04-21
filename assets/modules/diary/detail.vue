@@ -39,8 +39,8 @@
 </template>
 <script>
     import Vue from 'vue'
-    import Api from "utils/api"
-    import obj from "utils/object"
+    import Api from 'utils/api'
+    import obj from 'utils/object'
     import weather from 'config/weather'
     import weekday from 'config/weekday'
     import Browser from 'utils/browser'

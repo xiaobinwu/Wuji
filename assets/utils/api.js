@@ -81,6 +81,11 @@ export default {
 
     //获取过客列表
     getJournalList: params => request(API.JOURNAL_LIST, params, METHODS.POST),
+    //获取过客详情
+    getPasserbyDetail: params => request(API.PASSING_DETAIL, params, METHODS.POST),
+
+
+
     /******************日记模块*********************/
     //获取我的分类列表
     getCategoryList: params => request(API.MY_CATEGORY_LIST, params, METHODS.POST),

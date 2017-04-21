@@ -149,7 +149,6 @@
 	  	color: #777;
 	  }
 	  .icon-wechat .wechat-qrcode .qrcode{
-	  	width: 105px;
 	  	margin: 10px auto;
 	  }
 	  .icon-wechat .wechat-qrcode .qrcode table{

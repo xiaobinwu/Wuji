@@ -11,5 +11,6 @@ export const account = {
 }
 
 export const passing = {
-	'index': '过客列表'
+	'index': '过客列表',
+	'detail': '过客详情'
 }

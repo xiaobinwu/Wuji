@@ -17,8 +17,8 @@ div.wuji-container.center-block
             div.content
                 p.content-p
                     span {{item.content}}
-                    span    
-                        a(href="javascript:void(0);") 继续阅读    
+                    span
+                        router-link(:to = "{ path: 'detail', query: { id: 'Iqeu8U+/HhvO4cPKwCAM8ECqoiIb6IDSKC9tiDzZk8LpccfAPn9zLpKzYFesEJiY' } }") 继续阅读
             div.dec
                 div.pull-left.author
                     Avatar(:src="item.avatarUrl", width="44", height="44")
@@ -26,7 +26,7 @@ div.wuji-container.center-block
                         div.name {{item.nickName}}
                         div.time {{item.passbyDate | date}}
                 div.pull-right
-                    thumbs-up
+                    thumbs-up(:number="item.praiseCount")
     Pagination(:total="50", :num="5", :type="1")
 </template>
 

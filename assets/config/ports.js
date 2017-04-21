@@ -17,7 +17,7 @@ export const RESET_OFFSET = 'RESET_OFFSET';
 
 //过客模块
 export const JOURNAL_LIST = getApi('WuJi/GetPasserBy');
-
+export const PASSING_DETAIL = getApi('WuJi/GetPasserbyDetail');
 //日记模块
 export const MY_CATEGORY_LIST = getApi('WuJi/GetCategoryList');
 export const ADD_CATEGORY = getApi('WuJi/addCategory');
