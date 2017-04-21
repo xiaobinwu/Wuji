@@ -11,6 +11,9 @@
 #### 过客列表
 ![cmd-markdown-logo](imgs/6.gif)
 
+## 安利一下
+![download](imgs/wuji_download.png)
+
 ## 吾记前端构建流程
 
 #### 本地环境准备
