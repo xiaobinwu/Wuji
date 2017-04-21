@@ -3,6 +3,9 @@
         div.wuji-header
             div.wuji-category
                 {{diary.categoryName}}
+                div.wuji-page
+                    i.el-icon-arrow-left(@click="getDiaryDetail(preDetailId)")
+                    i.el-icon-arrow-right(@click="getDiaryDetail(nextDetailId)")
                 div.wuji-operate
                     i.el-icon-delete(@click="del")
                     i.el-icon-edit(@click="edit")
@@ -56,11 +59,14 @@
                 position: 0,
                 visible: false,
                 checkVideo: Browser.checkVideo(),
-                description: '吾记，属于你的心灵港湾'
+                description: '吾记，属于你的心灵港湾',
+                preDetailId: null,
+                nextDetailId: null
             }
         },
         created(){
             this.init();
+            this.getAdjacentDetail();
         },
         mounted(){
         },
@@ -80,13 +86,28 @@
         },
         methods:{
             init(){
-                let _self = this, params = { keyValue: this.$route.query.id };
+                this.getDiaryDetail(this.$route.query.id );
+            },
+            getDiaryDetail(id){
+                if(this.preDetailId && this.nextDetailId){
+                    Message({message: '暂无内容，期待吧！', type: 'info', showClose: false, duration: 1000});
+                }
+                let _self = this, params = { keyValue: id };
                 //params => 参数
                 Api.getDiaryDetail(params).then(result => {
                     _self.diary = result;
                 }).catch(error => {
                     Message({message: error, type: 'error', showClose: true});
                 });
+            },
+            //获取上下篇章
+            getAdjacentDetail(){
+                /*
+                    异步操作
+                 */
+                this.preDetailId = 1;
+                this.nextDetailId = 2;
+
             },
             showImg(item,index){
                 if(item.type === 2){
@@ -173,7 +194,8 @@
                 line-height: 50px;
                 text-align: center;
                 font-size: $size-h2;
-                .#{$prefix}-operate{
+                .#{$prefix}-operate,
+                .#{$prefix}-page{
                     float: right;
                     font-size: $size-h3;
                     i{
@@ -181,6 +203,12 @@
                         cursor: pointer;
                     }
                     .el-icon-delete,.el-icon-edit{
+                        margin-right: 20px;
+                    }
+                }
+                .#{$prefix}-page{
+                    float: left;
+                    i{
                         margin-right: 20px;
                     }
                 }

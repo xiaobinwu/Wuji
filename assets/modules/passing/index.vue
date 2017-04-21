@@ -27,7 +27,7 @@ div.wuji-container.center-block
                         div.time {{item.passbyDate | date}}
                 div.pull-right
                     thumbs-up
-    Pagination(:total="50", :num="5")
+    Pagination(:total="50", :num="5", :type="1")
 </template>
 
 <script>
