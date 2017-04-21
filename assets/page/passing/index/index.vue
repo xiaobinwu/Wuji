@@ -1,9 +1,9 @@
 <template lang="jade">
     div.main
         Aside(route="passing")
-        transition(appear, name="slide", mode="out-in", @after-enter="afterEnter")
+        transition(appear, name="slide", mode="out-in")
             router-view
-        Footer(:body-height="bodyHeight")
+        Footer
 </template>
 
 <script>
@@ -14,7 +14,6 @@ export default {
     name: 'passing',
     data () {
         return {
-            bodyHeight: 0
         }
     },
     components: {
@@ -22,9 +21,6 @@ export default {
         Aside
     },
     methods:{
-        afterEnter(){
-            this.bodyHeight = document.querySelector('body').offsetHeight;
-        }
     },
     watch: {
         '$route' (to, from) {

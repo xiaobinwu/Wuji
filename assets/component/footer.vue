@@ -18,17 +18,38 @@
         		winHeight: this.isie ? document.documentElement.clientHeight : window.innerHeight
         	}
         },
-        props:{
-        	bodyHeight: Number
+        mounted(){
+        	this.ininEvent();
         },
-        watch:{
-        	bodyHeight(newVal){
-        		if(this.winHeight - newVal >= 100){
+        methods:{
+        	ininEvent(){
+				const MutationObserver = window.MutationObserver
+				  || window.WebKitMutationObserver
+				  || window.MozMutationObserver, _self = this;
+				const observeMutationSupport = !!MutationObserver;
+				if(observeMutationSupport){
+					let observer = new MutationObserver(function(records){
+						_self.computed(document.body.offsetHeight);
+					});
+					const  options = {
+	  					'childList': true,
+	  					'subtree': true
+					};
+					observer.observe(document.body, options);
+				}else{
+					setInterval(()=>{ _self.computed(document.body.offsetHeight); }, 500);
+					console.log('MutationObserver not support!');
+				}
+        	},
+        	computed(height){
+        		if(this.winHeight - height >= 100){
         			this.isFixed = true;
         		}else{
         			this.isFixed = false;
         		}
         	}
+        },
+        watch:{
         },
         components: {
         	share

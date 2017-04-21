@@ -89,6 +89,7 @@ $prefix: 'wuji';
 $container-width: 886px;
 .#{$prefix}-container{
     width: $container-width;
+    @include clearfix();
     .#{$prefix}-operating{
         @include clearfix;
         padding: 80px 0 40px 0;
