@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 //测试
-import example from './module/example'
+import passing from './module/passing'
 
 //用户模块
 import account from './module/account'
@@ -52,7 +52,7 @@ export default new Vuex.Store({
 	actions,
 	mutations,
     modules: {
-		example,
+		passing,
 		account,
 		diary
     }

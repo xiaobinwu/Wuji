@@ -29,7 +29,7 @@
 				const observeMutationSupport = !!MutationObserver;
 				if(observeMutationSupport){
 					let observer = new MutationObserver(function(records){
-						_self.computed(document.body.offsetHeight);
+						_self.computedHeight(document.body.offsetHeight);
 					});
 					const  options = {
 	  					'childList': true,
@@ -37,11 +37,11 @@
 					};
 					observer.observe(document.body, options);
 				}else{
-					setInterval(()=>{ _self.computed(document.body.offsetHeight); }, 500);
+					setInterval(()=>{ _self.computedHeight(document.body.offsetHeight); }, 500);
 					console.log('MutationObserver not support!');
 				}
         	},
-        	computed(height){
+        	computedHeight(height){
         		if(this.winHeight - height >= 100){
         			this.isFixed = true;
         		}else{

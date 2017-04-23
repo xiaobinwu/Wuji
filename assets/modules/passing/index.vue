@@ -51,15 +51,12 @@ export default {
         return {
         }
     },
-    beforeMount(){
+    created(){
         this.loadData();
-    },
-    mounted(){
-        console.log(this.journalList)
     },
     computed: {
         ...mapState({
-            journalList: state => state.example.journalList
+            journalList: state => state.passing.journalList
         })
     },
     filters: {

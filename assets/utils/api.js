@@ -83,7 +83,10 @@ export default {
     getJournalList: params => request(API.JOURNAL_LIST, params, METHODS.POST),
     //获取过客详情
     getPasserbyDetail: params => request(API.PASSING_DETAIL, params, METHODS.POST),
-
+    //过客收藏
+    passingCollection: params => {return new Promise((resolve, reject) => { resolve(params); }); } , //暂时怎么写,这样会导致promise无法返回结果
+    //过客点赞
+    passingPraised: params => {return new Promise((resolve, reject) => { resolve(params); }); } , //暂时怎么写,这样会导致promise无法返回结果
 
 
     /******************日记模块*********************/
