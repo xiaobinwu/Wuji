@@ -8,6 +8,8 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "mock": "node ./mock-server/server.js 2618"
   },
+  "author": "xiaobin_wu",
+  "license": "Apache License",
   "keywords": [
     "vue",
     "webpack",
