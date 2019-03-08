@@ -1,3 +1,4 @@
+> * 文章地址： http://wushaobin.top/2017/04/21/Wuji/
 #### 登录注册模块
 ![cmd-markdown-logo](imgs/1.gif)
 #### 日记列表
@@ -11,8 +12,6 @@
 #### 过客列表
 ![cmd-markdown-logo](imgs/6.gif)
 
-## 安利一下
-![download](imgs/wuji_download.png)
 
 ## 吾记前端构建流程
 
