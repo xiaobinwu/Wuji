@@ -22,7 +22,7 @@
 * windows配置cnpm：
 
 ```
-    npm install -g cnpm --registry=https://registry.npm.taobao.org
+    npm install -g cnpm --registry=https://registry.npmmirror.com
     因为npm的默认仓库在国外，下载很慢，国内淘宝搞了个CNPM，每10分钟同步一次，完全够用了
 ```
 
